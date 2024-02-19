@@ -1,17 +1,19 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import API_CONFIG from '../../API_CONFIG';
 
-// DEV ONLY!!!
-const pause = (duration) => {
-  return new Promise((resolve) => {
-    setTimeout(resolve, duration);
-  });
-};
+// // DEV ONLY!!!
+// const pause = (duration) => {
+//   return new Promise((resolve) => {
+//     setTimeout(resolve, duration);
+//   });
+// };
+
+const backendURL = import.meta.env.VITE_REACT_APP_BACKEND_URL;
+
 
 const wineApi = createApi({
   reducerPath: 'wineApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: API_CONFIG.BASE_URL,
+    baseUrl: backendURL,
 
     prepareHeaders: (headers, { getState }) => {
       const token = getState().auth.userToken
@@ -22,11 +24,12 @@ const wineApi = createApi({
       }
     },
     
-    fetchFn: async(...args) => {
-      // REMOVE FOR PRODUCTION
-      pause(API_CONFIG.DELAY);
-      return fetch(...args);
-    }  
+    // fetchFn: async(...args) => {
+    //   // REMOVE FOR PRODUCTION
+    //   pause(2000);
+    //   return fetch(...args);
+    // }  
+
   }),
   endpoints(builder) {
     return {
