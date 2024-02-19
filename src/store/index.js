@@ -1,0 +1,126 @@
+import { configureStore } from '@reduxjs/toolkit';
+import { setupListeners } from '@reduxjs/toolkit/query';
+
+// import api reducers
+import { authApi } from './apis/authApi';
+import { historyApi } from './apis/historyApi';
+import { vesselApi } from './apis/vesselApi';
+import { wineApi } from './apis/wineApi';
+import { additiveApi } from './apis/additiveApi';
+
+
+// import slice reducers
+import { authReducer } from './slices/authSlice';
+import { barrelReducer } from './slices/barrelSlice'; 
+import { labReducer } from './slices/labSlice';
+import { tankReducer } from './slices/tankSlice'; 
+import { wineReducer } from './slices/wineSlice';
+import { worksheetReducer } from './slices/worksheetSlice';
+import { contactFormReducer } from './slices/contactFormSlice';
+
+
+// configure store with api and slice reducers
+export const store = configureStore({
+  reducer: {
+    [authApi.reducerPath]: authApi.reducer,
+    [historyApi.reducerPath]: historyApi.reducer,
+    [vesselApi.reducerPath]: vesselApi.reducer,
+    [wineApi.reducerPath]: wineApi.reducer,
+    [additiveApi.reducerPath]: additiveApi.reducer,
+    auth: authReducer,
+    barrel: barrelReducer,
+    lab: labReducer,
+    tank: tankReducer,
+    wine: wineReducer,
+    worksheet: worksheetReducer,
+    contactForm: contactFormReducer,
+  },
+
+  middleware: (getDefaultMiddleware) => {
+    return getDefaultMiddleware()
+    .concat(authApi.middleware)   
+    .concat(historyApi.middleware)     
+    .concat(vesselApi.middleware)
+    .concat(wineApi.middleware)
+    .concat(additiveApi.middleware)
+  }
+});
+
+setupListeners(store.dispatch);
+
+
+// export slice methods
+export { setTankFilter } from './slices/tankSlice';
+export { setBarrelFilter } from './slices/barrelSlice';
+export { setPeriodFilter as labSetPeriodFilter } from './slices/labSlice';
+
+export { setVintageFilter, 
+  setFormInput as setWineFormInput, 
+  resetFormInput as resetWineFormInput,
+} from './slices/wineSlice';
+
+export { 
+  setPeriodFilter as worksheetSetPeriodFilter,
+  resetTask,
+  setTaskCategory,
+  setTaskType,
+  setTaskTargetWine,
+  setTaskWineIngredients,
+  setTaskWineIngredientsQuantity,
+  setTaskNextVessel,
+  setTaskNextQuantity,
+  setTaskNote,
+  setTaskDate,
+  setTaskWineAdditives,
+  setTaskWineAdditivesQuantity,  
+ } from './slices/worksheetSlice';
+
+export { 
+  setUserInfo,
+  setUserToken,
+  resetUserInfoAndToken,
+} from './slices/authSlice';
+
+export { 
+  updateContactFormField, 
+  resetContactForm, 
+} from './slices/contactFormSlice';
+
+
+
+// export api methods
+export { 
+  useFetchWinesQuery, 
+  useFetchWineByIdQuery, 
+  useAddWineMutation, 
+  useUpdateWineMutation,
+ } from './apis/wineApi';
+
+export { 
+  useFetchVesselsQuery, 
+  useFetchAvailableVesselsQuery,
+  useAddVesselMutation, 
+  useDeleteVesselMutation,
+ } from './apis/vesselApi';
+
+export { 
+  useFetchWineTasksQuery, 
+  useFetchWineLabsQuery,
+  useFetchWineHistoryQuery,
+  useAddWineTaskMutation,
+  useAddWineLabMutation,
+} from './apis/historyApi';
+
+export { 
+  useLoginUserMutation, 
+  useLogoutUserQuery,
+  useGetUserDetailsQuery,
+  useRegisterUserMutation,
+} from './apis/authApi';
+
+export { 
+  useFetchAdditivesQuery, 
+  useAddAdditiveMutation, 
+  useDeleteAdditiveMutation 
+} from './apis/additiveApi';
+
