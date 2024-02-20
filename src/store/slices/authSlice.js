@@ -7,7 +7,6 @@ const userToken = localStorage.getItem('userToken')
 : null
 
 // initialize userInfo from local storage
-
 const userInfo = localStorage.getItem('userInfo')
   ? JSON.parse(localStorage.getItem('userInfo'))
   : null
@@ -40,7 +39,7 @@ const authSlice = createSlice({
       localStorage.setItem('userToken', action.payload);
     },
 
-    resetUserInfoAndToken(state, action) {
+    resetUserInfoAndToken(state) {
       localStorage.setItem('userToken', null);
       localStorage.setItem('userInfo', null);
       state.userToken = null;

@@ -1,6 +1,7 @@
 import { NavLink, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import i18n from '../../i18n/i18n';
 
 import './BasicNavbar.css';
 import Nav from 'react-bootstrap/Nav';
@@ -12,6 +13,14 @@ function BasicNavbar () {
 
   const { t } = useTranslation();
   const { userInfo } = useSelector((state) => state.auth);
+ 
+  // get the language from the user info
+  const userLanguage = userInfo?.language || 'en';
+
+  // change the language if the user's language is different from the current language
+  if (i18n.language != userLanguage)  {
+    i18n.changeLanguage(userLanguage);
+  }
 
   const protectedLinks = (<>
     <NavLink to="/grapes" className="nav-link">
