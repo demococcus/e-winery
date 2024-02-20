@@ -71,7 +71,7 @@ function SourceWine() {
             type="number"
             value={task.sources[number]?.quantity || ""}
             onChange={handleChangeQuantity}
-            placeholder="Quantity"
+            placeholder={t("wine-quantity")}
             required={number === 'A'} 
           />
           <Form.Control.Feedback type="invalid">{t('val-required')}</Form.Control.Feedback>

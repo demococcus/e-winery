@@ -63,9 +63,7 @@ function SourceAdditive() {
           </Form.Control>      
 
           {/* <Form.Control.Feedback>Looks good!</Form.Control.Feedback> */}
-          <Form.Control.Feedback type="invalid">
-            Please choose a wine.
-          </Form.Control.Feedback>
+          <Form.Control.Feedback type="invalid">{t('wine-select-additive')}</Form.Control.Feedback>
         </Form.Group>
 
 
@@ -75,13 +73,11 @@ function SourceAdditive() {
             type="number"
             value={task.additives[number]?.quantity || ""}
             onChange={handleChangeQuantity}
-            placeholder="Quantity"
+            placeholder={t("wine-quantity")}
             required={number === 'A'} 
           />
           <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-          <Form.Control.Feedback type="invalid">
-            Please provide a quantity.
-          </Form.Control.Feedback>
+          <Form.Control.Feedback type="invalid">{t('val-required')}</Form.Control.Feedback>
         </Form.Group> 
 
 
@@ -103,11 +99,11 @@ function SourceAdditive() {
     sortedData.sort((a, b) => (a.label > b.label) ? 1 : -1);
 
     content = ["A", "B", "C", "D"].map((nb) => renderDropdown(data, nb));
-  };
+  }
 
  
   return  content;
-};
+}
 
 export default SourceAdditive;
 

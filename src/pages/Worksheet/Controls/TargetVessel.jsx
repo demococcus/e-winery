@@ -7,11 +7,13 @@ import { setTaskNextQuantity, setTaskNextVessel, useFetchAvailableVesselsQuery }
 import ErrorMsgBox from "../../_shared/ErrorMsgBox";
 import PlaceholderBlock from "../../_shared/PlaceholderBlock";
 import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 
 function TargetVessel() {
 
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   // get the task from the store
   const task = useSelector((state) => {
@@ -54,7 +56,7 @@ function TargetVessel() {
             onChange={handleChange}
             required
           >
-            <option value="">Select vessel</option>
+            <option value="">{t("wine-select-vessel")}</option>
             {sortedData.map((vessel) => 
               <option 
                 value={vessel._id} 
@@ -66,9 +68,7 @@ function TargetVessel() {
 
           </Form.Control>
           <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-          <Form.Control.Feedback type="invalid">
-            Please choose a wine.
-          </Form.Control.Feedback>
+          <Form.Control.Feedback type="invalid">{t('val-required-select')}</Form.Control.Feedback>
         </Form.Group>
 
 
@@ -82,10 +82,7 @@ function TargetVessel() {
             placeholder="Quantity"
             // required={number === 'A'} 
           />
-          <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-          <Form.Control.Feedback type="invalid">
-            Please provide a quantity.
-          </Form.Control.Feedback>
+          <Form.Control.Feedback type="invalid">{t('val-required')}</Form.Control.Feedback>
         </Form.Group> 
 
 
@@ -104,11 +101,11 @@ function TargetVessel() {
       content =  <ErrorMsgBox />
   } else {
     content = renderDropdown(data);
-  };
+  }
 
  
   return  content;
-};
+}
 
 export default TargetVessel;
 

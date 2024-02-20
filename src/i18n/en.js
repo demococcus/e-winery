@@ -159,6 +159,7 @@ const enTranslation = {
     
     "wine-select-status": "Select status",
     "wine-select-vessel": "Select vessel",
+    "wine-select-additive": "Select additive",
 
 
     "wine-status-full-FE": "FE - Fermentation",
