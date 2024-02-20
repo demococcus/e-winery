@@ -201,9 +201,11 @@ const enTranslation = {
 
     "ws-Date": "Date",
     "ws-Task": "Task",
+    "ws-note": "Note",
     "ws-Description": "Description",
     "ws-User": "User",
     "ws-actions": "Actions",
+    "ws-note-length": "The value is too long.",
 
 
     // op event types
@@ -219,6 +221,9 @@ const enTranslation = {
     "op-transfer-partial": "Partial transfer",
     "op-sub-depleted": "Wine depleted.",
     "op-sub-remaining": "Remaining: ",
+    
+    "op-select-wine": "Select wine",
+    "op-select-type": "Select type",
     
     
     // event

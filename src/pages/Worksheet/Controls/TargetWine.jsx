@@ -7,11 +7,13 @@ import { setTaskTargetWine, useFetchWinesQuery } from "../../../store";
 import ErrorMsgBox from "../../_shared/ErrorMsgBox";
 import PlaceholderBlock from "../../_shared/PlaceholderBlock";
 import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 
 function TargetWine() {
 
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   // get the task from the store
   const task = useSelector((state) => {
@@ -48,7 +50,7 @@ function TargetWine() {
             onChange={handleChange}
             required
           >
-            <option value="">Select wine</option>
+            <option value="">{t('op-select-wine')}</option>
             {sortedData.map((wine) => 
               <option 
                 value={`{"wine": "${wine._id}", "quantity": ${wine.quantity}}`} 
@@ -59,10 +61,7 @@ function TargetWine() {
             )}
 
           </Form.Control>
-          <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-          <Form.Control.Feedback type="invalid">
-            Please choose a wine.
-          </Form.Control.Feedback>
+          <Form.Control.Feedback type="invalid">{t('val-required-select')}</Form.Control.Feedback>
         </Form.Group>
 
         <Form.Group as={Col} md="3" className="my-1" controlId='quantity'>
@@ -72,13 +71,10 @@ function TargetWine() {
             disabled
             value={task.quantity || ""}
             onChange={() => {}}
-            placeholder="Quantity"
+            placeholder={t("wine-quantity")}
             // required={number === 'A'} 
           />
-          <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-          <Form.Control.Feedback type="invalid">
-            Please provide a quantity.
-          </Form.Control.Feedback>
+          <Form.Control.Feedback type="invalid">{t('val-required')}</Form.Control.Feedback>
         </Form.Group> 
 
       </Row>
@@ -94,11 +90,11 @@ function TargetWine() {
       content =  <ErrorMsgBox />
   } else {
     content = renderDropdown(data);
-  };
+  }
 
  
   return  content;
-};
+}
 
 export default TargetWine;
 

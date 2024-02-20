@@ -7,11 +7,13 @@ import { setTaskWineIngredients, setTaskWineIngredientsQuantity, useFetchWinesQu
 import ErrorMsgBox from "../../_shared/ErrorMsgBox";
 import PlaceholderBlock from "../../_shared/PlaceholderBlock";
 import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 
 function SourceWine() {
 
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   // get the task from the store
   const task = useSelector((state) => {
@@ -47,7 +49,7 @@ function SourceWine() {
             onChange={handleChange}
             required={number === 'A'} 
           >
-            <option value="">Select wine</option>
+            <option value="">{t("op-select-wine")}</option>
             {data.map((wine) => 
               <option 
                 value={`{"wine": "${wine._id}", "quantity": ${wine.quantity}}`} 
@@ -59,10 +61,7 @@ function SourceWine() {
 
           </Form.Control>      
 
-          {/* <Form.Control.Feedback>Looks good!</Form.Control.Feedback> */}
-          <Form.Control.Feedback type="invalid">
-            Please choose a wine.
-          </Form.Control.Feedback>
+          <Form.Control.Feedback type="invalid">{t('val-required-select')}</Form.Control.Feedback>
         </Form.Group>
 
 
@@ -75,10 +74,7 @@ function SourceWine() {
             placeholder="Quantity"
             required={number === 'A'} 
           />
-          <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-          <Form.Control.Feedback type="invalid">
-            Please provide a quantity.
-          </Form.Control.Feedback>
+          <Form.Control.Feedback type="invalid">{t('val-required')}</Form.Control.Feedback>
         </Form.Group> 
 
 
@@ -103,11 +99,11 @@ function SourceWine() {
 
 
     content = ["A", "B", "C", "D"].map((nb) => renderDropdown(sortedData, nb));
-  };
+  }
 
  
   return  content;
-};
+}
 
 export default SourceWine;
 

@@ -8,7 +8,6 @@ import { FaArrowDown } from "react-icons/fa6";
 import TargetWine from "../Worksheet/Controls/TargetWine";
 import { setTaskNote, useAddWineTaskMutation } from "../../store";
 import ErrorMsgBox from "../_shared/ErrorMsgBox";
-import SuccessMsgBox from "../_shared/SuccessMsgBox";
 import { useState } from "react";
 import TargetVessel from "../Worksheet/Controls/TargetVessel";
 
@@ -72,13 +71,12 @@ function Transfer() {
           type="text"
           value={task.note || ""} 
           onChange={handleNoteChange}
-          placeholder="Note"
+          placeholder={t("ws-note")}
+          maxLength={150}
           
         />
-        <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-        <Form.Control.Feedback type="invalid">
-          Please provide a note.
-        </Form.Control.Feedback>
+
+        <Form.Control.Feedback type="invalid">{t("ws-note-length")}</Form.Control.Feedback>
       </Form.Group>        
     </Row>
   );
@@ -105,7 +103,7 @@ function Transfer() {
         {results.isLoading ? (
           <>
             <Spinner animation="border" size="sm" role="status" aria-hidden="true" />
-            <span className='ms-2'>Please wait...</span>
+            <span className='ms-2'>{t("form-wait")}</span>
           </>
         ) : (
           t("form-submit")
@@ -115,7 +113,6 @@ function Transfer() {
       <Row className="mb-3">
         <Col md="8">
         {results.isError && <ErrorMsgBox />} 
-        {results.isSuccess && <SuccessMsgBox>Your wine task has been created.</SuccessMsgBox> }  
         </Col>
       </Row>
 
