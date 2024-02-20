@@ -12,7 +12,6 @@ import Col from 'react-bootstrap/Col';
 import { resetWineFormInput, useAddWineMutation } from "../../store";
 import { useFetchVesselsQuery } from '../../store';
 import ErrorMsgBox from '../_shared/ErrorMsgBox';
-import SuccessMsgBox from '../_shared/SuccessMsgBox';
 import PageTitle from '../_shared/PageTitle';
 
 import { setWineFormInput } from '../../store';
@@ -48,7 +47,7 @@ function WineAdd() {
     vesselsList = [];
   } else {
     vesselsList= [...data];
-  };
+  }
 
   // Filter the vessels to show only the empty and available vessels
   vesselsList = vesselsList.filter((vessel) => {
@@ -94,9 +93,6 @@ function WineAdd() {
         console.log("An error occurred", submitResult.error);
         return;
       }
-
-      // TODO show a confirmation ?
-
       // navigate to the home page
       navigate(`/wines`)
     }   
@@ -110,19 +106,18 @@ function WineAdd() {
     
     <Row className="mb-3">
       <Form.Group as={Col} md="6" controlId="lot">
-        <Form.Label>Lot</Form.Label>
+        <Form.Label>{t("wine-lot")}</Form.Label>
         <Form.Control
           name='lot'
           type="text"
           value={formInputData.lot || ""} 
           onChange={handleChange}
-          placeholder="Lot"
+          placeholder={t("wine-lot")}
           required
+          minLength={1}
+          maxLength={60}
         />
-        <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-        <Form.Control.Feedback type="invalid">
-          Please provide a lot. For exemple: Merlot 02.24 
-        </Form.Control.Feedback>
+        <Form.Control.Feedback type="invalid">{t('val-required')}</Form.Control.Feedback>
       </Form.Group>        
     </Row>
 
@@ -130,23 +125,20 @@ function WineAdd() {
     <Row className="mb-3">
       
       <Form.Group as={Col} md="2" controlId="Vintage">
-        <Form.Label >Vintage</Form.Label>
+        <Form.Label >{t("wine-vintage")}</Form.Label>
         <Form.Control
           name='vintage'
           type="number"
           value={formInputData.vintage || ""} 
           onChange={handleChange}
-          placeholder="Vintage"
+          placeholder={t("wine-vintage")}
           required
         />
-        <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-        <Form.Control.Feedback type="invalid">
-          Please provide a vintage.
-        </Form.Control.Feedback>
+        <Form.Control.Feedback type="invalid">{t('val-required')}</Form.Control.Feedback>
       </Form.Group>
 
       <Form.Group as={Col} md="4" controlId="status">
-        <Form.Label >Status</Form.Label>
+        <Form.Label >{t("wine-status")}</Form.Label>
         
         <Form.Control
           name='status'
@@ -155,17 +147,13 @@ function WineAdd() {
           onChange={handleChange}
           required
         >
-          <option value="">Select status</option>
-          <option value="FE">FE - Fermentation</option>
-          <option value="MA">MA - Malic Fermentation</option>
-          <option value="AG">AG - Aging</option>
-          <option value="FR">FR - Freezing</option>
+          <option value="">{t("wine-select-status")}</option>
+          <option value="FE">{t("wine-status-full-FE")}</option>
+          <option value="MA">{t("wine-status-full-MA")}</option>
+          <option value="AG">{t("wine-status-full-AG")}</option>
+          <option value="FR">{t("wine-status-full-FR")}</option>
         </Form.Control>
-
-        <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-        <Form.Control.Feedback type="invalid">
-          Please choose a status.
-        </Form.Control.Feedback>
+        <Form.Control.Feedback type="invalid">{t('val-required-select')}</Form.Control.Feedback>
       </Form.Group>        
 
     </Row>
@@ -173,9 +161,9 @@ function WineAdd() {
 
     <Row className="mb-3">
       
-      <Form.Group as={Col} md="3" controlId="tank">
+      <Form.Group as={Col} md="3" controlId="vessel">
         
-        <Form.Label >Tank</Form.Label>
+        <Form.Label >{t("wine-vessel")}</Form.Label>
         <Form.Control
           name='vessel'
           as="select"
@@ -183,34 +171,28 @@ function WineAdd() {
           onChange={handleChange}
           required
         >
-          <option value="">Select tank</option>
+          <option value="">{t("wine-select-vessel")}</option>
           {vesselsList.map((vessel) => <option value={vessel._id} key={vessel._id}>{vessel.label}</option>)}
 
         </Form.Control>
-
-
-        <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-        <Form.Control.Feedback type="invalid">
-          Please choose a tank.
-        </Form.Control.Feedback>
+        <Form.Control.Feedback type="invalid">{t('val-required-select')}</Form.Control.Feedback>
       </Form.Group>
 
       
 
       <Form.Group as={Col} md="3" controlId="quantity">
-        <Form.Label>Quantity</Form.Label>
+        <Form.Label>{t("wine-quantity")}</Form.Label>
         <Form.Control
           name='quantity'
           type="number"
           value={formInputData.quantity || ""} 
           onChange={handleChange}
-          placeholder="Quantity"
+          placeholder={t("wine-quantity")}
           required
+          min={0}
+          max={100000}
         />
-        <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-        <Form.Control.Feedback type="invalid">
-          Please provide a quantity.
-        </Form.Control.Feedback>
+        <Form.Control.Feedback type="invalid">{t('val-required')}</Form.Control.Feedback>
       </Form.Group>        
     </Row>
 
@@ -223,17 +205,16 @@ function WineAdd() {
       {results.isLoading ? (
         <>
           <Spinner animation="border" size="sm" role="status" aria-hidden="true" />
-          <span className='ms-2'>Please wait...</span>
+          <span className='ms-2'>{t('form-wait')}</span>
         </>
       ) : (
-        t("wine-submit")
+        t("form-submit")
       )}
     </Button>
     
     <Row className="mb-3">
       <Col md="8">
-      {results.isError && <ErrorMsgBox />} 
-      {results.isSuccess && <SuccessMsgBox>Your wine {formInputData.lot} has been created.</SuccessMsgBox> }  
+      {results.isError && <ErrorMsgBox />}       
       </Col>
     </Row>
 
@@ -242,6 +223,6 @@ function WineAdd() {
   </>
   );
 
-};
+}
 
 export default WineAdd;

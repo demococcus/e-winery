@@ -48,6 +48,7 @@ const enTranslation = {
     "val-number": "Please enter a numeric value.",
     "val-integer": "Please enter an integer value.",
     "val-required": "Please enter a value.",
+    "val-required-select": "Please select a value.",
     "val-min-len": "Should be at least ",
     "val-max-len": "Should be no more than ",
     "val-characters": " characters.",
@@ -153,6 +154,23 @@ const enTranslation = {
     "wine-archive": "Archive",
     "wine-restore": "Restore",
     "wine-archived": " (archived)",
+    
+    // wine form
+    
+    "wine-select-status": "Select status",
+    "wine-select-vessel": "Select vessel",
+
+
+    "wine-status-full-FE": "FE - Fermentation",
+    "wine-status-full-MA": "MA - Malic Fermentation",
+    "wine-status-full-AG": "AG - Aging",
+    "wine-status-full-FR": "FR - Freezing",
+
+    "wine-status-FE": "FE",
+    "wine-status-MA": "MA",
+    "wine-status-AG": "AG",
+    "wine-status-FR": "FR",
+
     
     // lab
     "lab-title": "Lab",
