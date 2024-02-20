@@ -44,19 +44,29 @@ function TargetVessel() {
 
     sortedData.sort((a, b) => (a.label > b.label) ? 1 : -1);
 
-    const nextVesselAvailableCapacity = task.nextVesselAvailableCapacity ? 
-    <div>Available capacity: {task.nextVesselAvailableCapacity}</div> 
-    : null;
+    let quantityMisMatch;
 
-    const tooMuch = (task.nextQuantity - task.nextVesselAvailableCapacity > 0)
-      && task.nextVesselAvailableCapacity ?
-      <div style={{color: "red"}}>Too much +{task.nextQuantity - task.nextVesselAvailableCapacity}</div>
-      : null;
-
-    const notEnough = (task.nextVesselAvailableCapacity - task.nextQuantity > 0)
-      && task.nextVesselAvailableCapacity && task.nextVesselType === "tank"?
-      <div style={{color: "blue"}}>Not enough -{task.nextVesselAvailableCapacity - task.nextQuantity}</div>
-      : null;
+    if (
+      task.nextVesselAvailableCapacity
+      && (task.nextQuantity - task.nextVesselAvailableCapacity > 0)
+    ) {
+      quantityMisMatch = (
+        <div style={{color: "red"}}>
+          That would exceed the capacity by {task.nextQuantity - task.nextVesselAvailableCapacity} {t('liters')}
+          
+        </div>
+      );
+    } else if (
+      task.nextVesselType === "tank"
+      && task.nextVesselAvailableCapacity 
+      && (task.nextVesselAvailableCapacity - task.nextQuantity > 0)
+      ) {
+        quantityMisMatch = (
+          <div style={{color: "blue"}}>
+            The tank may need to be topped-up by {task.nextVesselAvailableCapacity - task.nextQuantity} {t("liters")}
+          </div>
+        );
+      }
     
 
 
@@ -87,7 +97,6 @@ function TargetVessel() {
             )}
 
           </Form.Control>
-          {nextVesselAvailableCapacity}
           <Form.Control.Feedback type="invalid">{t('val-required-select')}</Form.Control.Feedback>
         </Form.Group>
 
@@ -107,15 +116,13 @@ function TargetVessel() {
             placeholder={t("wine-quantity")}
  
           />
-          {tooMuch}
-          {notEnough}
           <Form.Control.Feedback type="invalid">{t('val-required')}</Form.Control.Feedback>
         </Form.Group> 
 
       </Row>
 
       <Row className="mb-3">
-      <Col>banana</Col>
+      <Col>{quantityMisMatch}</Col>
       </Row>
 
     </>);

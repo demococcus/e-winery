@@ -1,6 +1,6 @@
 # e-Winery
 
-Winery management project for  [AYA Estate Wineyards](https://ayaestatevineyards.com/en/winery).
+Winery management project for  [AYA Estate Vineyards](https://ayaestatevineyards.com/en/winery).
 
 ## Main technologies
 - React
@@ -20,4 +20,4 @@ Winery management project for  [AYA Estate Wineyards](https://ayaestatevineyards
 
 ## ToDo
 - Grapes
-- Form enhancements (worksheets)
+- Form validations (worksheets)

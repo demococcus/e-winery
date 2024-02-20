@@ -51,11 +51,11 @@ function Manipulation() {
 
 
       console.log("apiTask", apiTask);
-      addTask(apiTask);
+      // addTask(apiTask);
     }   
 
 
-    // setValidated(true);
+    setValidated(true);
   };
  
   
