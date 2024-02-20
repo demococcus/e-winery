@@ -54,9 +54,8 @@ function Transfer() {
 
       }
 
-      console.log("apiTask", apiTask); 
-      
-      // addTask(apiTask);
+      // console.log("apiTask", apiTask);       
+      addTask(apiTask);
     }   
     setValidated(true);
   };

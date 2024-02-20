@@ -50,8 +50,8 @@ function Manipulation() {
       };
 
 
-      console.log("apiTask", apiTask);
-      // addTask(apiTask);
+      // console.log("apiTask", apiTask);
+      addTask(apiTask);
     }   
 
 
