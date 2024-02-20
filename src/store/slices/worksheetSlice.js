@@ -106,7 +106,6 @@ const worksheetSlice = createSlice({
       
       try {
         const wineObj = JSON.parse(target.value);
-        console.log("wineObj", wineObj)
         state.task.sources[target.name].option = target.value;    
         state.task.sources[target.name].wineId = wineObj.wineId;    
         state.task.sources[target.name].wineQuantity = wineObj.wineQuantity;  

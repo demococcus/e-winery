@@ -54,8 +54,8 @@ function SourceWine() {
     if (quantityRequired) {
       errorMessageQuantity = t("val-required");
     }
-
-    if (task.sources[number]?.usedQuantity > task.sources[number]?.wineQuantity) {
+    
+    if ((task.sources[number]?.usedQuantity) > task.sources[number]?.wineQuantity) {
       errorMessageQuantity = t("ws-val-quantity-exceeds");
     } 
 

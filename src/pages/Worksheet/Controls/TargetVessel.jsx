@@ -67,13 +67,13 @@ function TargetVessel() {
       task.nextVesselType === "tank"
       && task.nextVesselAvailableCapacity 
       && (task.nextVesselAvailableCapacity - task.nextQuantity > 0)
-      ) {
+    ) {
         quantityMisMatch = (
           <div style={{color: "blue"}}>
             {t("ws-val-top-up")} {task.nextVesselAvailableCapacity - task.nextQuantity} {t("liters")}
           </div>
         );
-      }
+    }
     
 
 
