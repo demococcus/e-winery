@@ -47,16 +47,16 @@ function Transfer() {
         type,
         date: task.date,
         note: task.note,
-        wine: task.wine,
-        quantity: task.quantity,
+        wine: task.targetWineId,
+        quantity: task.targetWineQuantity,
         nextVessel: task.nextVessel,
         nextQuantity: parseInt(task.nextQuantity),
 
       }
 
-      // console.log("apiTask", apiTask); 
+      console.log("apiTask", apiTask); 
       
-      addTask(apiTask);
+      // addTask(apiTask);
     }   
     setValidated(true);
   };

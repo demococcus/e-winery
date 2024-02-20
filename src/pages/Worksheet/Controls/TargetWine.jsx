@@ -46,14 +46,14 @@ function TargetWine() {
           <Form.Control
             name='wine'
             as="select"
-            value={task.targetWine || ""}
+            value={task.targetWineOption || ""}
             onChange={handleChange}
             required
           >
             <option value="">{t('op-select-wine')}</option>
             {sortedData.map((wine) => 
               <option 
-                value={`{"wine": "${wine._id}", "quantity": ${wine.quantity}}`} 
+                value={`{"targetWineId": "${wine._id}", "targetWineQuantity": ${wine.quantity}}`} 
                 key={wine._id}
               >
                 [{wine.vessel.label}] {wine.vintage} {wine.lot}
@@ -69,7 +69,7 @@ function TargetWine() {
             name='quantity'
             type="number"
             disabled
-            value={task.quantity || ""}
+            value={task.targetWineQuantity || ""}
             onChange={() => {}}
             placeholder={t("wine-quantity")}
             // required={number === 'A'} 

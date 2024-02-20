@@ -7,13 +7,17 @@ const initialTask = {
   date: getCurrentDate(),
   note: null,
     
-  targetWine: null,
-  wine: null,
-  quantity: null,
+  targetWineOption: null,
+  targetWineId: null,
+  targetWineQuantity: null,
+
+  
+  nextVesselOption: null,
+  nextVesselId: null,
+  nextVesselAvailableCapacity: null,
+  nextVesselType: null,
 
   nextQuantity: null,
-
-  nextVessel: null,
 
   sources: {
     'A': {dropDown: null, wine: null, quantity: null},
@@ -57,20 +61,43 @@ const worksheetSlice = createSlice({
     },
 
     setTaskTargetWine(state, action) {    
-      const targetWine = action.payload
-      state.task.targetWine  = targetWine;
+      const targetWineOption = action.payload
+      state.task.targetWineOption  = targetWineOption;
 
-      // deserialize the targetWine
+      
+      try {
+        // deserialize the targetWineOption
+        const targetWineObj = JSON.parse(targetWineOption);        
+
+        state.task.targetWineId = targetWineObj.targetWineId;
+        state.task.targetWineQuantity = targetWineObj.targetWineQuantity; 
+        state.task.nextQuantity = targetWineObj.targetWineQuantity;    
+      } catch (error) {
+        state.task.targetWineId = null;
+        state.task.targetWineQuantity = null;     
+      }
+    },
+
+    setTaskNextVessel(state, action) {
+
+      const nextVesselOption = action.payload
+      state.task.nextVesselOption  = nextVesselOption;
 
       try {
-        const targetWineObj = JSON.parse(targetWine);        
-        state.task.wine = targetWineObj.wine;
-        state.task.quantity = targetWineObj.quantity; 
-        state.task.nextQuantity = targetWineObj.quantity;    
+        // deserialize
+        // console.log("nextVesselOption", nextVesselOption);
+        const nextVesselObj = JSON.parse(nextVesselOption);      
+        state.task.nextVesselId = nextVesselObj.nextVesselId;
+        state.task.nextVesselAvailableCapacity = nextVesselObj.nextVesselAvailableCapacity;
+        state.task.nextVesselType = nextVesselObj.nextVesselType;
       } catch (error) {
-        state.task.wine = null;
-        state.task.quantity = null;     
+        state.task.nextVesselId = null;
+        state.task.nextVesselAvailableCapacity = null;
+        state.task.nextVesselType = null;
+        // console.log("error", error);
       }
+
+      // state.task.nextVessel = action.payload;
     },
 
     setTaskWineIngredients(state, action) { 
@@ -102,7 +129,6 @@ const worksheetSlice = createSlice({
       }
     },
 
-
     setTaskWineAdditives(state, action) { 
       
       const target = action.payload 
@@ -120,7 +146,6 @@ const worksheetSlice = createSlice({
       }
     },
 
-
     setTaskWineAdditivesQuantity(state, action) { 
       
       const target = action.payload 
@@ -133,7 +158,6 @@ const worksheetSlice = createSlice({
       }
     },
 
-
     setTaskNote(state, action) {
       state.task.note = action.payload;
     },
@@ -142,18 +166,15 @@ const worksheetSlice = createSlice({
       state.task.date = action.payload;
     },
 
-    setTaskNextVessel(state, action) {
-      state.task.nextVessel = action.payload;
-    },
+ 
 
     setTaskNextQuantity(state, action) {
       state.task.nextQuantity = action.payload;
     },
 
-    resetTask(state, action) {
+    resetTask(state) {
       state.task = initialTask;
     },
-
 
   },
 

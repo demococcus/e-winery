@@ -44,22 +44,42 @@ function TargetVessel() {
 
     sortedData.sort((a, b) => (a.label > b.label) ? 1 : -1);
 
+    const nextVesselAvailableCapacity = task.nextVesselAvailableCapacity ? 
+    <div>Available capacity: {task.nextVesselAvailableCapacity}</div> 
+    : null;
 
-    return (
+    const tooMuch = (task.nextQuantity - task.nextVesselAvailableCapacity > 0)
+      && task.nextVesselAvailableCapacity ?
+      <div style={{color: "red"}}>Too much +{task.nextQuantity - task.nextVesselAvailableCapacity}</div>
+      : null;
+
+    const notEnough = (task.nextVesselAvailableCapacity - task.nextQuantity > 0)
+      && task.nextVesselAvailableCapacity && task.nextVesselType === "tank"?
+      <div style={{color: "blue"}}>Not enough -{task.nextVesselAvailableCapacity - task.nextQuantity}</div>
+      : null;
+    
+
+
+    return (<>
       <Row className="my-3">
         <Form.Group as={Col} md="5" className="my-1" controlId="targetVessel">
           
           <Form.Control
             name='vessel'
             as="select"
-            value={task.nextVessel || ""}
+            value={task.nextVesselOption || ""}
             onChange={handleChange}
             required
           >
             <option value="">{t("wine-select-vessel")}</option>
             {sortedData.map((vessel) => 
               <option 
-                value={vessel._id} 
+                // value={vessel._id} 
+                value={`{
+                  "nextVesselId": "${vessel._id}", 
+                  "nextVesselAvailableCapacity": ${vessel.availableCapacity}, 
+                  "nextVesselType": "${vessel.type}"
+                }`}
                 key={vessel._id}
               >
                 {vessel.label}
@@ -67,9 +87,12 @@ function TargetVessel() {
             )}
 
           </Form.Control>
-          <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+          {nextVesselAvailableCapacity}
           <Form.Control.Feedback type="invalid">{t('val-required-select')}</Form.Control.Feedback>
         </Form.Group>
+
+        
+
 
 
         <Form.Group as={Col} md="3" className="my-1" controlId='targetQuantity'>
@@ -77,19 +100,25 @@ function TargetVessel() {
             name='quantity'
             type="number"
             required
+            max={task.targetWineQuantity}
+            
             value={task.nextQuantity || ""}
             onChange={handleChangeNextQuantity}
-            placeholder="Quantity"
-            // required={number === 'A'} 
+            placeholder={t("wine-quantity")}
+ 
           />
+          {tooMuch}
+          {notEnough}
           <Form.Control.Feedback type="invalid">{t('val-required')}</Form.Control.Feedback>
         </Form.Group> 
 
-
-
-
       </Row>
-    );
+
+      <Row className="mb-3">
+      <Col>banana</Col>
+      </Row>
+
+    </>);
     
   }
 
