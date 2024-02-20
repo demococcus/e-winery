@@ -72,7 +72,7 @@ function Manipulation() {
           maxLength={150}
           
         />
-        <Form.Control.Feedback type="invalid">{t("ws-note-length")}</Form.Control.Feedback>
+        <Form.Control.Feedback type="invalid">{t("ws-val-note-length")}</Form.Control.Feedback>
       </Form.Group>        
     </Row>
   );
@@ -87,7 +87,7 @@ function Manipulation() {
           onChange={handleTypeChange}
           required
         >
-          <option value="">{t("op-select-type")}</option>
+          <option value="">{t("ws-select-type")}</option>
           <option value="aerate" key="aerate">{t("op-aerate")}</option>
           <option value="decant" key="decant">{t("op-decant")}</option>
           <option value="filter" key="filter">{t("op-filter")}</option>

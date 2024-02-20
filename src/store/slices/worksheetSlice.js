@@ -20,10 +20,10 @@ const initialTask = {
   nextQuantity: null,
 
   sources: {
-    'A': {dropDown: null, wine: null, quantity: null},
-    'B': {dropDown: null, wine: null, quantity: null},
-    'C': {dropDown: null, wine: null, quantity: null},
-    'D': {dropDown: null, wine: null, quantity: null},
+    'A': {option: null, wineId: null, wineQuantity: null, usedQuantity: null},
+    'B': {option: null, wineId: null, wineQuantity: null, usedQuantity: null},
+    'C': {option: null, wineId: null, wineQuantity: null, usedQuantity: null},
+    'D': {option: null, wineId: null, wineQuantity: null, usedQuantity: null},
   },
 
   additives: {
@@ -102,18 +102,21 @@ const worksheetSlice = createSlice({
 
     setTaskWineIngredients(state, action) { 
       
-      const target = action.payload 
-
+      const target = action.payload;
+      
       try {
         const wineObj = JSON.parse(target.value);
-        state.task.sources[target.name].dropDown = target.value;    
-        state.task.sources[target.name].wine = wineObj.wine;    
-        state.task.sources[target.name].quantity = wineObj.quantity;  
+        console.log("wineObj", wineObj)
+        state.task.sources[target.name].option = target.value;    
+        state.task.sources[target.name].wineId = wineObj.wineId;    
+        state.task.sources[target.name].wineQuantity = wineObj.wineQuantity;  
+        state.task.sources[target.name].usedQuantity = wineObj.usedQuantity;  
       } catch {
 
-        state.task.sources[target.name].dropDown = null;    
-        state.task.sources[target.name].wine = null;
-        state.task.sources[target.name].quantity = null;  
+        state.task.sources[target.name].option = null;    
+        state.task.sources[target.name].wineId = null;
+        state.task.sources[target.name].wineQuantity = null;  
+        state.task.sources[target.name].usedQuantity = null;  
       }
     },
 
@@ -123,9 +126,9 @@ const worksheetSlice = createSlice({
       // console.log("setTaskWineIngredientsQuantity", target);
 
       try {
-        state.task.sources[target.name].quantity = parseInt(target.value);  
+        state.task.sources[target.name].usedQuantity = parseInt(target.value);  
       } catch {
-        state.task.sources[target.name].quantity = null;
+        state.task.sources[target.name].usedQuantity = null;
       }
     },
 
@@ -164,9 +167,7 @@ const worksheetSlice = createSlice({
 
     setTaskDate(state, action) {
       state.task.date = action.payload;
-    },
-
- 
+    }, 
 
     setTaskNextQuantity(state, action) {
       state.task.nextQuantity = action.payload;

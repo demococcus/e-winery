@@ -46,13 +46,20 @@ function TargetVessel() {
 
     let quantityMisMatch;
 
+    let quantityErrorMessage = t("val-required");
+
+    if (task.nextQuantity > task.targetWineQuantity) {
+      quantityErrorMessage = t("ws-val-quantity-exceeds");
+    }
+    
+
     if (
       task.nextVesselAvailableCapacity
       && (task.nextQuantity - task.nextVesselAvailableCapacity > 0)
     ) {
       quantityMisMatch = (
         <div style={{color: "red"}}>
-          That would exceed the capacity by {task.nextQuantity - task.nextVesselAvailableCapacity} {t('liters')}
+          {t("ws-val-overcapacity")} {task.nextQuantity - task.nextVesselAvailableCapacity} {t('liters')}
           
         </div>
       );
@@ -63,7 +70,7 @@ function TargetVessel() {
       ) {
         quantityMisMatch = (
           <div style={{color: "blue"}}>
-            The tank may need to be topped-up by {task.nextVesselAvailableCapacity - task.nextQuantity} {t("liters")}
+            {t("ws-val-top-up")} {task.nextVesselAvailableCapacity - task.nextQuantity} {t("liters")}
           </div>
         );
       }
@@ -116,7 +123,7 @@ function TargetVessel() {
             placeholder={t("wine-quantity")}
  
           />
-          <Form.Control.Feedback type="invalid">{t('val-required')}</Form.Control.Feedback>
+          <Form.Control.Feedback type="invalid">{quantityErrorMessage}</Form.Control.Feedback>
         </Form.Group> 
 
       </Row>

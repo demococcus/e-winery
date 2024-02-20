@@ -67,9 +67,9 @@ function Blend() {
         nextQuantity
       };
 
-      // console.log("apiTask", apiTask);
-
-      addTask(apiTask);
+      
+      console.log("apiTask", apiTask);
+      // addTask(apiTask);
     }   
     setValidated(true);
   };
@@ -104,6 +104,7 @@ function Blend() {
       <FaArrowDown className="ms-5" />
       
       <TargetWine />
+      
       <div>{note}</div>
 
       <Button 

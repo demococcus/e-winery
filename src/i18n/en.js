@@ -206,7 +206,15 @@ const enTranslation = {
     "ws-Description": "Description",
     "ws-User": "User",
     "ws-actions": "Actions",
-    "ws-note-length": "The value is too long.",
+
+    "ws-select-wine": "Select wine",
+    "ws-select-type": "Select type",
+
+    "ws-val-note-length": "The value is too long.",
+    "ws-val-overcapacity": "That would exceed the capacity by",
+    "ws-val-top-up": "The tank may need to be topped-up by",
+    "ws-val-quantity-exceeds": "The value is too high.",
+    
 
 
     // op event types
@@ -223,8 +231,7 @@ const enTranslation = {
     "op-sub-depleted": "Wine depleted.",
     "op-sub-remaining": "Remaining: ",
     
-    "op-select-wine": "Select wine",
-    "op-select-type": "Select type",
+    
     
     
     // event

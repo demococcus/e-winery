@@ -50,7 +50,7 @@ function TargetWine() {
             onChange={handleChange}
             required
           >
-            <option value="">{t('op-select-wine')}</option>
+            <option value="">{t('ws-select-wine')}</option>
             {sortedData.map((wine) => 
               <option 
                 value={`{"targetWineId": "${wine._id}", "targetWineQuantity": ${wine.quantity}}`} 

@@ -36,7 +36,31 @@ function SourceWine() {
     dispatch(setTaskWineIngredientsQuantity({name, value}));
   }
 
-  const renderDropdown = (data, number) => {    
+  const renderDropdown = (data, number) => {   
+    
+    // wine is required if it is the first option in the list or if there is a quantity entered
+    const wineRequired = number === 'A' || task.sources[number]?.usedQuantity;
+
+    // the quantity is required if it is the first option in the list or there is a wine selected
+    const quantityRequired = number === 'A' || task.sources[number]?.wineId;
+    
+    let errorMessageWine;
+    let errorMessageQuantity;
+
+    if (wineRequired) {
+      errorMessageWine = t("val-required-select");
+    }
+
+    if (quantityRequired) {
+      errorMessageQuantity = t("val-required");
+    }
+
+    if (task.sources[number]?.usedQuantity > task.sources[number]?.wineQuantity) {
+      errorMessageQuantity = t("ws-val-quantity-exceeds");
+    } 
+
+
+
 
     return (
       <Row key={number} className="my-3">
@@ -45,14 +69,18 @@ function SourceWine() {
           <Form.Control
             name={number}
             as="select"
-            value={task.sources[number]?.dropDown || ""}
+            value={task.sources[number]?.option || ""}
             onChange={handleChange}
-            required={number === 'A'} 
+            required={wineRequired} 
           >
-            <option value="">{t("op-select-wine")}</option>
+            <option value="">{t("ws-select-wine")}</option>
             {data.map((wine) => 
               <option 
-                value={`{"wine": "${wine._id}", "quantity": ${wine.quantity}}`} 
+                value={`{
+                  "wineId": "${wine._id}", 
+                  "wineQuantity": ${wine.quantity},
+                  "usedQuantity": ${wine.quantity}
+                }`} 
                 key={wine._id}
               >
                 [{wine.vessel.label}] {wine.vintage} {wine.lot}
@@ -61,7 +89,7 @@ function SourceWine() {
 
           </Form.Control>      
 
-          <Form.Control.Feedback type="invalid">{t('val-required-select')}</Form.Control.Feedback>
+          <Form.Control.Feedback type="invalid">{errorMessageWine}</Form.Control.Feedback>
         </Form.Group>
 
 
@@ -69,12 +97,13 @@ function SourceWine() {
           <Form.Control
             name={number}
             type="number"
-            value={task.sources[number]?.quantity || ""}
+            value={task.sources[number]?.usedQuantity || ""}
             onChange={handleChangeQuantity}
             placeholder={t("wine-quantity")}
-            required={number === 'A'} 
+            required={quantityRequired} 
+            max={task.sources[number]?.wineQuantity}
           />
-          <Form.Control.Feedback type="invalid">{t('val-required')}</Form.Control.Feedback>
+          <Form.Control.Feedback type="invalid">{errorMessageQuantity}</Form.Control.Feedback>
         </Form.Group> 
 
 
