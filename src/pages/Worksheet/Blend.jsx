@@ -39,30 +39,14 @@ function Blend() {
     } else {
       // console.log("Form looks valid");
       
-      // transform the task so that it matches the API format
+      // TODO - check for duplicates !!!
 
-      // console.log("task", task);
-      
-      let nextQuantity = task.quantity;
-
-      const ingredients = [];
-      for (let key in task.sources) {
-
-        const ingredient = task.sources[key];
-        // console.log("ingredient", ingredient);
-
-        if (ingredient.wine !== null && ingredient.quantity !== null) {
-          ingredients.push({wine: ingredient.wine, quantity: ingredient.quantity});        
-          nextQuantity += ingredient.quantity;
-        }
-      }     
-      
       const apiTask = {
         type: "blend",
         date: task.date,
         note: task.note,
-        wine: task.wine,
-        quantity: task.quantity, 
+        wine: task.targetWineId,
+        quantity: task.targetWineQuantity, 
         ingredients,
         nextQuantity
       };
@@ -94,6 +78,52 @@ function Blend() {
   );
 
 
+  let nextQuantity = task.targetWineQuantity;
+
+  const ingredients = [];
+  for (let key in task.sources) {
+
+    const ingredient = task.sources[key];
+    // console.log("ingredient", ingredient);
+
+    if (ingredient.wineId !== null && ingredient.usedQuantity !== null) {
+      ingredients.push({wine: ingredient.wineId, quantity: ingredient.usedQuantity});        
+      nextQuantity += ingredient.usedQuantity;
+    }
+  }   
+
+  // console.log("nextQuantity", nextQuantity);
+  // console.log("task.targetWineVesselCapacity", task.targetWineVesselCapacity);
+  // console.log("task.targetWineVesselType", task.targetWineVesselType);
+  // console.log("task.targetWineQuantity", task.targetWineQuantity);
+  
+  let quantityMisMatch;
+  if (
+    task.targetWineVesselType === "tank"
+    && nextQuantity > task.targetWineQuantity
+    && task.targetWineVesselCapacity < nextQuantity) {
+    quantityMisMatch = (
+      <div style={{color: "red"}}>
+        {t("ws-val-overcapacity")} {nextQuantity - task.targetWineVesselCapacity} {t('liters')}
+        
+      </div>
+    );
+  } else if (
+    task.targetWineVesselType === "tank"
+    && nextQuantity > task.targetWineQuantity
+    && (task.targetWineVesselCapacity > nextQuantity)) {
+      quantityMisMatch = (
+        <div style={{color: "blue"}}>
+          {t("ws-val-top-up")} {task.targetWineVesselCapacity - nextQuantity} {t("liters")}
+        </div>
+      );
+  }
+
+  // console.log("quantityMisMatch", quantityMisMatch);
+
+
+
+
   return <>
 
     <Form noValidate className="my-3" validated={validated} onSubmit={handleSubmit}>
@@ -104,7 +134,11 @@ function Blend() {
       <FaArrowDown className="ms-5" />
       
       <TargetWine />
-      
+
+      <Row className="mb-3">
+        <Col>{quantityMisMatch}</Col>
+      </Row>
+
       <div>{note}</div>
 
       <Button 

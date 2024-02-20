@@ -10,6 +10,8 @@ const initialTask = {
   targetWineOption: null,
   targetWineId: null,
   targetWineQuantity: null,
+  targetWineVesselCapacity: null,
+  targetWineVesselType: null,
 
   
   nextVesselOption: null,
@@ -67,14 +69,20 @@ const worksheetSlice = createSlice({
       
       try {
         // deserialize the targetWineOption
-        const targetWineObj = JSON.parse(targetWineOption);        
+        const targetWineObj = JSON.parse(targetWineOption);  
+        // console.log("targetWineObj", targetWineObj);      
 
         state.task.targetWineId = targetWineObj.targetWineId;
         state.task.targetWineQuantity = targetWineObj.targetWineQuantity; 
-        state.task.nextQuantity = targetWineObj.targetWineQuantity;    
+        state.task.targetWineVesselCapacity = targetWineObj.targetWineVesselCapacity; 
+        state.task.targetWineVesselType = targetWineObj.targetWineVesselType; 
+        state.task.nextQuantity = targetWineObj.targetWineQuantity;
+            
       } catch (error) {
         state.task.targetWineId = null;
         state.task.targetWineQuantity = null;     
+        state.task.targetWineVesselCapacity = null;   
+        // console.log("setTaskTargetWine", error);  
       }
     },
 

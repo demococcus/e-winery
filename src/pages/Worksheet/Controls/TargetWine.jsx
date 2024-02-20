@@ -53,7 +53,12 @@ function TargetWine() {
             <option value="">{t('ws-select-wine')}</option>
             {sortedData.map((wine) => 
               <option 
-                value={`{"targetWineId": "${wine._id}", "targetWineQuantity": ${wine.quantity}}`} 
+                value={`{
+                  "targetWineId": "${wine._id}", 
+                  "targetWineQuantity": ${wine.quantity},
+                  "targetWineVesselCapacity": ${wine.vessel.capacity},
+                  "targetWineVesselType": "${wine.vessel.type}"
+                }`} 
                 key={wine._id}
               >
                 [{wine.vessel.label}] {wine.vintage} {wine.lot}
