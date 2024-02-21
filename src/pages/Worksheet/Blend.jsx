@@ -11,6 +11,9 @@ import { setTaskNote, useAddWineTaskMutation } from "../../store";
 import ErrorMsgBox from "../_shared/ErrorMsgBox";
 import SourceWine from "../Worksheet/Controls/SourceWine";
 
+import { hasDuplicates } from "../../utils";
+import { useNavigate } from "react-router-dom";
+
 
 function Blend() {
 
@@ -18,6 +21,7 @@ function Blend() {
   const [validated, setValidated] = useState(false);
   const [addTask, results] = useAddWineTaskMutation();
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   // get the task from the store
   const task = useSelector((state) => {
@@ -29,7 +33,7 @@ function Blend() {
     dispatch(setTaskNote(e.currentTarget.value));
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     const form = event.currentTarget;
@@ -38,8 +42,12 @@ function Blend() {
       // console.log("Form looks invalid");
     } else {
       // console.log("Form looks valid");
-      
-      // TODO - check for duplicates !!!
+
+      if (hasDupe) {
+        event.stopPropagation();
+        return;
+      }
+          
 
       const apiTask = {
         type: "blend",
@@ -52,8 +60,17 @@ function Blend() {
       };
 
       
-      console.log("apiTask", apiTask);
-      // addTask(apiTask);
+      // console.log("apiTask", apiTask);
+      const submitResult = addTask(apiTask);
+
+      // verify if the result succeeds
+      if (submitResult.error) {
+        console.log("An error occurred", submitResult.error);
+        return;
+      }
+      // navigate to the home page
+      navigate(`/worksheets`)
+
     }   
     setValidated(true);
   };
@@ -97,12 +114,12 @@ function Blend() {
   // console.log("task.targetWineVesselType", task.targetWineVesselType);
   // console.log("task.targetWineQuantity", task.targetWineQuantity);
   
-  let quantityMisMatch;
+  let dataMismatch;
   if (
     task.targetWineVesselType === "tank"
     && nextQuantity > task.targetWineQuantity
     && task.targetWineVesselCapacity < nextQuantity) {
-    quantityMisMatch = (
+      dataMismatch = (
       <div style={{color: "red"}}>
         {t("ws-val-overcapacity")} {nextQuantity - task.targetWineVesselCapacity} {t('liters')}
         
@@ -112,14 +129,28 @@ function Blend() {
     task.targetWineVesselType === "tank"
     && nextQuantity > task.targetWineQuantity
     && (task.targetWineVesselCapacity > nextQuantity)) {
-      quantityMisMatch = (
+      dataMismatch = (
         <div style={{color: "blue"}}>
           {t("ws-val-top-up")} {task.targetWineVesselCapacity - nextQuantity} {t("liters")}
         </div>
       );
   }
 
-  // console.log("quantityMisMatch", quantityMisMatch);
+
+
+  // Check for duplicates
+  const wineIdsArray = ingredients.map(item => item.wine)
+  wineIdsArray.push(task.targetWineId); 
+  const hasDupe = hasDuplicates(wineIdsArray);
+
+  if (hasDupe) {
+    dataMismatch = (
+      <div style={{color: "magenta"}}>
+        {t("ws-val-dupe")}
+      </div>
+    );
+  }
+
 
 
 
@@ -136,7 +167,7 @@ function Blend() {
       <TargetWine />
 
       <Row className="mb-3">
-        <Col>{quantityMisMatch}</Col>
+        <Col>{dataMismatch}</Col>
       </Row>
 
       <div>{note}</div>

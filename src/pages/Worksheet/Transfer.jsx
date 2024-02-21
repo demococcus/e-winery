@@ -10,6 +10,7 @@ import { setTaskNote, useAddWineTaskMutation } from "../../store";
 import ErrorMsgBox from "../_shared/ErrorMsgBox";
 import { useState } from "react";
 import TargetVessel from "../Worksheet/Controls/TargetVessel";
+import { useNavigate } from "react-router-dom";
 
 
 function Transfer() {
@@ -18,6 +19,7 @@ function Transfer() {
   const [validated, setValidated] = useState(false);
   const [addTask, results] = useAddWineTaskMutation();
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   // get the task from the store
   const task = useSelector((state) => {
@@ -29,7 +31,7 @@ function Transfer() {
     dispatch(setTaskNote(e.currentTarget.value));
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     const form = event.currentTarget;
@@ -41,7 +43,7 @@ function Transfer() {
 
       // console.log("task", task);  
 
-      const type = task.quantity === parseInt(task.nextQuantity) ? "transfer" : "transfer-partial";
+      const type = task.targetWineQuantity === task.nextQuantity ? "transfer" : "transfer-partial";
 
       const apiTask = {
         type,
@@ -49,13 +51,22 @@ function Transfer() {
         note: task.note,
         wine: task.targetWineId,
         quantity: task.targetWineQuantity,
-        nextVessel: task.nextVessel,
+        nextVessel: task.nextVesselId,
         nextQuantity: parseInt(task.nextQuantity),
 
       }
 
-      // console.log("apiTask", apiTask);       
-      addTask(apiTask);
+      console.log("apiTask", apiTask);       
+      const submitResult = addTask(apiTask);
+      
+      // verify if the result succeeds
+      if (submitResult.error) {
+        console.log("An error occurred", submitResult.error);
+        return;
+      }
+      // navigate to the home page
+      navigate(`/worksheets`)
+
     }   
     setValidated(true);
   };

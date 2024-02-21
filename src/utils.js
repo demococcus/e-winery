@@ -29,4 +29,27 @@ function getDateDaysAgo(days) {
 }
 
 
-export { getCurrentDate, getDateDaysAgo, getCurrentVintage }
+function hasDuplicates(array) {
+  const frequencyMap = {};
+
+  for (const element of array) {
+    frequencyMap[element] = (frequencyMap[element] || 0) + 1;
+  }
+
+  for (const key in frequencyMap) {
+    if (frequencyMap[key] > 1) {
+      return true; // If any element occurs more than once, return true
+    }
+  }
+
+  return false;
+}
+
+
+export { 
+  getCurrentDate, 
+  getDateDaysAgo, 
+  getCurrentVintage, 
+  hasDuplicates,
+
+}

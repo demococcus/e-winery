@@ -209,11 +209,13 @@ const enTranslation = {
 
     "ws-select-wine": "Select wine",
     "ws-select-type": "Select type",
+    "ws-select-additive": "Select additive",
 
     "ws-val-note-length": "The value is too long.",
     "ws-val-overcapacity": "That would exceed the capacity by",
     "ws-val-top-up": "The tank may need to be topped-up by",
     "ws-val-quantity-exceeds": "The value is too high.",
+    "ws-val-dupe": "Some wines are selected twice.",
     
 
 

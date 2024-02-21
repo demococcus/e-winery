@@ -37,7 +37,17 @@ function SourceAdditive() {
     dispatch(setTaskWineAdditivesQuantity({name, value}));
   }
 
-  const renderDropdown = (data, number) => {    
+  const renderDropdown = (data, number) => {  
+    
+    // additive is required if it is the first option in the list or if there is a quantity entered
+    const additiveRequired = number === 'A' || task.additives[number]?.quantity;
+
+    // the quantity is required if it is the first option in the list or there is an additive selected
+    const quantityRequired = number === 'A' || task.additives[number]?.id;
+
+    const errorMessageAdditive = additiveRequired ? t("val-required-select") : null;
+    const errorMessageQuantity = quantityRequired ? t("val-required") : null;
+   
 
     return (
       <Row key={number} className="my-3">
@@ -48,9 +58,9 @@ function SourceAdditive() {
             as="select"
             value={task.additives[number]?.dropDown || ""}
             onChange={handleChange}
-            required={number === 'A'} 
+            required={additiveRequired} 
           >
-            <option value="">Select additive</option>
+            <option value="">{t("ws-select-additive")}</option>
             {data.map((additive) => 
               <option 
                 value={`{"id": "${additive._id}", "quantity": ${additive.quantity}}`} 
@@ -61,9 +71,7 @@ function SourceAdditive() {
             )}
 
           </Form.Control>      
-
-          {/* <Form.Control.Feedback>Looks good!</Form.Control.Feedback> */}
-          <Form.Control.Feedback type="invalid">{t('wine-select-additive')}</Form.Control.Feedback>
+          <Form.Control.Feedback type="invalid">{errorMessageAdditive}</Form.Control.Feedback>
         </Form.Group>
 
 
@@ -74,10 +82,9 @@ function SourceAdditive() {
             value={task.additives[number]?.quantity || ""}
             onChange={handleChangeQuantity}
             placeholder={t("wine-quantity")}
-            required={number === 'A'} 
+            required={quantityRequired} 
           />
-          <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-          <Form.Control.Feedback type="invalid">{t('val-required')}</Form.Control.Feedback>
+          <Form.Control.Feedback type="invalid">{errorMessageQuantity}</Form.Control.Feedback>
         </Form.Group> 
 
 

@@ -29,10 +29,10 @@ const initialTask = {
   },
 
   additives: {
-    'A': {dropDown: null, additive: null, quantity: null},
-    'B': {dropDown: null, additive: null, quantity: null},
-    'C': {dropDown: null, additive: null, quantity: null},
-    'D': {dropDown: null, additive: null, quantity: null},
+    'A': {dropDown: null, id: null, quantity: null},
+    'B': {dropDown: null, id: null, quantity: null},
+    'C': {dropDown: null, id: null, quantity: null},
+    'D': {dropDown: null, id: null, quantity: null},
   },
 
   
@@ -147,12 +147,10 @@ const worksheetSlice = createSlice({
         const additiveObj = JSON.parse(target.value);
         state.task.additives[target.name].dropDown = target.value;    
         state.task.additives[target.name].id = additiveObj.id;    
-        state.task.additives[target.name].quantity = additiveObj.quantity;  
       } catch {
 
         state.task.additives[target.name].dropDown = null;    
-        state.task.additives[target.name].additive = null;
-        state.task.additives[target.name].quantity = null;  
+        state.task.additives[target.name].id = null;
       }
     },
 

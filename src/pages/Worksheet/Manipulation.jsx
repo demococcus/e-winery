@@ -8,6 +8,7 @@ import TargetWine from "../Worksheet/Controls/TargetWine";
 import { setTaskNote, setTaskType, useAddWineTaskMutation } from "../../store";
 import ErrorMsgBox from "../_shared/ErrorMsgBox";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 
 function Manipulation() {
@@ -16,6 +17,7 @@ function Manipulation() {
   const [validated, setValidated] = useState(false);
   const [addTask, results] = useAddWineTaskMutation();
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   // get the task from the store
   const task = useSelector((state) => {
@@ -29,7 +31,7 @@ function Manipulation() {
     dispatch(setTaskNote(e.currentTarget.value));
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     const form = event.currentTarget;
@@ -51,7 +53,16 @@ function Manipulation() {
 
 
       // console.log("apiTask", apiTask);
-      addTask(apiTask);
+      const submitResult = await addTask(apiTask);
+
+      // verify if the result succeeds
+      if (submitResult.error) {
+        console.log("An error occurred", submitResult.error);
+        return;
+      }
+      // navigate to the home page
+      navigate(`/worksheets`)
+
     }   
 
 

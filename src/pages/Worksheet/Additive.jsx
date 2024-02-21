@@ -10,6 +10,7 @@ import { setTaskNote, useAddWineTaskMutation } from "../../store";
 import ErrorMsgBox from "../_shared/ErrorMsgBox";
 import { useState } from "react";
 import SourceAdditive from "../Worksheet/Controls/SourceAdditive";
+import { useNavigate } from "react-router-dom";
 
 
 function Additive() {
@@ -18,6 +19,7 @@ function Additive() {
   const [validated, setValidated] = useState(false);
   const [addTask, results] = useAddWineTaskMutation();
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   // get the task from the store
   const task = useSelector((state) => {
@@ -29,7 +31,7 @@ function Additive() {
     dispatch(setTaskNote(e.currentTarget.value));
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     const form = event.currentTarget;
@@ -38,11 +40,6 @@ function Additive() {
       // console.log("Form looks invalid");
     } else {
       // console.log("Form looks valid");
-      
-      // transform the task so that it matches the API format
-
-      // console.log("task", task);
-      
 
       const additives = [];
       for (let key in task.additives) {
@@ -59,15 +56,24 @@ function Additive() {
         type: "additive",
         date: task.date,
         note: task.note,
-        wine: task.wine,
-        quantity: task.quantity, 
+        wine: task.targetWineId,
+        quantity: task.targetWineQuantity, 
         additives,
 
       };
 
       // console.log("apiTask", apiTask);
 
-      addTask(apiTask);
+      const submitResult = await addTask(apiTask);
+
+      // verify if the result succeeds
+      if (submitResult.error) {
+        console.log("An error occurred", submitResult.error);
+        return;
+      }
+      // navigate to the home page
+      navigate(`/worksheets`)
+      
     }   
     setValidated(true);
   };
