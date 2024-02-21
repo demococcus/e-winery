@@ -51,8 +51,8 @@ const worksheetSlice = createSlice({
       state.periodFilter = action.payload;
     },
 
-    setTaskCategory(state, action) {
-      state.task.category = action.payload;
+    updateField: (state, action) => {
+      state.task[action.payload.field] = action.payload.value;
     },
 
     setTaskType(state, action) {
@@ -174,8 +174,8 @@ const worksheetSlice = createSlice({
 export const worksheetReducer = worksheetSlice.reducer;
 export const { 
   setPeriodFilter,
+  updateField: updateTaskFormField,
   resetTask,
-  setTaskCategory,
   setTaskType,
   setTaskTargetWine, 
   setTaskWineIngredients, 

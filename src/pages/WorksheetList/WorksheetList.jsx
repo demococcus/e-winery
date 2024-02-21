@@ -6,7 +6,7 @@ import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Button from 'react-bootstrap/Button';
 
-import { worksheetSetPeriodFilter } from "../../store";
+import { setWorksheetPeriodFilter } from "../../store";
 import PageTitle from '../_shared/PageTitle';
 import List from './List';
 
@@ -23,7 +23,7 @@ function WorksheetList () {
   });
 
   const handleFilterChange = (eventKey) => {
-    dispatch(worksheetSetPeriodFilter(eventKey));     
+    dispatch(setWorksheetPeriodFilter(eventKey));     
   }
 
   const actionBar = (

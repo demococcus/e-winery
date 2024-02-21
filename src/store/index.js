@@ -54,15 +54,16 @@ export { setTankFilter } from './slices/tankSlice';
 export { setBarrelFilter } from './slices/barrelSlice';
 export { setPeriodFilter as labSetPeriodFilter } from './slices/labSlice';
 
-export { setVintageFilter, 
+export { 
+  setVintageFilter, 
   setFormInput as setWineFormInput, 
   resetFormInput as resetWineFormInput,
 } from './slices/wineSlice';
 
 export { 
-  setPeriodFilter as worksheetSetPeriodFilter,
+  setPeriodFilter as setWorksheetPeriodFilter,
+  updateTaskFormField,
   resetTask,
-  setTaskCategory,
   setTaskType,
   setTaskTargetWine,
   setTaskWineIngredients,

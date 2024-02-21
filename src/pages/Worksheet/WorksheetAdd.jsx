@@ -10,7 +10,7 @@ import Manipulation from './Manipulation';
 import Blend from './Blend';
 import Additive from './Additive';
 
-import {resetTask, setTaskCategory } from "../../store";
+import {resetTask, updateTaskFormField } from "../../store";
 import Transfer from './Transfer';
 
 
@@ -39,7 +39,8 @@ function WorksheetAdd() {
   ];
 
   const handleRadioChange = (e) => {
-    dispatch(setTaskCategory(e.currentTarget.value));
+    
+    dispatch(updateTaskFormField({field: 'category', value: e.currentTarget.value}));
   }
 
   return (<>
