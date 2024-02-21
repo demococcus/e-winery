@@ -230,7 +230,7 @@ const bgTranslation = {
     "op-remontage": "Ремонтаж",
     "op-blend": "Купажиране",
     "op-additive": "Добавки: ",
-    "op-transfer-out": "рехвърляне на част от виното",
+    "op-transfer-out": "Прехвърляне на част от виното",
     "op-transfer": "Прехвърляне",
     "op-transfer-partial": "Прехвърляне на част от виното",
     "op-sub-depleted": "Виното е изчерпано.",

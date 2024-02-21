@@ -98,6 +98,8 @@ export {
   useFetchWineHistoryQuery,
   useAddWineTaskMutation,
   useAddWineLabMutation,
+  useDeleteWineTaskMutation,
+  useDeleteWineLabMutation,
 } from './apis/historyApi';
 
 export { 

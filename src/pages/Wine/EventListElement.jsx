@@ -3,11 +3,15 @@ import { useTranslation } from 'react-i18next';
 
 import WineTask from "../History/WineTask";
 
+import {useDeleteWineTaskMutation, useDeleteWineLabMutation } from "../../store"; 
+
+
 function EventListElement({ event, firstOpId }) {
 
-    const [isHovered, setIsHovered] = useState(false);
-  
   const { t } = useTranslation();
+  const [isHovered, setIsHovered] = useState(false);  
+  const [deleteTask] = useDeleteWineTaskMutation();
+  const [deleteLab] = useDeleteWineLabMutation();
   
   // canDelete is true if the event si of type 'lab' or if its id matches the prop deletableOpId
   const canDelete = event.type === 'lab' || (event._id === firstOpId && event.type !== 'transfer-out');
@@ -16,8 +20,13 @@ function EventListElement({ event, firstOpId }) {
   // Transfer event.date to a string object like '2021-09-01'
   const dateString = new Date(event.date).toISOString().split('T')[0];
 
-  const handleDeleteEvent = (id) => {
-    console.log("Delete event with id: ", id)    
+  const handleDeleteEvent = () => {
+    console.log("Delete", event.type ,"event with id: ", event._id)    ;
+    if (event.type === "lab") {
+      deleteLab(event._id);
+    } else {
+      deleteTask(event._id);
+    }
   }
 
   let rowsContent;
@@ -65,7 +74,7 @@ function EventListElement({ event, firstOpId }) {
       {isHovered && (
         <span
           style={{ cursor: canDelete ? 'pointer' : '', color: canDelete ? 'red' : 'gray' }}
-          onClick={() => canDelete && handleDeleteEvent(event._id)}
+          onClick={() => canDelete && handleDeleteEvent()}
         >
           {deleteLabel}
         </span>

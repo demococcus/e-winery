@@ -85,7 +85,6 @@ const historyApi = createApi({
         }
       }),
 
-
       // Add wineLab event
       addWineLab: builder.mutation({
         invalidatesTags: ["Labs", "Wine History"],
@@ -98,6 +97,32 @@ const historyApi = createApi({
           }          
         }
       }),
+
+      // Delete wineTask event
+      deleteWineTask: builder.mutation({
+        invalidatesTags: ["Labs", "Wine History"],
+        query: (_id) => {
+
+          return {
+            url: `/wineTask/${_id}`,
+            method: 'DELETE',
+          }          
+        }
+      }),
+
+      // Delete wineLab event
+      deleteWineLab: builder.mutation({
+        invalidatesTags: ["Labs", "Wine History"],
+        query: (_id) => {
+
+          return {
+            url: `/wineLab/${_id}`,
+            method: 'DELETE',
+          }          
+        }
+      }),
+
+      
 
 
     };
@@ -113,5 +138,7 @@ export const {
   useFetchWineHistoryQuery,
   useAddWineTaskMutation,
   useAddWineLabMutation,
+  useDeleteWineTaskMutation,
+  useDeleteWineLabMutation,
 
 } = historyApi;
