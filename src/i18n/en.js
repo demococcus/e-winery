@@ -161,12 +161,11 @@ const enTranslation = {
     "wine-restore": "Restore",
     "wine-archived": " (archived)",
     
-
+    
     // wine form    
+    "wine-edit-title": "Edit Wine",
     "wine-select-status": "Select status",
     "wine-select-vessel": "Select vessel",
-    "wine-select-additive": "Select additive",
-
 
     "wine-status-full-FE": "FE - Fermentation",
     "wine-status-full-MA": "MA - Malic Fermentation",

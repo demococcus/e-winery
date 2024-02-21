@@ -163,10 +163,9 @@ const bgTranslation = {
     
 
     // wine form    
-    "wine-select-status": "Select status",
-    "wine-select-vessel": "Select vessel",
-    "wine-select-additive": "Select additive",    
-
+    "wine-edit-title": "Промени виното",
+    "wine-select-status": "Избери статус",
+    "wine-select-vessel": "Избери съд",
 
     "wine-status-full-FE": "ФЕР - Ферментация",
     "wine-status-full-MA": "МАЛ - Малолактична ферментация",
