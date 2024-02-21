@@ -11,7 +11,6 @@ const userInfo = localStorage.getItem('userInfo')
   ? JSON.parse(localStorage.getItem('userInfo'))
   : null
 
-// DEV only - use empty strings for production
 const formInitialState =  {
   email:  '',
   password: '',

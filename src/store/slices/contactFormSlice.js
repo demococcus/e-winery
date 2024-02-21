@@ -24,11 +24,9 @@ const contactFormSlice = createSlice({
       state.message = '';
     },
 
-
   },
 
 });
-
 
 
 export const { 

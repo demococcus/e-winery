@@ -9,13 +9,11 @@ const formInitialState = {
     status: ''
   }
 
-// Define initial state
 const initialState = {
   vintageFilter: 'current',
   formInput: formInitialState,
 };
 
-// Define slice
 const wineSlice = createSlice({
   name: 'wine',
   initialState,

@@ -1,12 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 
-// Define initial state
 const initialState = {
   periodFilter: '30',
 };
 
-// Define slice
 const labSlice = createSlice({
   name: 'lab',
   initialState,
@@ -17,7 +15,6 @@ const labSlice = createSlice({
   },
 
 });
-
 
 
 export const { setPeriodFilter } = labSlice.actions;

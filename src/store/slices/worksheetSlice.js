@@ -35,30 +35,26 @@ const initialTask = {
   
 }
 
-// Define initial state
 const initialState = {
   periodFilter: '30',
-  task: initialTask
-  
+  task: initialTask,  
 };
 
-// Define slice
 const worksheetSlice = createSlice({
   name: 'worksheet',
   initialState,
   reducers: {
+
     setPeriodFilter(state, action) {
       state.periodFilter = action.payload;
     },
 
-    updateField: (state, action) => {
+    updateField(state, action) {
       state.task[action.payload.field] = action.payload.value;
     },
 
-
     setTaskTargetWine(state, action) {    
       const value = action.payload
-      
       
       try {
         state.task.targetWineId = value._id;
