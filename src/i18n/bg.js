@@ -229,11 +229,12 @@ const bgTranslation = {
     "op-remontage": "Ремонтаж",
     "op-blend": "Купажиране",
     "op-additive": "Добавки: ",
-    "op-transfer-out": "Прехвърляне на част от виното",
-    "op-transfer": "Прехвърляне",
-    "op-transfer-partial": "Прехвърляне на част от виното",
+    "op-transfer-out": "Прехвърляне към друга партида",
+    "op-transfer": "Прехвърляне в празен съд",
+    "op-transfer-partial": "Прехвърляне на част от виното в празен съд",
     "op-sub-depleted": "Виното е изчерпано.",
     "op-sub-remaining": "Остават: ",
+    "op-location-task": "Задача", 
        
         
     // tank

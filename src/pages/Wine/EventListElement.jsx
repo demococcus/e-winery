@@ -21,7 +21,7 @@ function EventListElement({ event, firstOpId }) {
   const dateString = new Date(event.date).toISOString().split('T')[0];
 
   const handleDeleteEvent = () => {
-    console.log("Delete", event.type ,"event with id: ", event._id)    ;
+    // console.log("Delete", event.type ,"event with id: ", event._id)    ;
     if (event.type === "lab") {
       deleteLab(event._id);
     } else {
@@ -55,7 +55,7 @@ function EventListElement({ event, firstOpId }) {
     deleteLabel = t("action-undo");
     rowsContent = (
       <>
-      <td className="text-center">Task {event.number}</td>
+      <td className="text-center">{t("op-location-task")} {event.number}</td>
       <td colSpan={9}> <WineTask>{event}</WineTask> </td>    
     </>
     );
@@ -71,7 +71,7 @@ function EventListElement({ event, firstOpId }) {
 
     <td className="text-center">{event.userName}</td>      
     <td className="text-center">
-      {isHovered && (
+      {isHovered && (event.type !== "transfer-out") && (
         <span
           style={{ cursor: canDelete ? 'pointer' : '', color: canDelete ? 'red' : 'gray' }}
           onClick={() => canDelete && handleDeleteEvent()}

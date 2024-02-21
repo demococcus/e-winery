@@ -229,11 +229,12 @@ const enTranslation = {
     "op-remontage": "Remontage",
     "op-blend": "Blend",
     "op-additive": "Additives: ",
-    "op-transfer-out": "Transfer-out",
-    "op-transfer": "Transfer",
-    "op-transfer-partial": "Partial transfer",
+    "op-transfer-out": "Transfer to another wine",
+    "op-transfer": "Transfer to an empty vessel",
+    "op-transfer-partial": "Partial transfer to an empty vessel",
     "op-sub-depleted": "Wine depleted.",
     "op-sub-remaining": "Remaining: ",
+    "op-location-task": "Task",
        
         
     // tank
