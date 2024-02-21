@@ -5,7 +5,7 @@ import { Button, Col, Row, Spinner } from "react-bootstrap";
 import Form from 'react-bootstrap/Form';
 
 import TargetWine from "../Worksheet/Controls/TargetWine";
-import { setTaskNote, updateTaskFormField, useAddWineTaskMutation } from "../../store";
+import { updateTaskFormField, useAddWineTaskMutation } from "../../store";
 import ErrorMsgBox from "../_shared/ErrorMsgBox";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -28,7 +28,7 @@ function Manipulation() {
     dispatch(updateTaskFormField({field: 'type', value: e.currentTarget.value}));
   }
   const handleNoteChange = (e) => {
-    dispatch(setTaskNote(e.currentTarget.value));
+    dispatch(updateTaskFormField({field: 'note', value: e.currentTarget.value}));
   }
 
   const handleSubmit = async (event) => {

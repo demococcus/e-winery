@@ -55,9 +55,6 @@ const worksheetSlice = createSlice({
       state.task[action.payload.field] = action.payload.value;
     },
 
-    setTaskType(state, action) {
-      state.task.type = action.payload;
-    },
 
     setTaskTargetWine(state, action) {    
       const value = action.payload
@@ -149,14 +146,6 @@ const worksheetSlice = createSlice({
       }
     },
 
-    setTaskNote(state, action) {
-      state.task.note = action.payload;
-    },
-
-    setTaskDate(state, action) {
-      state.task.date = action.payload;
-    }, 
-
     setTaskNextQuantity(state, action) {
       state.task.nextQuantity = action.payload;
     },
@@ -176,14 +165,12 @@ export const {
   setPeriodFilter,
   updateField: updateTaskFormField,
   resetTask,
-  setTaskType,
+
   setTaskTargetWine, 
   setTaskWineIngredients, 
   setTaskWineIngredientsQuantity,
   setTaskNextVessel,
   setTaskNextQuantity,
-  setTaskNote,
-  setTaskDate,
   setTaskWineAdditives,
   setTaskWineAdditivesQuantity,
 

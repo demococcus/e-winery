@@ -6,7 +6,7 @@ import Form from 'react-bootstrap/Form';
 import { FaArrowDown } from "react-icons/fa6";
 
 import TargetWine from "../Worksheet/Controls/TargetWine";
-import { setTaskNote, useAddWineTaskMutation } from "../../store";
+import { updateTaskFormField, useAddWineTaskMutation } from "../../store";
 import ErrorMsgBox from "../_shared/ErrorMsgBox";
 import { useState } from "react";
 import SourceAdditive from "../Worksheet/Controls/SourceAdditive";
@@ -28,7 +28,7 @@ function Additive() {
 
 
   const handleNoteChange = (e) => {
-    dispatch(setTaskNote(e.currentTarget.value));
+    dispatch(updateTaskFormField({field: 'note', value: e.currentTarget.value}));
   }
 
   const handleSubmit = async (event) => {
