@@ -7,7 +7,6 @@ const initialTask = {
   date: getCurrentDate(),
   note: null,
     
-  targetWineOption: null,
   targetWineId: null,
   targetWineQuantity: null,
   targetWineVesselCapacity: null,
@@ -63,20 +62,15 @@ const worksheetSlice = createSlice({
     },
 
     setTaskTargetWine(state, action) {    
-      const targetWineOption = action.payload
-      state.task.targetWineOption  = targetWineOption;
-
+      const value = action.payload
+      
       
       try {
-        // deserialize the targetWineOption
-        const targetWineObj = JSON.parse(targetWineOption);  
-        // console.log("targetWineObj", targetWineObj);      
-
-        state.task.targetWineId = targetWineObj.targetWineId;
-        state.task.targetWineQuantity = targetWineObj.targetWineQuantity; 
-        state.task.targetWineVesselCapacity = targetWineObj.targetWineVesselCapacity; 
-        state.task.targetWineVesselType = targetWineObj.targetWineVesselType; 
-        state.task.nextQuantity = targetWineObj.targetWineQuantity;
+        state.task.targetWineId = value._id;
+        state.task.targetWineQuantity = value.quantity; 
+        state.task.targetWineVesselCapacity = value.vessel.capacity; 
+        state.task.targetWineVesselType = value.vessel.type; 
+        state.task.nextQuantity = value.quantity;
             
       } catch (error) {
         state.task.targetWineId = null;
@@ -117,7 +111,7 @@ const worksheetSlice = createSlice({
         state.task.sources[name].wineId = value._id;    
         state.task.sources[name].wineQuantity = value.quantity;  
         state.task.sources[name].usedQuantity = value.quantity;  
-      } catch {
+      } catch (error) {
 
         state.task.sources[name].wineId = null;
         state.task.sources[name].wineQuantity = null;  
@@ -144,7 +138,7 @@ const worksheetSlice = createSlice({
 
       try {
         state.task.additives[name].id = value._id; 
-      } catch {
+      } catch (error) {
         state.task.additives[name].id = null; 
       }
     },

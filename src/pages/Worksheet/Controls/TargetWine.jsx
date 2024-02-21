@@ -25,8 +25,10 @@ function TargetWine() {
   useEffect(() => {refetch()}, [refetch]);
 
   const handleChange = (e) => {
-    const value = e.currentTarget.value;
-    dispatch(setTaskTargetWine(value));
+
+    // find the wine by id
+    const selectedWine = data.find(item => item._id ===  e.currentTarget.value);
+    dispatch(setTaskTargetWine(selectedWine));
   }
 
   const renderDropdown = (data) => {    
@@ -46,19 +48,14 @@ function TargetWine() {
           <Form.Control
             name='wine'
             as="select"
-            value={task.targetWineOption || ""}
+            value={task.targetWineId || ""}
             onChange={handleChange}
             required
           >
             <option value="">{t('ws-select-wine')}</option>
             {sortedData.map((wine) => 
               <option 
-                value={`{
-                  "targetWineId": "${wine._id}", 
-                  "targetWineQuantity": ${wine.quantity},
-                  "targetWineVesselCapacity": ${wine.vessel.capacity},
-                  "targetWineVesselType": "${wine.vessel.type}"
-                }`} 
+                value={wine._id}
                 key={wine._id}
               >
                 [{wine.vessel.label}] {wine.vintage} {wine.lot}

@@ -27,7 +27,7 @@ function SourceAdditive() {
 
   const handleChange = (e) => {
 
-    // find teh additive by id
+    // find the additive by id
     const selectedAdditive = data.find(item => item._id ===  e.currentTarget.value);
 
     const name = e.currentTarget.name;

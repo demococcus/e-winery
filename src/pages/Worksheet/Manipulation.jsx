@@ -41,8 +41,6 @@ function Manipulation() {
     } else {
       // console.log("Form looks valid");
 
-      // console.log("task", task);
-      
       const apiTask = {
         type: task.type,
         date: task.date,
