@@ -29,7 +29,7 @@ function ListElement({ additive }) {
             style={{ cursor: 'pointer', color: 'red' }}
             onClick={() => handleDelete(additive._id)}
           >
-            {t("additive-delete")}
+            {t("action-delete")}
           </span>
         )}
       </td>

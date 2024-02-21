@@ -7,6 +7,11 @@ const enTranslation = {
     "logo-e": 'e-',
 
 
+    // languages
+    "lang-en": "English",
+    "lang-bg": "Bulgarian",
+
+
     // navbar
     "nav-grapes": 'Vineyard',
     "nav-wines": 'Cellar',
@@ -25,6 +30,7 @@ const enTranslation = {
     "not-found": "Hmm..",
     "not-found-details": "This page does not exist.",
     
+
     // under construction
     "under-construction": "Under construction",
     "under-construction-details": "This section is not ready yet, but we are working on it. Please check back later.",
@@ -39,9 +45,15 @@ const enTranslation = {
     "msg-box-no-results-text": "Nothing matches your search criteria.",
     "msg-box-warning": "Warning",
 
+
     // form    
     "form-submit": "Submit",
     "form-wait": "Sending...",
+
+    // actions
+    "action-delete": "Delete",
+    "action-undo": "Undo",
+
 
     // form validation
     "val-string": "Please enter a string value.",
@@ -62,6 +74,7 @@ const enTranslation = {
     "user-email": "Email",
     "user-role": "Role",
     "user-company": "Company",
+    "user-language": "Language",
     "user-logout": "Log Out",
 
     "role-admin": "Admin",
@@ -69,19 +82,15 @@ const enTranslation = {
     "role-lab": "Lab",
     "role-demo": "Demo",
 
-
     
-    // login & register
-    
+    // login & register    
     "login-title": "Login",
     "login-email": "Email",
     "login-password": "Password",
     "login-email-prompt": "Please enter your email.",
-    "login-password-prompt": "Please enter your password.",
-    
+    "login-password-prompt": "Please enter your password.",    
     "register-title": "Register New User",
     "register-username": "Register New User",
-
 
 
     // grapes
@@ -90,6 +99,7 @@ const enTranslation = {
 
     // liters / gal
     "liters": "gal",
+
 
     // units
     "u-kg": "kg", 
@@ -129,12 +139,10 @@ const enTranslation = {
     "u-oz-both": "ounces (oz)",
     
 
-
     // wine
     "wine-title": "Cellar",
     "wine-add-title": "Add Wine",
     "wine-edit-title": "Edit Wine",
-
     
     "wine-add-new": "Add New",
     "wine-filter-current": "Current Vintage",
@@ -155,8 +163,8 @@ const enTranslation = {
     "wine-restore": "Restore",
     "wine-archived": " (archived)",
     
-    // wine form
-    
+
+    // wine form    
     "wine-select-status": "Select status",
     "wine-select-vessel": "Select vessel",
     "wine-select-additive": "Select additive",
@@ -218,7 +226,6 @@ const enTranslation = {
     "ws-val-dupe": "Some wines are selected twice.",
     
 
-
     // op event types
     "op-aerate": "Aerate",
     "op-decant": "Decant",
@@ -232,14 +239,8 @@ const enTranslation = {
     "op-transfer-partial": "Partial transfer",
     "op-sub-depleted": "Wine depleted.",
     "op-sub-remaining": "Remaining: ",
-    
-    
-    
-    
-    // event
-    "event-delete": "Delete",   
-
-
+       
+        
     // tank
     "tanks-title": "Tanks",
     "tank-add-title": "Add Tank",
@@ -268,8 +269,7 @@ const enTranslation = {
     "vessel-number": "Number",
     "vessel-wine": "Wine",
     "vessel-status": "Status",
-    "vessel-actions": "Actions",
-    "vessel-delete": "Delete",         
+    "vessel-actions": "Actions",       
     "vessel-na": "N/A",
     
     // add task
@@ -285,7 +285,6 @@ const enTranslation = {
     
     // additives
     "additive-title": "Additives", 
-    "additive-delete": "Delete", 
     "additive-unit": "Unit", 
     "additive-label": "Label", 
     "additive-actions": "Actions", 

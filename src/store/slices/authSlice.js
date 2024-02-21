@@ -1,25 +1,14 @@
-// features/auth/authSlice.js
 import { createSlice } from '@reduxjs/toolkit'
 
-// initialize userToken from local storage
-const userToken = localStorage.getItem('userToken')
-? localStorage.getItem('userToken')
-: null
-
-// initialize userInfo from local storage
+// initialize userInfo, language and userToken from local storage
 const userInfo = localStorage.getItem('userInfo')
   ? JSON.parse(localStorage.getItem('userInfo'))
   : null
 
-const formInitialState =  {
-  email:  '',
-  password: '',
-}
-
 const initialState = {
-  formInput: formInitialState,
+  language: localStorage.getItem('language') || 'en',
+  userToken: localStorage.getItem('userToken') || null,
   userInfo,
-  userToken,
 }
 
 const authSlice = createSlice({
@@ -27,10 +16,11 @@ const authSlice = createSlice({
   initialState,
   reducers: {
 
-
     setUserInfo(state, action) {
       state.userInfo = action.payload;
-      localStorage.setItem('userInfo', JSON.stringify(action.payload));
+      const userInfoString = JSON.stringify(action.payload);
+      localStorage.setItem('userInfo', userInfoString);
+      localStorage.setItem('language', state.userInfo.language);
     },
 
     setUserToken(state, action) {
@@ -39,10 +29,11 @@ const authSlice = createSlice({
     },
 
     resetUserInfoAndToken(state) {
-      localStorage.setItem('userToken', null);
-      localStorage.setItem('userInfo', null);
+      localStorage.removeItem('userToken');
+      localStorage.removeItem('userInfo');
       state.userToken = null;
       state.userInfo = null;
+      // keep the language
     },
 
 

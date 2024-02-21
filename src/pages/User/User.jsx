@@ -21,6 +21,7 @@ function User() {
     <div>{t('user-email')}: {userInfo?.email}</div>
     <div>{t('user-role')}: {t(`role-${userInfo?.role}`)}</div>
     <div>{t('user-company')}: {userInfo?.company?.name}</div>
+    <div>{t('user-language')}: {t(`lang-${userInfo?.language}`)}</div>
 
 
     <Button 

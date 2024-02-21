@@ -24,7 +24,6 @@ import Login from './pages/Auth/Login';
 import Register from './pages/Auth/Register';
 import LogOut from './pages/Auth/LogOut';
 import NotFound from './pages/_shared/NotFound';
-import ContactForm from './pages/Sandbox/ContactForm';
 
 
 function App() {
@@ -66,8 +65,6 @@ function App() {
 
           <Route path="/about" element={<About />} />            
 
-          <Route path="/sandbox" element={<ContactForm />} />            
-          
           <Route path="/" exact element={<Login />} />
           <Route path="*" element={<NotFound />} />
           

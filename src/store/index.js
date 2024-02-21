@@ -16,7 +16,6 @@ import { labReducer } from './slices/labSlice';
 import { tankReducer } from './slices/tankSlice'; 
 import { wineReducer } from './slices/wineSlice';
 import { worksheetReducer } from './slices/worksheetSlice';
-import { contactFormReducer } from './slices/contactFormSlice';
 
 
 // configure store with api and slice reducers
@@ -33,7 +32,6 @@ export const store = configureStore({
     tank: tankReducer,
     wine: wineReducer,
     worksheet: worksheetReducer,
-    contactForm: contactFormReducer,
   },
 
   middleware: (getDefaultMiddleware) => {
@@ -77,12 +75,6 @@ export {
   setUserToken,
   resetUserInfoAndToken,
 } from './slices/authSlice';
-
-export { 
-  updateContactFormField, 
-  resetContactForm, 
-} from './slices/contactFormSlice';
-
 
 
 // export api methods

@@ -12,14 +12,12 @@ import Navbar from 'react-bootstrap/Navbar';
 function BasicNavbar () {
 
   const { t } = useTranslation();
-  const { userInfo } = useSelector((state) => state.auth);
+  const { userInfo, language } = useSelector((state) => state.auth);
  
-  // get the language from the user info
-  const userLanguage = userInfo?.language || 'en';
 
   // change the language if the user's language is different from the current language
-  if (i18n.language != userLanguage)  {
-    i18n.changeLanguage(userLanguage);
+  if (i18n.language != language)  {
+    i18n.changeLanguage(language);
   }
 
   const protectedLinks = (<>

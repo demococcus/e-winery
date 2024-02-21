@@ -35,7 +35,7 @@ function TanksListElement({ vessel }) {
             style={{ cursor: canDelete ? 'pointer' : '', color: canDelete ? 'red' : 'gray' }}
             onClick={() => canDelete && handleDeleteVessel(vessel._id)}
           >
-            {t("vessel-delete")}
+            {t("action-delete")}
           </span>
         )}
       </td>

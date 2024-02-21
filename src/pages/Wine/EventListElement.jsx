@@ -21,9 +21,12 @@ function EventListElement({ event, firstOpId }) {
   }
 
   let rowsContent;
+  let deleteLabel;
 
   if (event.type === "lab") {
     // Lab-specific fields
+    deleteLabel = t("action-delete");
+
     rowsContent = (
       <>
       <td className="text-center">{event.vesselLabel}</td>
@@ -40,6 +43,7 @@ function EventListElement({ event, firstOpId }) {
     );
   } else {
     // Op-specific fields
+    deleteLabel = t("action-undo");
     rowsContent = (
       <>
       <td className="text-center">Task {event.number}</td>
@@ -63,7 +67,7 @@ function EventListElement({ event, firstOpId }) {
           style={{ cursor: canDelete ? 'pointer' : '', color: canDelete ? 'red' : 'gray' }}
           onClick={() => canDelete && handleDeleteEvent(event._id)}
         >
-          {t("event-delete")}
+          {deleteLabel}
         </span>
       )}
     </td>    
