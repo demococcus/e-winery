@@ -146,10 +146,6 @@ const worksheetSlice = createSlice({
       }
     },
 
-    setTaskNextQuantity(state, action) {
-      state.task.nextQuantity = action.payload;
-    },
-
     resetTask(state) {
       state.task = initialTask;
     },
@@ -170,7 +166,6 @@ export const {
   setTaskWineIngredients, 
   setTaskWineIngredientsQuantity,
   setTaskNextVessel,
-  setTaskNextQuantity,
   setTaskWineAdditives,
   setTaskWineAdditivesQuantity,
 

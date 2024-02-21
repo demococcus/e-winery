@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { Col, Row } from "react-bootstrap";
 import Form from 'react-bootstrap/Form';
 
-import { setTaskNextQuantity, setTaskNextVessel, useFetchAvailableVesselsQuery } from "../../../store";
+import { updateTaskFormField, setTaskNextVessel, useFetchAvailableVesselsQuery } from "../../../store";
 import ErrorMsgBox from "../../_shared/ErrorMsgBox";
 import PlaceholderBlock from "../../_shared/PlaceholderBlock";
 
@@ -26,14 +26,13 @@ function TargetVessel() {
 
 
 
-  const handleChange = (e) => {
+  const handleChangeVessel = (e) => {
     const selectedVessel = data.find(item => item._id ===  e.currentTarget.value);
     dispatch(setTaskNextVessel(selectedVessel));
   }
 
   const handleChangeNextQuantity = (e) => {
-    const value = e.currentTarget.value;
-    dispatch(setTaskNextQuantity(value));
+    dispatch(updateTaskFormField({field: 'nextQuantity', value: e.currentTarget.value}));
   }
 
   const renderDropdown = (data) => {    
@@ -84,7 +83,7 @@ function TargetVessel() {
             name='vessel'
             as="select"
             value={task.nextVesselId || ""}
-            onChange={handleChange}
+            onChange={handleChangeVessel}
             required
           >
             <option value="">{t("wine-select-vessel")}</option>
