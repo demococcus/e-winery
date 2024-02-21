@@ -12,8 +12,6 @@ const initialTask = {
   targetWineVesselCapacity: null,
   targetWineVesselType: null,
 
-  
-  nextVesselOption: null,
   nextVesselId: null,
   nextVesselAvailableCapacity: null,
   nextVesselType: null,
@@ -82,16 +80,12 @@ const worksheetSlice = createSlice({
 
     setTaskNextVessel(state, action) {
 
-      const nextVesselOption = action.payload
-      state.task.nextVesselOption  = nextVesselOption;
+      const value = action.payload;
 
-      try {
-        // deserialize
-        // console.log("nextVesselOption", nextVesselOption);
-        const nextVesselObj = JSON.parse(nextVesselOption);      
-        state.task.nextVesselId = nextVesselObj.nextVesselId;
-        state.task.nextVesselAvailableCapacity = nextVesselObj.nextVesselAvailableCapacity;
-        state.task.nextVesselType = nextVesselObj.nextVesselType;
+      try {  
+        state.task.nextVesselId = value._id;
+        state.task.nextVesselAvailableCapacity = value.availableCapacity;
+        state.task.nextVesselType = value.type;
       } catch (error) {
         state.task.nextVesselId = null;
         state.task.nextVesselAvailableCapacity = null;

@@ -27,8 +27,8 @@ function TargetVessel() {
 
 
   const handleChange = (e) => {
-    const value = e.currentTarget.value;
-    dispatch(setTaskNextVessel(value));
+    const selectedVessel = data.find(item => item._id ===  e.currentTarget.value);
+    dispatch(setTaskNextVessel(selectedVessel));
   }
 
   const handleChangeNextQuantity = (e) => {
@@ -50,8 +50,7 @@ function TargetVessel() {
 
     if (task.nextQuantity > task.targetWineQuantity) {
       quantityErrorMessage = t("ws-val-quantity-exceeds");
-    }
-    
+    }    
 
     if (
       task.nextVesselAvailableCapacity
@@ -84,7 +83,7 @@ function TargetVessel() {
           <Form.Control
             name='vessel'
             as="select"
-            value={task.nextVesselOption || ""}
+            value={task.nextVesselId || ""}
             onChange={handleChange}
             required
           >
@@ -92,11 +91,7 @@ function TargetVessel() {
             {sortedData.map((vessel) => 
               <option 
                 // value={vessel._id} 
-                value={`{
-                  "nextVesselId": "${vessel._id}", 
-                  "nextVesselAvailableCapacity": ${vessel.availableCapacity}, 
-                  "nextVesselType": "${vessel.type}"
-                }`}
+                value={vessel._id}
                 key={vessel._id}
               >
                 {vessel.label}

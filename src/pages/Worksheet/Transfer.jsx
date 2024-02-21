@@ -56,7 +56,8 @@ function Transfer() {
 
       }
 
-      console.log("apiTask", apiTask);       
+      // console.log("apiTask", apiTask);        
+      
       const submitResult = addTask(apiTask);
       
       // verify if the result succeeds
