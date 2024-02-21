@@ -25,8 +25,13 @@ function SourceWine() {
   useEffect(() => {refetch()}, [refetch]);
 
   const handleChange = (e) => {
+
+    // find the wine by id
+    const selectedWine = data.find(item => item._id ===  e.currentTarget.value);
+
     const name = e.currentTarget.name;
-    const value = e.currentTarget.value;
+    const value = selectedWine;
+
     dispatch(setTaskWineIngredients({name, value}));
   }
 
@@ -69,18 +74,14 @@ function SourceWine() {
           <Form.Control
             name={number}
             as="select"
-            value={task.sources[number]?.option || ""}
+            value={task.sources[number]?.wineId || ""}
             onChange={handleChange}
             required={wineRequired} 
           >
             <option value="">{t("ws-select-wine")}</option>
             {data.map((wine) => 
               <option 
-                value={`{
-                  "wineId": "${wine._id}", 
-                  "wineQuantity": ${wine.quantity},
-                  "usedQuantity": ${wine.quantity}
-                }`} 
+                value={wine._id} 
                 key={wine._id}
               >
                 [{wine.vessel.label}] {wine.vintage} {wine.lot}

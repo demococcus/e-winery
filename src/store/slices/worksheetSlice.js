@@ -109,21 +109,19 @@ const worksheetSlice = createSlice({
     },
 
     setTaskWineIngredients(state, action) { 
-      
-      const target = action.payload;
+
+      const name = action.payload.name;
+      const value = action.payload.value;      
       
       try {
-        const wineObj = JSON.parse(target.value);
-        state.task.sources[target.name].option = target.value;    
-        state.task.sources[target.name].wineId = wineObj.wineId;    
-        state.task.sources[target.name].wineQuantity = wineObj.wineQuantity;  
-        state.task.sources[target.name].usedQuantity = wineObj.usedQuantity;  
+        state.task.sources[name].wineId = value._id;    
+        state.task.sources[name].wineQuantity = value.quantity;  
+        state.task.sources[name].usedQuantity = value.quantity;  
       } catch {
 
-        state.task.sources[target.name].option = null;    
-        state.task.sources[target.name].wineId = null;
-        state.task.sources[target.name].wineQuantity = null;  
-        state.task.sources[target.name].usedQuantity = null;  
+        state.task.sources[name].wineId = null;
+        state.task.sources[name].wineQuantity = null;  
+        state.task.sources[name].usedQuantity = null;  
       }
     },
 
