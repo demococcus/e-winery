@@ -72,7 +72,7 @@ const bgTranslation = {
     "user-title": "Потребител",
     "user-name": "Име",
     "user-email": "E-mail адрес",
-    "user-role": "Рля",
+    "user-role": "Роля",
     "user-company": "Компания",
     "user-language": "Език",
     "user-logout": "Изход",
