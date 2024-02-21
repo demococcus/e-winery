@@ -29,10 +29,10 @@ const initialTask = {
   },
 
   additives: {
-    'A': {dropDown: null, id: null, quantity: null},
-    'B': {dropDown: null, id: null, quantity: null},
-    'C': {dropDown: null, id: null, quantity: null},
-    'D': {dropDown: null, id: null, quantity: null},
+    'A': {id: null, quantity: null},
+    'B': {id: null, quantity: null},
+    'C': {id: null, quantity: null},
+    'D': {id: null, quantity: null},
   },
 
   
@@ -141,16 +141,13 @@ const worksheetSlice = createSlice({
 
     setTaskWineAdditives(state, action) { 
       
-      const target = action.payload 
+      const name = action.payload.name;
+      const value = action.payload.value;
 
       try {
-        const additiveObj = JSON.parse(target.value);
-        state.task.additives[target.name].dropDown = target.value;    
-        state.task.additives[target.name].id = additiveObj.id;    
+        state.task.additives[name].id = value._id; 
       } catch {
-
-        state.task.additives[target.name].dropDown = null;    
-        state.task.additives[target.name].id = null;
+        state.task.additives[name].id = null; 
       }
     },
 

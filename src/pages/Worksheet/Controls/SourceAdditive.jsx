@@ -26,8 +26,12 @@ function SourceAdditive() {
   useEffect(() => {refetch()}, [refetch]);
 
   const handleChange = (e) => {
+    
+    const selectedAdditive = data.find(item => item._id ===  e.currentTarget.value);
+
     const name = e.currentTarget.name;
-    const value = e.currentTarget.value;
+    const value = selectedAdditive;
+
     dispatch(setTaskWineAdditives({name, value}));
   }
 
@@ -56,14 +60,14 @@ function SourceAdditive() {
           <Form.Control
             name={number}
             as="select"
-            value={task.additives[number]?.dropDown || ""}
+            value={task.additives[number]?.id || ""}
             onChange={handleChange}
             required={additiveRequired} 
           >
             <option value="">{t("ws-select-additive")}</option>
             {data.map((additive) => 
               <option 
-                value={`{"id": "${additive._id}", "quantity": ${additive.quantity}}`} 
+                value={additive._id} 
                 key={additive._id}
               >
                 {additive.label} ({t(additive.unit)})
