@@ -42,7 +42,7 @@ function AdditiveList () {
       <tr className="text-center table-secondary">
         <th>{t('additive-label')}</th>
         <th>{t('additive-unit')}</th>
-        <th>{t('additive-actions')}</th>
+        <th>{t('action-actions')}</th>
       </tr>
     </thead>
     <tbody>

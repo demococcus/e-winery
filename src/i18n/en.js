@@ -20,7 +20,6 @@ const enTranslation = {
     "nav-tanks": 'Tanks',
     "nav-barrels": 'Barrels',
     "nav-additives": 'Additives',
-    "nav-me": 'Me',
     "nav-about": 'About',
     "nav-login": 'Log In',
 
@@ -51,6 +50,7 @@ const enTranslation = {
     "form-wait": "Sending...",
 
     // actions
+    "action-actions": "Actions",
     "action-delete": "Delete",
     "action-undo": "Undo",
 
@@ -90,7 +90,6 @@ const enTranslation = {
     "login-email-prompt": "Please enter your email.",
     "login-password-prompt": "Please enter your password.",    
     "register-title": "Register New User",
-    "register-username": "Register New User",
 
 
     // grapes
@@ -142,7 +141,6 @@ const enTranslation = {
     // wine
     "wine-title": "Cellar",
     "wine-add-title": "Add Wine",
-    "wine-edit-title": "Edit Wine",
     
     "wine-add-new": "Add New",
     "wine-filter-current": "Current Vintage",
@@ -196,7 +194,6 @@ const enTranslation = {
     "lab-density": "Density",
     "lab-mAcid": "M Acid",
     "lab-user": "User",
-    "lab-actions": "Actions",
 
 
     // event filter
@@ -213,7 +210,6 @@ const enTranslation = {
     "ws-note": "Note",
     "ws-Description": "Description",
     "ws-User": "User",
-    "ws-actions": "Actions",
 
     "ws-select-wine": "Select wine",
     "ws-select-type": "Select type",
@@ -248,6 +244,7 @@ const enTranslation = {
     // barrels
     "barrels-title": "Barrels",
     "barrel-add-title": "Add Barrels",
+    "barrel-form-capacity": "Barrel capacity",
 
     // barrel form
     "vessel-form-label": "Label",
@@ -268,8 +265,7 @@ const enTranslation = {
     "vessel-capacity": "Capacity",
     "vessel-number": "Number",
     "vessel-wine": "Wine",
-    "vessel-status": "Status",
-    "vessel-actions": "Actions",       
+    "vessel-status": "Status",     
     "vessel-na": "N/A",
     
     // add task
@@ -287,13 +283,13 @@ const enTranslation = {
     "additive-title": "Additives", 
     "additive-unit": "Unit", 
     "additive-label": "Label", 
-    "additive-actions": "Actions", 
     "additive-add-new": "Add New", 
     "additive-add-title": "New Additive",
-    
-             
+    "additive-select-unit": "Select unit",
+                 
     
     // about 
+    "about-title": "About",
     "about-1": "Welcome to e-Winery, your comprehensive ERP solution tailored specifically for wineries and vineyards.",
     "about-2": "At e-Winery, we understand the intricate needs of the winemaking industry, which is why our system is meticulously crafted to address every aspect of your operations. From tracking laboratory analyses to monitoring wine transfers and ingredients, e-Winery ensures that every process is seamlessly managed and recorded.",
     "about-3": "With e-Winery, traceability is key. Our system allows you to trace every step of the winemaking process and every ingredient – from the bottle to the grape. This level of detail not only ensures quality control but also enables regulatory compliance with ease.",
@@ -304,10 +300,8 @@ const enTranslation = {
 
     GeorgiGatin: 'Georgi Gatin',
 
-
   }
 };
-
 
 // export as default
 export default enTranslation;

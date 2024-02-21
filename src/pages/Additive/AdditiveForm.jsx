@@ -131,17 +131,17 @@ function AdditiveForm() {
             </Form.Group>
 
             <Form.Group as={Col} md="3" controlId="validationNumber">
-              <Form.Label>{t("vessel-form-number")}</Form.Label>
+              <Form.Label>{t("additive-unit")}</Form.Label>
               <Form.Control
                 name="unit"
                 as="select"
-                placeholder={t("vessel-form-number")}
+                placeholder={t("additive-unit")}
                 value={values.unit}
                 onChange={handleChange}
                 isValid={touched.unit && !errors.unit}
                 isInvalid={touched.unit && !!errors.unit}
               >
-                <option value="">Select unit</option>
+                <option value="">{t("additive-select-unit")}</option>
                 {dropdownOptions}
               </Form.Control>
               <Form.Control.Feedback type="invalid">{errors.unit}</Form.Control.Feedback>

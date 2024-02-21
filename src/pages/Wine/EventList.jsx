@@ -50,7 +50,7 @@ function EventList ({ wine }) {
             <th>{t('lab-density')}</th>
             <th>{t('lab-mAcid')}</th>
             <th>{t('lab-user')}</th>
-            <th>{t('lab-actions')}</th>
+            <th>{t('action-actions')}</th>
           </tr>
         </thead>
         <tbody>

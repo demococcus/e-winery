@@ -13,7 +13,7 @@ function About () {
 
   return (
     <div>
-      <PageTitle>{t('About')}</PageTitle>
+      <PageTitle>{t('about-title')}</PageTitle>
       <div className="my-6">
         {Array.from({ length: 6 }, (_, index) => (
           <p key={index}>{t(`about-${index + 1}`)}</p>

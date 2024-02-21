@@ -57,7 +57,7 @@ function BarrelList () {
         <th>{t('vessel-full')}</th>
         <th>{t('vessel-wine')}</th>
         <th>{t('vessel-status')}</th>
-        <th>{t('vessel-actions')}</th>
+        <th>{t('action-actions')}</th>
       </tr>
     </thead>
     <tbody>

@@ -88,7 +88,7 @@ function WineDetails({ wine }) {
       </Row>
       <Row>
         <Col className='col-md-2'>{t('wine-status')}</Col>
-        <Col>{t(`wine-status-${wine.status}`)}</Col>
+        <Col>{t(`wine-status-full-${wine.status}`)}</Col>
       </Row>
     </Container>
     );

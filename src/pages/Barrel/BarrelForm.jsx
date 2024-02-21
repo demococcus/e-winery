@@ -122,10 +122,10 @@ function BarrelForm() {
             </Form.Group>
 
             <Form.Group as={Col} md="3" controlId="validationCapacity">
-              <Form.Label>{t("vessel-form-capacity")}</Form.Label>
+              <Form.Label>{t("barrel-form-capacity")}</Form.Label>
               <Form.Control
                 type="number"
-                placeholder={t("vessel-form-capacity")}
+                placeholder={t("barrel-form-capacity")}
                 name="capacity"
                 value={values.capacity}
                 onChange={handleChange}
