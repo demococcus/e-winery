@@ -17,8 +17,8 @@ Winery management project for  [AYA Estate Vineyards](https://ayaestatevineyards
 - About
 - i18n
 - Authentication
+- Undo tasks
 
 ## ToDo
 - Grapes
-- Undo tasks
 - Access by user role
