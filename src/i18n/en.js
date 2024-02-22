@@ -237,8 +237,9 @@ const enTranslation = {
     "op-sub-depleted": "Wine depleted.",
     "op-sub-remaining": "Remaining: ",
     "op-location-task": "Task",
-       
-        
+    "op-total-quantity": "Total quantity:",
+
+               
     // tank
     "tanks-title": "Tanks",
     "tank-add-title": "Add Tank",

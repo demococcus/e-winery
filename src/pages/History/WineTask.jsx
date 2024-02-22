@@ -21,7 +21,7 @@ function WineTask({children}) {
     return (<>
       <div>{t(`op-${event.type}`)}</div>
       <div>
-        <VesselLabel isBold>{event.vesselLabel}</VesselLabel> {event.wineTag}  - {event.quantity} {t('liters')}
+        <VesselLabel isBold>{event.vesselLabel}</VesselLabel> {event.wineLot} - {event.quantityBefore} {t('liters')}
       </div>
       <TaskNote>{event.note}</TaskNote>
     </>)    
@@ -30,7 +30,7 @@ function WineTask({children}) {
   const renderTransfer = () => {
     return (<>
       <div>{t(`op-${event.type}`)}</div>
-      <div><VesselLabel isBold>{event.vesselLabel}</VesselLabel> {event.wineTag} - {event.nextQuantity} {t('liters')}</div>
+      <div><VesselLabel isBold>{event.vesselLabel}</VesselLabel> {event.wineLot} - {event.quantityBefore} {t('liters')}</div>
       
       <GoArrowDown  className="ms-3" />
 
@@ -40,13 +40,19 @@ function WineTask({children}) {
   };
 
   const renderSplitFrom = () => {
+
+    const subWines = event.subTasks.map((ing) => {
+      return <div key={ing._id}><VesselLabel isBold>{ing.vesselLabel}</VesselLabel> <Link to={`/wine/${ing.wine}`} className='no-underline'>{ing.wineLot}</Link> - {ing.quantity} {t('liters')}</div>
+    })
+
     return (<>
       <div>{t(`op-${event.type}`)}</div>
-      <div><VesselLabel isBold>{event.vesselLabel}</VesselLabel> {event.wineTag}</div>
+      <div><VesselLabel isBold>{event.vesselLabel}</VesselLabel> {event.wineLot}</div>
       <GoArrowDown  className="ms-3" />
-      <div key={event.nextWine._id}><VesselLabel>{event.nextVesselLabel}</VesselLabel> <Link to={`/wine/${event.nextWine}`} className='no-underline'>{event.nextWineTag}</Link> - {event.nextQuantity} {t('liters')}</div>
+      <div>{subWines}</div>
+      {/* <div key={event.nextWine._id}><VesselLabel>{event.nextVesselLabel}</VesselLabel> <Link to={`/wine/${event.nextWine}`} className='no-underline'>{event.nextWineTag}</Link> - {event.nextQuantity} {t('liters')}</div> */}
       <hr className="my-2 w-50" />
-      <div>{t("op-sub-remaining")}{event.quantity - event.nextQuantity} {t('liters')}</div>
+      <div>{t("op-sub-remaining")}{event.quantityBefore - event.quantity} {t('liters')}</div>
 
       <TaskNote>{event.note}</TaskNote>
     </>)    
@@ -56,7 +62,7 @@ function WineTask({children}) {
     return (<>
       <div>{t(`op-${event.type}`)}</div>
       <div>
-        <VesselLabel>{event.parentVesselLabel}</VesselLabel> <Link to={`/wine/${event.parentWine}`} className='no-underline'>{event.parentWineTag}</Link> 
+        <VesselLabel>{event.refVesselLabel}</VesselLabel> <Link to={`/wine/${event.refWine}`} className='no-underline'>{event.refWineLot}</Link> 
         <GoArrowRight className="mx-2" />
         {event.quantity} {t('liters')}      
       </div>
@@ -80,7 +86,7 @@ function WineTask({children}) {
       
       <GoArrowRight />
 
-      </span> <VesselLabel>{event.destVesselLabel}</VesselLabel> <Link to={`/wine/${event.destWine}`} className='no-underline'>{event.destWineTag}</Link></div>
+      </span> <VesselLabel>{event.refVesselLabel}</VesselLabel> <Link to={`/wine/${event.refWine}`} className='no-underline'>{event.refWineLot}</Link></div>
 
       <hr className="my-2 w-50" />
       {remaining}
@@ -88,8 +94,11 @@ function WineTask({children}) {
   };
 
   const renderBlend = () => {
+
+    let blendQuantity = 0;
     const ingredients = event.subTasks.map((ing) => {
-      return <div key={ing._id}><VesselLabel isBold>{ing.vesselLabel}</VesselLabel> <Link to={`/wine/${ing.wine}`} className='no-underline'>{ing.wineTag}</Link> - {ing.quantity} {t('liters')}</div>
+      blendQuantity += ing.quantity;
+      return <div key={ing._id}><VesselLabel isBold>{ing.vesselLabel}</VesselLabel> <Link to={`/wine/${ing.wine}`} className='no-underline'>{ing.wineLot}</Link> - {ing.quantity} {t('liters')}</div>
     })
 
     return (<>
@@ -99,10 +108,10 @@ function WineTask({children}) {
       <GoArrowDown  className="ms-3" />
 
       <div>
-        <VesselLabel>{event.vesselLabel}</VesselLabel> {event.wineTag} - {event.quantity} {t('liters')}
+        <VesselLabel>{event.vesselLabel}</VesselLabel> {event.wineLot} - {event.quantityBefore} {t('liters')}
       </div>
       <hr className="my-2 w-50" />
-      <div>Total quantity: {event.nextQuantity} {t('liters')}</div>
+      <div>{t("op-total-quantity")} {event.quantityBefore + blendQuantity} {t('liters')}</div>
       <TaskNote>{event.note}</TaskNote>
     </>)    
   };
@@ -122,7 +131,7 @@ function WineTask({children}) {
       <GoArrowDown  className="ms-3" />
 
       <div>
-        <VesselLabel isBold>{event.vesselLabel}</VesselLabel> {event.wineTag} - {event.quantity} {t('liters')}
+        <VesselLabel isBold>{event.vesselLabel}</VesselLabel> {event.wineLot} - {event.quantityBefore} {t('liters')}
       </div>
       <TaskNote>{event.note}</TaskNote>
 

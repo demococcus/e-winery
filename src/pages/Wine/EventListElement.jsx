@@ -14,7 +14,7 @@ function EventListElement({ event, firstOpId }) {
   const [deleteLab] = useDeleteWineLabMutation();
   
   // canDelete is true if the event si of type 'lab' or if its id matches the prop deletableOpId
-  const canDelete = event.type === 'lab' || (event._id === firstOpId && event.type !== 'transfer-out');
+  const canDelete = event.type === 'lab' || (event._id === firstOpId);
   
  
   // Transfer event.date to a string object like '2021-09-01'
@@ -55,7 +55,7 @@ function EventListElement({ event, firstOpId }) {
     deleteLabel = t("action-undo");
     rowsContent = (
       <>
-      <td className="text-center">{t("op-location-task")} {event.number}</td>
+      <td className="text-center">{t("op-location-task")} {event.seqNumber}</td>
       <td colSpan={9}> <WineTask>{event}</WineTask> </td>    
     </>
     );

@@ -9,7 +9,7 @@ function ListElement({ wineTask, canDelete=false }) {
 
   return <tr>
     <td className="text-center">{dateString}</td>
-    <td className="text-center">{wineTask.number}</td>
+    <td className="text-center">{wineTask.seqNumber}</td>
     <td> <WineTask>{wineTask}</WineTask> </td>
     <td className="text-center">{wineTask.userName}</td>   
   </tr>

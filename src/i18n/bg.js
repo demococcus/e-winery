@@ -234,10 +234,10 @@ const bgTranslation = {
     "op-split-from": "Прехвърляне на част от виното в празен съд",
     "op-split-to": "Прехвърляне от друго вино",
 
-
     "op-sub-depleted": "Виното е изчерпано.",
     "op-sub-remaining": "Остават: ",
     "op-location-task": "Задача", 
+    "op-total-quantity": "Общо количество:",
        
         
     // tank
