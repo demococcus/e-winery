@@ -44,10 +44,10 @@ function SourceWine() {
   const renderDropdown = (data, number) => {   
     
     // wine is required if it is the first option in the list or if there is a quantity entered
-    const wineRequired = number === 'A' || task.sources[number]?.usedQuantity;
+    const wineRequired = number === 'A' || task.subWines[number]?.quantity;
 
     // the quantity is required if it is the first option in the list or there is a wine selected
-    const quantityRequired = number === 'A' || task.sources[number]?.wineId;
+    const quantityRequired = number === 'A' || task.subWines[number]?.id;
     
     let errorMessageWine;
     let errorMessageQuantity;
@@ -60,7 +60,7 @@ function SourceWine() {
       errorMessageQuantity = t("val-required");
     }
     
-    if ((task.sources[number]?.usedQuantity) > task.sources[number]?.wineQuantity) {
+    if ((task.subWines[number]?.quantity) > task.subWines[number]?.quantityBefore) {
       errorMessageQuantity = t("ws-val-quantity-exceeds");
     } 
 
@@ -74,7 +74,7 @@ function SourceWine() {
           <Form.Control
             name={number}
             as="select"
-            value={task.sources[number]?.wineId || ""}
+            value={task.subWines[number]?.id || ""}
             onChange={handleChange}
             required={wineRequired} 
           >
@@ -98,11 +98,11 @@ function SourceWine() {
           <Form.Control
             name={number}
             type="number"
-            value={task.sources[number]?.usedQuantity || ""}
+            value={task.subWines[number]?.quantity || ""}
             onChange={handleChangeQuantity}
             placeholder={t("wine-quantity")}
             required={quantityRequired} 
-            max={task.sources[number]?.wineQuantity}
+            max={task.subWines[number]?.quantityBefore}
           />
           <Form.Control.Feedback type="invalid">{errorMessageQuantity}</Form.Control.Feedback>
         </Form.Group> 

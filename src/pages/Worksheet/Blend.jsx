@@ -52,16 +52,14 @@ function Blend() {
         type: "blend",
         date: task.date,
         note: task.note,
-        wine: task.targetWineId,
-        quantity: task.targetWineQuantity, 
-        ingredients,
-        nextQuantity
+        wine: task.wine,
+        subWines: selectedSubWines,
       };
 
       
       // console.log("apiTask", apiTask);
-      const submitResult = addTask(apiTask);
 
+      const submitResult = addTask(apiTask);
       // verify if the result succeeds
       if (submitResult.error) {
         console.log("An error occurred", submitResult.error);
@@ -93,44 +91,45 @@ function Blend() {
     </Row>
   );
 
+  // use the volume of the target wine and then add to it the volume of the subWines
+  let nextQuantity = task.wineQuantity;
 
-  let nextQuantity = task.targetWineQuantity;
+  // consider the selected subWines
+  const selectedSubWines = [];
+  for (let key in task.subWines) {
 
-  const ingredients = [];
-  for (let key in task.sources) {
-
-    const ingredient = task.sources[key];
+    const subWine = task.subWines[key];
     // console.log("ingredient", ingredient);
 
-    if (ingredient.wineId !== null && ingredient.usedQuantity !== null) {
-      ingredients.push({wine: ingredient.wineId, quantity: ingredient.usedQuantity});        
-      nextQuantity += ingredient.usedQuantity;
+    if (subWine.id !== null && subWine.quantity !== null) {
+      selectedSubWines.push({id: subWine.id, quantity: subWine.quantity});        
+      nextQuantity += subWine.quantity;
     }
   }   
 
   // console.log("nextQuantity", nextQuantity);
-  // console.log("task.targetWineVesselCapacity", task.targetWineVesselCapacity);
-  // console.log("task.targetWineVesselType", task.targetWineVesselType);
-  // console.log("task.targetWineQuantity", task.targetWineQuantity);
+  // console.log("task.wineVesselCapacity", task.wineVesselCapacity);
+  // console.log("task.wineVesselType", task.wineVesselType);
+  // console.log("task.wineQuantity", task.wineQuantity);
   
   let dataMismatch;
   if (
-    task.targetWineVesselType === "tank"
-    && nextQuantity > task.targetWineQuantity
-    && task.targetWineVesselCapacity < nextQuantity) {
+    task.wineVesselType === "tank"
+    && nextQuantity > task.wineQuantity
+    && task.wineVesselCapacity < nextQuantity) {
       dataMismatch = (
       <div style={{color: "red"}}>
-        {t("ws-val-overcapacity")} {nextQuantity - task.targetWineVesselCapacity} {t('liters')}
+        {t("ws-val-overcapacity")} {nextQuantity - task.wineVesselCapacity} {t('liters')}
         
       </div>
     );
   } else if (
-    task.targetWineVesselType === "tank"
-    && nextQuantity > task.targetWineQuantity
-    && (task.targetWineVesselCapacity > nextQuantity)) {
+    task.wineVesselType === "tank"
+    && nextQuantity > task.wineQuantity
+    && (task.wineVesselCapacity > nextQuantity)) {
       dataMismatch = (
         <div style={{color: "blue"}}>
-          {t("ws-val-top-up")} {task.targetWineVesselCapacity - nextQuantity} {t("liters")}
+          {t("ws-val-top-up")} {task.wineVesselCapacity - nextQuantity} {t("liters")}
         </div>
       );
   }
@@ -138,8 +137,8 @@ function Blend() {
 
 
   // Check for duplicates
-  const wineIdsArray = ingredients.map(item => item.wine)
-  wineIdsArray.push(task.targetWineId); 
+  const wineIdsArray = selectedSubWines.map(item => item.id)
+  wineIdsArray.push(task.wine); 
   const hasDupe = hasDuplicates(wineIdsArray);
 
   if (hasDupe) {

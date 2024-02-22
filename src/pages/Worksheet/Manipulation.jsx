@@ -45,12 +45,12 @@ function Manipulation() {
         type: task.type,
         date: task.date,
         note: task.note,
-        wine: task.targetWineId,
-        quantity: task.targetWineQuantity,  
+        wine: task.wine,
       };
 
 
       // console.log("apiTask", apiTask);
+
       const submitResult = await addTask(apiTask);
 
       // verify if the result succeeds

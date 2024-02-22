@@ -6,23 +6,23 @@ const initialTask = {
   type: null,
   date: getCurrentDate(),
   note: null,
-    
-  targetWineId: null,
-  targetWineQuantity: null,
-  targetWineVesselCapacity: null,
-  targetWineVesselType: null,
 
-  nextVesselId: null,
+  wine: null,
+  wineQuantity: null,
+  wineVesselCapacity: null,
+  wineVesselType: null,
+
+  nextVessel: null,
   nextVesselAvailableCapacity: null,
   nextVesselType: null,
 
   nextQuantity: null,
 
-  sources: {
-    'A': {option: null, wineId: null, wineQuantity: null, usedQuantity: null},
-    'B': {option: null, wineId: null, wineQuantity: null, usedQuantity: null},
-    'C': {option: null, wineId: null, wineQuantity: null, usedQuantity: null},
-    'D': {option: null, wineId: null, wineQuantity: null, usedQuantity: null},
+  subWines: {
+    'A': {id: null, quantityBefore: null, quantity: null},
+    'B': {id: null, quantityBefore: null, quantity: null},
+    'C': {id: null, quantityBefore: null, quantity: null},
+    'D': {id: null, quantityBefore: null, quantity: null},
   },
 
   additives: {
@@ -57,16 +57,16 @@ const worksheetSlice = createSlice({
       const value = action.payload
       
       try {
-        state.task.targetWineId = value._id;
-        state.task.targetWineQuantity = value.quantity; 
-        state.task.targetWineVesselCapacity = value.vessel.capacity; 
-        state.task.targetWineVesselType = value.vessel.type; 
+        state.task.wine = value._id;
+        state.task.wineQuantity = value.quantity; 
+        state.task.wineVesselCapacity = value.vessel.capacity; 
+        state.task.wineVesselType = value.vessel.type; 
         state.task.nextQuantity = value.quantity;
             
       } catch (error) {
-        state.task.targetWineId = null;
-        state.task.targetWineQuantity = null;     
-        state.task.targetWineVesselCapacity = null;   
+        state.task.wine = null;
+        state.task.wineQuantity = null;     
+        state.task.wineVesselCapacity = null;   
         // console.log("setTaskTargetWine", error);  
       }
     },
@@ -76,11 +76,11 @@ const worksheetSlice = createSlice({
       const value = action.payload;
 
       try {  
-        state.task.nextVesselId = value._id;
+        state.task.nextVessel = value._id;
         state.task.nextVesselAvailableCapacity = value.availableCapacity;
         state.task.nextVesselType = value.type;
       } catch (error) {
-        state.task.nextVesselId = null;
+        state.task.nextVessel = null;
         state.task.nextVesselAvailableCapacity = null;
         state.task.nextVesselType = null;
         // console.log("error", error);
@@ -92,17 +92,17 @@ const worksheetSlice = createSlice({
     setTaskWineIngredients(state, action) { 
 
       const name = action.payload.name;
-      const value = action.payload.value;      
-      
+      const value = action.payload.value;    
+       
       try {
-        state.task.sources[name].wineId = value._id;    
-        state.task.sources[name].wineQuantity = value.quantity;  
-        state.task.sources[name].usedQuantity = value.quantity;  
+        state.task.subWines[name].id = value._id;    
+        state.task.subWines[name].quantityBefore = value.quantity;  
+        state.task.subWines[name].quantity = value.quantity;  
       } catch (error) {
 
-        state.task.sources[name].wineId = null;
-        state.task.sources[name].wineQuantity = null;  
-        state.task.sources[name].usedQuantity = null;  
+        state.task.subWines[name].id = null;
+        state.task.subWines[name].quantityBefore = null;  
+        state.task.subWines[name].quantity = null;  
       }
     },
 
@@ -112,9 +112,9 @@ const worksheetSlice = createSlice({
       // console.log("setTaskWineIngredientsQuantity", target);
 
       try {
-        state.task.sources[target.name].usedQuantity = parseInt(target.value);  
+        state.task.subWines[target.name].quantity = parseInt(target.value);  
       } catch {
-        state.task.sources[target.name].usedQuantity = null;
+        state.task.subWines[target.name].quantity = null;
       }
     },
 

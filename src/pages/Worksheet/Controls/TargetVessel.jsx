@@ -47,13 +47,13 @@ function TargetVessel() {
 
     let quantityErrorMessage = t("val-required");
 
-    if (task.nextQuantity > task.targetWineQuantity) {
+    if (task.nextQuantity > task.wineQuantity) {
       quantityErrorMessage = t("ws-val-quantity-exceeds");
     }    
 
     if (
       task.nextVesselAvailableCapacity
-      && (task.nextQuantity - task.nextVesselAvailableCapacity > 0)
+      && (task.nextQuantity > task.nextVesselAvailableCapacity)
     ) {
       quantityMisMatch = (
         <div style={{color: "red"}}>
@@ -64,7 +64,7 @@ function TargetVessel() {
     } else if (
       task.nextVesselType === "tank"
       && task.nextVesselAvailableCapacity 
-      && (task.nextVesselAvailableCapacity - task.nextQuantity > 0)
+      && (task.nextVesselAvailableCapacity < task.nextQuantity)
     ) {
         quantityMisMatch = (
           <div style={{color: "blue"}}>
@@ -82,7 +82,7 @@ function TargetVessel() {
           <Form.Control
             name='vessel'
             as="select"
-            value={task.nextVesselId || ""}
+            value={task.nextVessel || ""}
             onChange={handleChangeVessel}
             required
           >
@@ -110,7 +110,7 @@ function TargetVessel() {
             name='quantity'
             type="number"
             required
-            max={task.targetWineQuantity}
+            max={task.wineQuantity}
             
             value={task.nextQuantity || ""}
             onChange={handleChangeNextQuantity}

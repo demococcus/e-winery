@@ -43,16 +43,16 @@ function Transfer() {
 
       // console.log("task", task);  
 
-      const type = task.targetWineQuantity === task.nextQuantity ? "transfer" : "split-from";
+      // if the quantities match, it is a transfer, otherwise it is a split
+      const type = task.wineQuantity == parseInt(task.nextQuantity) ? "transfer" : "split-from";
 
       const apiTask = {
         type,
         date: task.date,
         note: task.note,
-        wine: task.targetWineId,
-        quantity: task.targetWineQuantity,
-        nextVessel: task.nextVesselId,
-        nextQuantity: parseInt(task.nextQuantity),
+        wine: task.wine,
+        nextVessel: task.nextVessel,
+        quantity: parseInt(task.nextQuantity),
 
       }
 

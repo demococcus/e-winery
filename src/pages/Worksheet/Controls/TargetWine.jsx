@@ -48,7 +48,7 @@ function TargetWine() {
           <Form.Control
             name='wine'
             as="select"
-            value={task.targetWineId || ""}
+            value={task.wine || ""}
             onChange={handleChange}
             required
           >
@@ -71,7 +71,7 @@ function TargetWine() {
             name='quantity'
             type="number"
             disabled
-            value={task.targetWineQuantity || ""}
+            value={task.wineQuantity || ""}
             onChange={() => {}}
             placeholder={t("wine-quantity")}
             // required={number === 'A'} 

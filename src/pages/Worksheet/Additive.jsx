@@ -41,14 +41,14 @@ function Additive() {
     } else {
       // console.log("Form looks valid");
 
-      const additives = [];
+      const selectedAdditives = [];
       for (let key in task.additives) {
 
         const additive = task.additives[key];
         // console.log("ingredient", ingredient);
 
         if (additive.id !== null && additive.quantity !== null) {
-          additives.push({id: additive.id, quantity: additive.quantity});        
+          selectedAdditives.push({id: additive.id, quantity: additive.quantity});        
         }
       }    
       
@@ -56,9 +56,8 @@ function Additive() {
         type: "additive",
         date: task.date,
         note: task.note,
-        wine: task.targetWineId,
-        quantity: task.targetWineQuantity, 
-        additives,
+        wine: task.wine,
+        additives: selectedAdditives,
 
       };
 
