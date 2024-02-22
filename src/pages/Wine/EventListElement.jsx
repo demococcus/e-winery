@@ -71,7 +71,7 @@ function EventListElement({ event, firstOpId }) {
 
     <td className="text-center">{event.userName}</td>      
     <td className="text-center">
-      {isHovered && (event.type !== "transfer-out") && (
+      {isHovered && (!["transfer-out", "split-to"].includes(event.type)) && (
         <span
           style={{ cursor: canDelete ? 'pointer' : '', color: canDelete ? 'red' : 'gray' }}
           onClick={() => canDelete && handleDeleteEvent()}
