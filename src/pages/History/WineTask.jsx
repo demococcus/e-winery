@@ -39,19 +39,30 @@ function WineTask({children}) {
     </>)    
   };
 
-  const renderTransferPartial = () => {
-    const ingredients = event.subTasks.map((ing) => {
-      return <div key={ing._id}><VesselLabel isBold>{ing.vesselLabel}</VesselLabel> <Link to={`/wine/${ing.wine}`} className='no-underline'>{ing.wineTag}</Link> - {ing.quantity} {t('liters')}</div>
-    })
+  const renderSplitFrom = () => {
     return (<>
       <div>{t(`op-${event.type}`)}</div>
-      <div>{ingredients}</div>
-      {/* <div><VesselLabel isBold>{event.vesselLabel}</VesselLabel> {event.wineTag} - {event.nextQuantity} {t('liters')}</div> */}
-      
+      <div><VesselLabel isBold>{event.vesselLabel}</VesselLabel> {event.wineTag}</div>
       <GoArrowDown  className="ms-3" />
+      <div key={event.nextWine._id}><VesselLabel>{event.nextVesselLabel}</VesselLabel> <Link to={`/wine/${event.nextWine}`} className='no-underline'>{event.nextWineTag}</Link> - {event.nextQuantity} {t('liters')}</div>
+      <hr className="my-2 w-50" />
+      <div>{t("op-sub-remaining")}{event.quantity - event.nextQuantity} {t('liters')}</div>
 
-      <div><VesselLabel>{event.nextVesselLabel}</VesselLabel> {event.wineTag}</div>
       <TaskNote>{event.note}</TaskNote>
+    </>)    
+  };
+
+  const renderSplitTo = () => {
+    return (<>
+      <div>{t(`op-${event.type}`)}</div>
+      <div>
+        <VesselLabel>{event.parentVesselLabel}</VesselLabel> <Link to={`/wine/${event.parentWine}`} className='no-underline'>{event.parentWineTag}</Link> 
+        <GoArrowRight className="mx-2" />
+        {event.quantity} {t('liters')}      
+      </div>
+
+      
+
     </>)    
   };
 
@@ -75,7 +86,6 @@ function WineTask({children}) {
       {remaining}
     </>)    
   };
-
 
   const renderBlend = () => {
     const ingredients = event.subTasks.map((ing) => {
@@ -132,8 +142,11 @@ function WineTask({children}) {
     case "transfer":
       taskContent = renderTransfer();
       break;
-    case "transfer-partial":
-      taskContent = renderTransferPartial();
+    case "split-from":
+      taskContent = renderSplitFrom();
+      break;
+    case "split-to":
+      taskContent = renderSplitTo();
       break;
     case "transfer-out":
       taskContent = renderTransferOut();

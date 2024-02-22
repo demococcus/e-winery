@@ -229,9 +229,12 @@ const bgTranslation = {
     "op-remontage": "Ремонтаж",
     "op-blend": "Купажиране",
     "op-additive": "Добавки: ",
-    "op-transfer-out": "Прехвърляне към друга партида",
+    "op-transfer-out": "Участва в купаж",
     "op-transfer": "Прехвърляне в празен съд",
-    "op-transfer-partial": "Прехвърляне на част от виното в празен съд",
+    "op-split-from": "Прехвърляне на част от виното в празен съд",
+    "op-split-to": "Прехвърляне от друго вино",
+
+
     "op-sub-depleted": "Виното е изчерпано.",
     "op-sub-remaining": "Остават: ",
     "op-location-task": "Задача", 

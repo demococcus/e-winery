@@ -43,7 +43,7 @@ function Transfer() {
 
       // console.log("task", task);  
 
-      const type = task.targetWineQuantity === task.nextQuantity ? "transfer" : "transfer-partial";
+      const type = task.targetWineQuantity === task.nextQuantity ? "transfer" : "split-from";
 
       const apiTask = {
         type,
