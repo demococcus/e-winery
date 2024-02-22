@@ -233,6 +233,7 @@ const enTranslation = {
     "op-transfer": "Transfer to an empty vessel",
     "op-split-from": "Transfer part of the wine to an empty vessel",
     "op-split-to": "Transfer from another wine",
+    "op-note": "Note:",
 
     "op-sub-depleted": "Wine depleted.",
     "op-sub-remaining": "Remaining: ",

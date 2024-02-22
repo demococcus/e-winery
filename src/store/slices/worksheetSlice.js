@@ -4,7 +4,7 @@ import { getCurrentDate } from "../../utils";
 const initialTask = {
   category: 'manipulation',
   type: null,
-  date: getCurrentDate(),
+  date: null,
   note: null,
 
   wine: null,
@@ -143,7 +143,10 @@ const worksheetSlice = createSlice({
     },
 
     resetTask(state) {
-      state.task = initialTask;
+      state.task = {
+        ...initialTask, 
+        date: getCurrentDate()
+      };
     },
 
   },

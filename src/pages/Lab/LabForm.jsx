@@ -12,6 +12,7 @@ import Col from 'react-bootstrap/Col';
 import { useAddWineLabMutation } from "../../store";
 import ErrorMsgBox from '../_shared/ErrorMsgBox';
 import PageTitle from '../_shared/PageTitle';
+import { getCurrentDate } from '../../utils';
 
 
 function LabForm() {
@@ -89,7 +90,7 @@ function LabForm() {
   });
 
   const initialFormValues = {
-    date: new Date().toISOString().split('T')[0],    
+    date: getCurrentDate(),    
     wine: id,
     alcohol: '',
     sugars: '',

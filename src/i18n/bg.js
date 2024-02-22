@@ -233,6 +233,7 @@ const bgTranslation = {
     "op-transfer": "Прехвърляне в празен съд",
     "op-split-from": "Прехвърляне на част от виното в празен съд",
     "op-split-to": "Прехвърляне от друго вино",
+    "op-note": "Бележка:",
 
     "op-sub-depleted": "Виното е изчерпано.",
     "op-sub-remaining": "Остават: ",

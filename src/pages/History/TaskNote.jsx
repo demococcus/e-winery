@@ -1,6 +1,9 @@
-function TaskNote({children}) {
+import { useTranslation } from "react-i18next";
 
-  return children !== null ? <div style={{ fontStyle: 'italic' }} className="mt-2">Note: {children}</div> : null;
+function TaskNote({children}) {
+  const { t } = useTranslation();
+
+  return children !== null ? <div style={{ fontStyle: 'italic' }} className="mt-2">{t("op-note")} {children}</div> : null;
 
 } 
 
