@@ -76,7 +76,9 @@ function WineTask({children}) {
     // const remaining = <div>Remaining: {event.quantityAfter} {t('liters')}</div>;
     // const depleated = <div>Wine depleted</div>;
 
-    const remaining = event.quantityAfter <= 0 ? <div>{t("op-sub-depleted")}</div> : <div>{t("op-sub-remaining")}{event.quantityAfter} {t('liters')}</div>;
+
+    const remainingQuantity = event.quantityBefore - event.quantity;
+    const remainingText = remainingQuantity <= 0 ? <div>{t("op-sub-depleted")}</div> : <div>{t("op-sub-remaining")}{remainingQuantity} {t('liters')}</div>;
 
 
     return (<>
@@ -88,7 +90,7 @@ function WineTask({children}) {
       </span> <VesselLabel>{event.refVesselLabel}</VesselLabel> <Link to={`/wine/${event.refWine}`} className='no-underline'>{event.refWineLot}</Link></div>
 
       <hr className="my-2 w-50" />
-      {remaining}
+      {remainingText}
     </>)    
   };
 
