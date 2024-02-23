@@ -136,7 +136,7 @@ const worksheetSlice = createSlice({
       // console.log("setTaskWineAdditivesQuantity", target);
 
       try {
-        state.task.additives[target.name].quantity = parseInt(target.value);  
+        state.task.additives[target.name].quantity = parseFloat(target.value);
       } catch {
         state.task.additives[target.name].quantity = null;
       }

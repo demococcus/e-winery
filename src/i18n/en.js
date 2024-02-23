@@ -230,10 +230,10 @@ const enTranslation = {
     "op-remontage": "Remontage",
     "op-blend": "Blend",
     "op-additive": "Additives: ",
-    "op-transfer-out": "Transfer to a blend",
+    "op-transfer-out": "Transferred to a blend",
     "op-transfer": "Transfer to an empty vessel",
     "op-split-from": "Transfer part of the wine to an empty vessel",
-    "op-split-to": "Transfer from another wine",
+    "op-split-to": "Transferred from another wine",
     "op-note": "Note:",
 
     "op-sub-depleted": "Wine depleted.",
