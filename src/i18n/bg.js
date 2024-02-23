@@ -229,12 +229,14 @@ const bgTranslation = {
     "op-freeze": "Фризиране",
     "op-remontage": "Ремонтаж",
     "op-blend": "Купажиране",
-    "op-additive": "Добавки: ",
+    "op-additive": "Добавки",
     "op-transfer-out": "Участва в купаж",
-    "op-transfer": "Прехвърляне в празен съд",
+    "op-transfer": "Прехвърляне на цялото количество в празен съд",
     "op-split-from": "Прехвърляне на част от виното в празен съд",
     "op-split-to": "Прехвърляне от друго вино",
     "op-note": "Бележка:",
+    "op-ingredient-all": "(цялото количество)",
+    
 
     "op-sub-depleted": "Виното е изчерпано.",
     "op-sub-remaining": "Остават: ",

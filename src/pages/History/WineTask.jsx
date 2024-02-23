@@ -99,7 +99,8 @@ function WineTask({children}) {
     let blendQuantity = 0;
     const ingredients = event.subTasks.map((ing) => {
       blendQuantity += ing.quantity;
-      return <div key={ing._id}><VesselLabel isBold>{ing.vesselLabel}</VesselLabel> <Link to={`/wine/${ing.wine}`} className='no-underline'>{ing.wineLot}</Link> - {ing.quantity} {t('liters')}</div>
+      const wholeQuantity = ing.quantity === ing.quantityBefore ? <span>{t('op-ingredient-all')}</span> : null;
+      return <div key={ing._id}><VesselLabel isBold>{ing.vesselLabel}</VesselLabel> <Link to={`/wine/${ing.wine}`} className='no-underline'>{ing.wineLot}</Link> - {ing.quantity} {t('liters')} {wholeQuantity}</div>
     })
 
     return (<>
