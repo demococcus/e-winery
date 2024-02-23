@@ -224,6 +224,7 @@ const bgTranslation = {
     // op event types
     "op-aerate": "Аериране",
     "op-decant": "Откаляване",
+    "op-drain-press": "Източване и пресоване",
     "op-filter": "Филтриране",
     "op-freeze": "Фризиране",
     "op-remontage": "Ремонтаж",

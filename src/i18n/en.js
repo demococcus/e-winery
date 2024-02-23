@@ -224,6 +224,7 @@ const enTranslation = {
     // op event types
     "op-aerate": "Aerate",
     "op-decant": "Decant",
+    "op-drain-press": "Drain and press",
     "op-filter": "Filter",
     "op-freeze": "Freeze",
     "op-remontage": "Remontage",

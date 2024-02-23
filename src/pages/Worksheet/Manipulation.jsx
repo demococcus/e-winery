@@ -9,6 +9,8 @@ import Form from 'react-bootstrap/Form';
 import { updateTaskFormField, useAddWineTaskMutation } from "../../store";
 import TargetWine from "../Worksheet/Controls/TargetWine";
 import ErrorMsgBox from "../_shared/ErrorMsgBox";
+import { wineTaskSimpleTypes } from '../History/opTypes';
+
 
 
 function Manipulation() {
@@ -97,11 +99,9 @@ function Manipulation() {
           required
         >
           <option value="">{t("ws-select-type")}</option>
-          <option value="aerate" key="aerate">{t("op-aerate")}</option>
-          <option value="decant" key="decant">{t("op-decant")}</option>
-          <option value="filter" key="filter">{t("op-filter")}</option>
-          <option value="freeze" key="freeze">{t("op-freeze")}</option>
-          <option value="remontage" key="remontage">{t("op-remontage")}</option>
+          {wineTaskSimpleTypes.map((element) => {
+            return <option value={element} key={element}>{t(`op-${element}`)}</option>
+          })}
 
         </Form.Control>
         <Form.Control.Feedback type="invalid">{t('val-required-select')}</Form.Control.Feedback>

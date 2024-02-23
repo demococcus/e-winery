@@ -1,0 +1,1 @@
+export const wineTaskSimpleTypes = ["aerate", "decant", "drain-press", "filter", "freeze",  "remontage",]

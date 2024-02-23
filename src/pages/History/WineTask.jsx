@@ -7,8 +7,7 @@ import { GoArrowRight } from "react-icons/go";
 import VesselLabel from "../_shared/VesselLabel";
 import TaskNote from "./TaskNote";
 import './WineTask.css';
-
-
+import { wineTaskSimpleTypes } from './opTypes';
 
 
 function WineTask({children}) {
@@ -140,36 +139,35 @@ function WineTask({children}) {
 
   let taskContent;
 
-  switch (event.type) {
-    case "aerate":
-    case "decant":
-    case "filter":
-    case "freeze":
-    case "remontage":
-      taskContent = renderSimpleTask();
-      break;
-    case "transfer":
-      taskContent = renderTransfer();
-      break;
-    case "split-from":
-      taskContent = renderSplitFrom();
-      break;
-    case "split-to":
-      taskContent = renderSplitTo();
-      break;
-    case "transfer-out":
-      taskContent = renderTransferOut();
-      break;
-    case "blend":
-      taskContent = renderBlend();
-      break;
-    case "additive":
-      taskContent = renderAdditive();
-      break;
 
-    default: 
-    taskContent = "Unknown"       
-      break;
+  if (wineTaskSimpleTypes.includes(event.type)) {
+    taskContent = renderSimpleTask();
+  } else {
+    switch (event.type) {
+
+      case "transfer":
+        taskContent = renderTransfer();
+        break;
+      case "split-from":
+        taskContent = renderSplitFrom();
+        break;
+      case "split-to":
+        taskContent = renderSplitTo();
+        break;
+      case "transfer-out":
+        taskContent = renderTransferOut();
+        break;
+      case "blend":
+        taskContent = renderBlend();
+        break;
+      case "additive":
+        taskContent = renderAdditive();
+        break;
+
+      default: 
+      taskContent = "Unknown"       
+        break;
+    }
   }
 
   return taskContent;
