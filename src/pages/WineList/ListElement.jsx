@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useNavigate  } from 'react-router-dom';
 
 import { getDateDaysAgo } from '../../utils';
@@ -35,13 +36,13 @@ function ListElement({wine}) {
       labClass="magenta-text"
     } else if (maLabDue) {
       labClass="blue-text"
-    };
+    }
   }
 
   const vesselLabel = wine.vessel !== null ? wine.vessel.label : 'N/A'
 
   let quantityDetails;
-  if (!wine.archived && wine.vessel?.type === "tank") {
+  if (!wine.archived && wine.vessel?.type === "tank" && ["MA", "AG"].includes(wine.status)) {
     const discrepancy = wine.quantity - wine.vessel.capacity * wine.vessel.number;
     quantityDetails = discrepancy > 0 ? 
     <div className='red-text'>+{discrepancy}</div> : 
@@ -52,7 +53,7 @@ function ListElement({wine}) {
     const discrepancy = wine.quantity % wine.vessel.capacity;
     const barrelDiscrepancy = discrepancy > 0 ? "~" : null;
     quantityDetails = <div>{barrelDiscrepancy}{Math.round(wine.quantity  / wine.vessel.capacity)} {t("wine-q-barrels")}</div>;
-  };
+  }
 
 
 

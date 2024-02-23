@@ -6,6 +6,7 @@ function ListElement({ event }) {
   return <tr>
     <td className="text-center">{dateString}</td>
     <td className="text-center">{event.vesselLabel}</td>
+    <td >{event.wineLot}</td>
     <td style={{ backgroundColor: '#AAF2FF' }} className="text-center">{event.alcohol}</td>      
     <td className="text-center">{event.tAcids}</td>      
     <td className="text-center">{event.pH}</td>      

@@ -36,7 +36,8 @@ function List ({ resultsNumber }) {
     <thead>
       <tr className="text-center table-secondary">
         <th>{t('lab-date')}</th>
-        <th>{t('lab-location')}</th>
+        <th>{t('wine-vessel')}</th>
+        <th>{t('wine-lot')}</th>
         <th>{t('lab-alcohol')}</th>
         <th>{t('lab-tAcids')}</th>
         <th>{t('lab-pH')}</th>

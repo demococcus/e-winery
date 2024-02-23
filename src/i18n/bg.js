@@ -184,14 +184,14 @@ const bgTranslation = {
     "lab-location": "Локация",
     "lab-task": "Задача",
     "lab-alcohol": "Алкохол",
-    "lab-tAcids": "Титруеми кис.",
+    "lab-tAcids": "Тит. кис.",
     "lab-pH": "pH",
     "lab-SO2": "SO2",
     "lab-tSO2": "Общ SO2",
     "lab-vAcids": "Летливи",
     "lab-sugars": "Захари",
     "lab-density": "Плътност",
-    "lab-mAcid": "Ябълчна кис.",
+    "lab-mAcid": "Яб. кис.",
     "lab-user": "Потребител",
 
 
@@ -260,6 +260,7 @@ const bgTranslation = {
     // vessel
     "vessel-all": "Всички",
     "vessel-full": "Пълен",
+    "vessel-used": "С вино",
     "vessel-empty": "Празен",
     "vessel-available": "Има място",
     "vessel-over-capacity": "Препълнен",

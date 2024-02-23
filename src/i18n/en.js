@@ -260,6 +260,7 @@ const enTranslation = {
     // vessel
     "vessel-all": "All",
     "vessel-full": "Full",
+    "vessel-used": "Used",
     "vessel-empty": "Empty",
     "vessel-available": "Available",
     "vessel-over-capacity": "Overcapacity",
