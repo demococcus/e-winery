@@ -5,6 +5,7 @@ import { resetUserInfoAndToken, useLogoutUserQuery } from "../../store";
 import SuccessMsgBox from "../_shared/SuccessMsgBox";
 import { Col, Row } from "react-bootstrap";
 import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 
 
@@ -12,6 +13,7 @@ function LogOut() {
 
   const dispatch = useDispatch(); 
   const { error, isLoading } = useLogoutUserQuery(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     dispatch(resetUserInfoAndToken(null));
@@ -20,24 +22,22 @@ function LogOut() {
 
   if (isLoading || error) {
     // console.log("isLoading");
-  } else if (error) {
-    // console.log("error", error);
   } else {
     // console.log("dispatching resetUserInfoAndToken");  
   }
 
   return(<>
-    <PageTitle>See you later</PageTitle>
+    <PageTitle>{t("logout-title")}</PageTitle>
     <Row className="mb-3">
         <Col md="6">
           <SuccessMsgBox>
-            You have been logged out.
+            {t("logout-msg")}
           </SuccessMsgBox>
         </Col>
       </Row>  
   </>);
 
-};
+}
 
 export default LogOut;
 

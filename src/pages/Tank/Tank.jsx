@@ -61,6 +61,6 @@ function Tank () {
       </Row>
     </div>
   );
-};
+}
 
 export default Tank;

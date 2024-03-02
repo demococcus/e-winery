@@ -44,6 +44,10 @@ const bgTranslation = {
     "msg-box-no-results-text": "Няма намерени резултати.",
     "msg-box-warning": "Внимание",
 
+    // logout
+    "logout-title": "До скоро",
+    "logout-msg": "Излязохте от системата.",
+
 
     // form    
     "form-submit": "Изпрати",

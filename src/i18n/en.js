@@ -44,6 +44,9 @@ const enTranslation = {
     "msg-box-no-results-text": "Nothing matches your search criteria.",
     "msg-box-warning": "Warning",
 
+     // logout
+     "logout-title": "See you later",
+     "logout-msg": "You have been logged out.",
 
     // form    
     "form-submit": "Submit",
