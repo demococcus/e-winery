@@ -1,17 +1,29 @@
-import { useTranslation } from 'react-i18next';
-import PageTitle from "../_shared/PageTitle";
-import UnderConstruction from "../_shared/UnderConstruction";
+import { useParams } from 'react-router-dom';
 
-function Grape()  {
+import { useFetchGrapeByIdQuery } from "../../store";
+import PlaceholderBlock from '../_shared/PlaceholderBlock';
+import ErrorMsgBox from '../_shared/ErrorMsgBox';
+import GrapeDetails from './GrapeDetails';
 
-  const { t } = useTranslation();
+function Grape() {
 
-  return(
-    <div>
-      <PageTitle>{t("grape-title")}</PageTitle>
-      <UnderConstruction />
-    </div>
-  );
+  // get the id of the grape from the URL
+  const { id } = useParams(); 
+
+  // fetch the wine
+  const { data, error, isLoading } = useFetchGrapeByIdQuery(id);
+
+  let content;
+
+  if (isLoading) {
+    content = <div><PlaceholderBlock times={1}/></div>
+  } else if (error) {
+    content =  <ErrorMsgBox />
+  } else {
+    content = <GrapeDetails grape={data} />
+  }  
+
+  return (content);
 }
 
 export default Grape;

@@ -6,6 +6,7 @@ import { authApi } from './apis/authApi';
 import { historyApi } from './apis/historyApi';
 import { vesselApi } from './apis/vesselApi';
 import { wineApi } from './apis/wineApi';
+import { grapeApi } from './apis/grapeApi';
 import { additiveApi } from './apis/additiveApi';
 
 
@@ -15,6 +16,7 @@ import { barrelReducer } from './slices/barrelSlice';
 import { labReducer } from './slices/labSlice';
 import { tankReducer } from './slices/tankSlice'; 
 import { wineReducer } from './slices/wineSlice';
+import { grapeReducer } from './slices/grapeSlice';
 import { worksheetReducer } from './slices/worksheetSlice';
 
 
@@ -25,12 +27,14 @@ export const store = configureStore({
     [historyApi.reducerPath]: historyApi.reducer,
     [vesselApi.reducerPath]: vesselApi.reducer,
     [wineApi.reducerPath]: wineApi.reducer,
+    [grapeApi.reducerPath]: grapeApi.reducer,
     [additiveApi.reducerPath]: additiveApi.reducer,
     auth: authReducer,
     barrel: barrelReducer,
     lab: labReducer,
     tank: tankReducer,
     wine: wineReducer,
+    grape: grapeReducer,
     worksheet: worksheetReducer,
   },
 
@@ -40,6 +44,7 @@ export const store = configureStore({
     .concat(historyApi.middleware)     
     .concat(vesselApi.middleware)
     .concat(wineApi.middleware)
+    .concat(grapeApi.middleware)
     .concat(additiveApi.middleware)
   }
 });
@@ -57,6 +62,11 @@ export {
   setFormInput as setWineFormInput, 
   resetFormInput as resetWineFormInput,
 } from './slices/wineSlice';
+
+export { 
+  setFormInput as setGrapeFormInput, 
+  resetFormInput as resetGrapeFormInput,
+} from './slices/grapeSlice';
 
 export { 
   setPeriodFilter as setWorksheetPeriodFilter,
@@ -85,6 +95,13 @@ export {
   useUpdateWineMutation,
  } from './apis/wineApi';
 
+ export { 
+  useFetchGrapesQuery, 
+  useFetchGrapeByIdQuery,
+  useAddGrapeMutation,
+  useUpdateGrapeMutation,
+ } from './apis/grapeApi';
+
 export { 
   useFetchVesselsQuery, 
   useFetchAvailableVesselsQuery,
@@ -96,10 +113,13 @@ export {
   useFetchWineTasksQuery, 
   useFetchWineLabsQuery,
   useFetchWineHistoryQuery,
+  useFetchGrapeHistoryQuery,
   useAddWineTaskMutation,
   useAddWineLabMutation,
+  useAddGrapeLabMutation,
   useDeleteWineTaskMutation,
   useDeleteWineLabMutation,
+  useDeleteGrapeLabMutation,
 } from './apis/historyApi';
 
 export { 

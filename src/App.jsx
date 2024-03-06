@@ -3,7 +3,9 @@ import Container from 'react-bootstrap/Container';
 import './i18n/i18n';
 
 import BasicNavbar from './pages/Navbar/BasicNavbar'; 
+import GrapeList from './pages/GrapeList/GrapeList';
 import Grape from './pages/Grape/Grape';
+import GrapeAdd from './pages/Grape/GrapeAdd';
 import WineList from './pages/WineList/WineList';
 import Wine from './pages/Wine/Wine';
 import WineAdd from './pages/Wine/WineAdd';
@@ -24,6 +26,7 @@ import Login from './pages/Auth/Login';
 import Register from './pages/Auth/Register';
 import LogOut from './pages/Auth/LogOut';
 import NotFound from './pages/_shared/NotFound';
+import GrapeLabForm from './pages/Lab/GrapeLabForm';
 
 
 function App() {
@@ -35,7 +38,9 @@ function App() {
       <Container>
         <Routes>
           <Route element={<ProtectedRoute />}>            
-            <Route path="/grapes" element={<Grape />} />
+            <Route path="/grapes" element={<GrapeList />} />
+            <Route path="/grape/add" element={<GrapeAdd />} />
+            <Route path="/grape/:id" element={<Grape />} />
 
             <Route path="/wines" element={<WineList />} />
             <Route path="/wine/add" element={<WineAdd />} />
@@ -44,6 +49,7 @@ function App() {
 
             <Route path="/lab" element={<LabList />} />
             <Route path="/lab/add/:id" element={<LabForm />} />
+            <Route path="/lab/grape/add/:id" element={<GrapeLabForm />} />
             <Route path="/worksheets" element={<WorksheetList />} />
             <Route path="/worksheet/add" element={<WorksheetAdd />} />
             

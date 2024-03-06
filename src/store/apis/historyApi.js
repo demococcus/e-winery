@@ -48,6 +48,18 @@ const historyApi = createApi({
         },
       }),
 
+
+      // Fetch grape history
+      fetchGrapeHistory: builder.query({ 
+        providesTags: ["Grape History"],
+        query: (grape) => {
+          return {
+            url: `/history/grape/${grape._id}`,
+            method: 'GET'
+          };          
+        },
+      }),
+
       // Fetch tasks
       fetchWineTasks: builder.query({ 
         providesTags: ["Tasks"],
@@ -98,6 +110,21 @@ const historyApi = createApi({
         }
       }),
 
+
+      // Add wineLab event
+      addGrapeLab: builder.mutation({
+        invalidatesTags: ["Labs", "Grape History"],
+        query: (lab) => {
+
+          return {
+            url: '/grapeLab',
+            method: 'POST',
+            body: lab
+          }          
+        }
+      }),
+
+
       // Delete wineTask event
       deleteWineTask: builder.mutation({
         invalidatesTags: ["Labs", "Wine History"],
@@ -122,6 +149,19 @@ const historyApi = createApi({
         }
       }),
 
+      // Delete grape event
+      deleteGrapeLab: builder.mutation({
+        invalidatesTags: ["Labs", "Grape History"],
+        query: (_id) => {
+
+          return {
+            url: `/grapeLab/${_id}`,
+            method: 'DELETE',
+          }          
+        }
+      }),
+
+
       
 
 
@@ -136,9 +176,12 @@ export const {
   useFetchWineTasksQuery, 
   useFetchWineLabsQuery,
   useFetchWineHistoryQuery,
+  useFetchGrapeHistoryQuery,
   useAddWineTaskMutation,
   useAddWineLabMutation,
+  useAddGrapeLabMutation,
   useDeleteWineTaskMutation,
   useDeleteWineLabMutation,
+  useDeleteGrapeLabMutation,
 
 } = historyApi;

@@ -98,6 +98,13 @@ const bgTranslation = {
 
     // grapes
     "grape-title": "Лозя",
+    "grape-add-new": "Добави парцел",
+    "grape-add-title": "Добави лозов парцел",
+    "grape-parcel": "Парцел",
+    "grape-variety": "Сорт грозде",
+    "grape-area": "Площ",
+    "grape-add-lab": "Добави анализ",
+    "grape-archived": " (архивиран)",
 
 
     // liters / gal

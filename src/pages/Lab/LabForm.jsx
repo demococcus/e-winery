@@ -117,7 +117,7 @@ function LabForm() {
       initialValues={initialFormValues}
       
     >
-      {({ handleSubmit, handleChange, values, touched, errors, isSubmitting  }) => (
+      {({ handleSubmit, handleChange, values, touched, errors  }) => (
         <Form noValidate onSubmit={handleSubmit}>
 
           <Row className="mb-3">
@@ -309,6 +309,6 @@ function LabForm() {
   </>
   );
 
-};
+}
 
 export default LabForm;
