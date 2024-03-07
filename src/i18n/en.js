@@ -154,7 +154,7 @@ const enTranslation = {
     "wine-title": "Cellar",
     "wine-add-title": "Add Wine",
     
-    "wine-add-new": "Add New",
+    "wine-add-new": "Add Wine",
     "wine-filter-current": "Current Vintage",
     "wine-filter-past": "Past Vintages", 
 
@@ -214,7 +214,7 @@ const enTranslation = {
 
     // worksheet
     "ws-title": "Worksheets",  
-    "ws-add-new": "Add New",
+    "ws-add-new": "Add Task",
 
     "ws-Date": "Date",
     "ws-Task": "Task",

@@ -83,7 +83,7 @@ function TankForm() {
               <Form.Label>{t("vessel-form-label")}</Form.Label>
               <Form.Control
                 type="text"
-                placeholder={t("vessel-form-label")}
+                // placeholder={t("vessel-form-label")}
                 name="label"
                 value={values.label}
                 onChange={handleChange}
@@ -99,7 +99,7 @@ function TankForm() {
               <Form.Label>{t("vessel-form-capacity")}</Form.Label>
               <Form.Control
                 type="number"
-                placeholder={t("vessel-form-capacity")}
+                // placeholder={t("vessel-form-capacity")}
                 name="capacity"
                 value={values.capacity}
                 onChange={handleChange}

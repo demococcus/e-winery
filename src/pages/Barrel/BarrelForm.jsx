@@ -91,7 +91,7 @@ function BarrelForm() {
               <Form.Label>{t("vessel-form-label")}</Form.Label>
               <Form.Control
                 type="text"
-                placeholder={t("vessel-form-label")}
+                // placeholder={t("vessel-form-label")}
                 name="label"
                 value={values.label}
                 onChange={handleChange}
@@ -110,7 +110,7 @@ function BarrelForm() {
               <Form.Label>{t("vessel-form-number")}</Form.Label>
               <Form.Control
                 type="number"
-                placeholder={t("vessel-form-number")}
+                // placeholder={t("vessel-form-number")}
                 name="number"
                 value={values.number}
                 onChange={handleChange}
@@ -125,7 +125,7 @@ function BarrelForm() {
               <Form.Label>{t("barrel-form-capacity")}</Form.Label>
               <Form.Control
                 type="number"
-                placeholder={t("barrel-form-capacity")}
+                // placeholder={t("barrel-form-capacity")}
                 name="capacity"
                 value={values.capacity}
                 onChange={handleChange}

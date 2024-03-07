@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useTranslation } from 'react-i18next';
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from 'react';
@@ -129,7 +130,7 @@ function EditForm({ wine }) {
             type="text"
             value={formInputData.lot || ""} 
             onChange={handleChange}
-            placeholder={t("wine-lot")}
+            // placeholder={t("wine-lot")}
             required
             minLength={1}
             maxLength={60}
@@ -147,7 +148,7 @@ function EditForm({ wine }) {
             type="number"
             value={formInputData.vintage || ""} 
             onChange={handleChange}
-            placeholder={t("wine-vintage")}
+            // placeholder={t("wine-vintage")}
             required
           />
           <Form.Control.Feedback type="invalid">{t('val-required')}</Form.Control.Feedback>
@@ -204,7 +205,7 @@ function EditForm({ wine }) {
             type="number"
             value={formInputData.quantity || ""} 
             onChange={handleChange}
-            placeholder={t("wine-quantity")}
+            // placeholder={t("wine-quantity")}
             required
             min={0}
             max={100000}

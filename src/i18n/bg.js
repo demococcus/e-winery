@@ -154,7 +154,7 @@ const bgTranslation = {
     "wine-title": "Вина",
     "wine-add-title": "Добави вино",
     
-    "wine-add-new": "Добави ново",
+    "wine-add-new": "Добави вино",
     "wine-filter-current": "Нова реколта",
     "wine-filter-past": "Минали реколти", 
 
@@ -214,7 +214,7 @@ const bgTranslation = {
 
     // worksheet
     "ws-title": "Задачи",  
-    "ws-add-new": "Добави нова",
+    "ws-add-new": "Добави задача",
 
     "ws-Date": "Дата",
     "ws-Task": "Задача",

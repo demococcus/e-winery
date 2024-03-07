@@ -119,7 +119,7 @@ function AdditiveForm() {
               <Form.Label>{t("vessel-form-label")}</Form.Label>
               <Form.Control
                 type="text"
-                placeholder={t("vessel-form-label")}
+                // placeholder={t("vessel-form-label")}
                 name="label"
                 value={values.label}
                 onChange={handleChange}
@@ -135,7 +135,7 @@ function AdditiveForm() {
               <Form.Control
                 name="unit"
                 as="select"
-                placeholder={t("additive-unit")}
+                // placeholder={t("additive-unit")}
                 value={values.unit}
                 onChange={handleChange}
                 isValid={touched.unit && !errors.unit}

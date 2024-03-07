@@ -88,7 +88,7 @@ function GrapeAdd() {
           type="text"
           value={formInputData.parcel || ""} 
           onChange={handleChange}
-          placeholder={t("grape-parcel")}
+          // placeholder={t("grape-parcel")}
           required
           minLength={1}
           maxLength={60}
@@ -105,7 +105,7 @@ function GrapeAdd() {
           type="text"
           value={formInputData.variety || ""} 
           onChange={handleChange}
-          placeholder={t("grape-variety")}
+          // placeholder={t("grape-variety")}
           required
           minLength={1}
           maxLength={60}
@@ -120,7 +120,7 @@ function GrapeAdd() {
           type="number"
           value={formInputData.area || ""} 
           onChange={handleChange}
-          placeholder={t("grape-area")}
+          // placeholder={t( "grape-area")}
           required
           min={0}
           max={100000}
