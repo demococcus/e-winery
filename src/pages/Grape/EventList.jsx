@@ -39,6 +39,7 @@ function EventList ({ grape }) {
         <thead>
           <tr className="text-center table-secondary">
             <th>{t('lab-date')}</th>
+            <th>{t('lab-location')}</th>
             <th>{t('lab-sugars')}</th>
             <th>{t('lab-tAcids')}</th>
             <th>{t('lab-pH')}</th>
@@ -63,6 +64,6 @@ function EventList ({ grape }) {
 
 
   return content;
-};
+}
 
 export default EventList;

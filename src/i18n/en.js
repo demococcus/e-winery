@@ -44,9 +44,11 @@ const enTranslation = {
     "msg-box-no-results-text": "Nothing matches your search criteria.",
     "msg-box-warning": "Warning",
 
+
      // logout
      "logout-title": "See you later",
      "logout-msg": "You have been logged out.",
+
 
     // form    
     "form-submit": "Submit",
@@ -97,6 +99,13 @@ const enTranslation = {
 
     // grapes
     "grape-title": "Vineyard",
+    "grape-add-new": "Add Block",
+    "grape-add-title": "Add Block",
+    "grape-parcel": "Block",
+    "grape-variety": "Grape Variety",
+    "grape-area": "Area",
+    "grape-add-lab": "Add Lab Analysis",
+    "grape-archived": " (archived)",
 
 
     // liters / gal
@@ -214,6 +223,7 @@ const enTranslation = {
     "ws-User": "User",
 
     "ws-select-wine": "Select wine",
+    "ws-select-grape": "Select grape",
     "ws-select-type": "Select type",
     "ws-select-additive": "Select additive",
 
@@ -221,7 +231,7 @@ const enTranslation = {
     "ws-val-overcapacity": "That would exceed the capacity by",
     "ws-val-top-up": "The tank may need to be topped-up by",
     "ws-val-quantity-exceeds": "The value is too high.",
-    "ws-val-dupe": "Some wines are selected twice.",
+    "ws-val-dupe": "Some elements are selected twice.",
     
 
     // op event types
@@ -232,6 +242,7 @@ const enTranslation = {
     "op-freeze": "Freeze",
     "op-remontage": "Remontage",
     "op-blend": "Blend",
+    "op-vinification": "Vinification",
     "op-additive": "Additives",
     "op-transfer-out": "Transferred to a blend",
     "op-transfer": "Transfer the whole quantity to an empty vessel",
@@ -284,6 +295,7 @@ const enTranslation = {
     "add-task-transfer": "Transfer", 
     "add-task-blend": "Blend", 
     "add-task-additive": "Additives", 
+    "add-task-vinification": "Load Grapes", 
     
     // add lab
     "add-lab-title": "New Lab Analysis", 

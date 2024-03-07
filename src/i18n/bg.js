@@ -44,6 +44,7 @@ const bgTranslation = {
     "msg-box-no-results-text": "Няма намерени резултати.",
     "msg-box-warning": "Внимание",
 
+
     // logout
     "logout-title": "До скоро",
     "logout-msg": "Излязохте от системата.",
@@ -222,6 +223,7 @@ const bgTranslation = {
     "ws-User": "Потребител",
 
     "ws-select-wine": "Изберете вино",
+    "ws-select-grape": "Изберете грозде",
     "ws-select-type": "Изберете тип",
     "ws-select-additive": "Изберете добавка",
 
@@ -229,7 +231,7 @@ const bgTranslation = {
     "ws-val-overcapacity": "Съдът ще бъде препълнен с",
     "ws-val-top-up": "Съдът ще остане непълен с",
     "ws-val-quantity-exceeds": "Това е повече от наличното.",
-    "ws-val-dupe": "Някои вина се повтарят. Моля коригирайте.",
+    "ws-val-dupe": "Някои елементи се повтарят. Моля коригирайте.",
     
 
     // op event types
@@ -240,6 +242,7 @@ const bgTranslation = {
     "op-freeze": "Фризиране",
     "op-remontage": "Ремонтаж",
     "op-blend": "Купажиране",
+    "op-vinification": "Винификация",
     "op-additive": "Добавки",
     "op-transfer-out": "Участва в купаж",
     "op-transfer": "Прехвърляне на цялото количество в празен съд",
@@ -248,7 +251,6 @@ const bgTranslation = {
     "op-note": "Бележка:",
     "op-ingredient-all": "(цялото количество)",
     
-
     "op-sub-depleted": "Виното е изчерпано.",
     "op-sub-remaining": "Остават: ",
     "op-location-task": "Задача", 
@@ -293,6 +295,7 @@ const bgTranslation = {
     "add-task-transfer": "Прехвърляне", 
     "add-task-blend": "Купаж", 
     "add-task-additive": "Добавки", 
+    "add-task-vinification": "Винификация", 
     
     // add lab
     "add-lab-title": "Нов анализ", 

@@ -32,6 +32,13 @@ const initialTask = {
     'D': {id: null, quantity: null},
   },
 
+  subGrapes: {
+    'A': {id: null, quantity: null},
+    'B': {id: null, quantity: null},
+    'C': {id: null, quantity: null},
+    'D': {id: null, quantity: null},
+  },
+
   
 }
 
@@ -106,6 +113,19 @@ const worksheetSlice = createSlice({
       }
     },
 
+    setTaskVinificationIngredients(state, action) { 
+
+      const name = action.payload.name;
+      const value = action.payload.value;    
+       
+      try {
+        state.task.subGrapes[name].id = value._id;    
+      } catch (error) {
+
+        state.task.subGrapes[name].id = null;  
+      }
+    },
+
     setTaskWineIngredientsQuantity(state, action) { 
       
       const target = action.payload 
@@ -115,6 +135,18 @@ const worksheetSlice = createSlice({
         state.task.subWines[target.name].quantity = parseInt(target.value);  
       } catch {
         state.task.subWines[target.name].quantity = null;
+      }
+    },
+
+    setTaskVinificationQuantity(state, action) { 
+      
+      const target = action.payload 
+      // console.log("setTaskWineIngredientsQuantity", target);
+
+      try {
+        state.task.subGrapes[target.name].quantity = parseInt(target.value);  
+      } catch {
+        state.task.subGrapes[target.name].quantity = null;
       }
     },
 
@@ -167,5 +199,7 @@ export const {
   setTaskNextVessel,
   setTaskWineAdditives,
   setTaskWineAdditivesQuantity,
+  setTaskVinificationIngredients,
+  setTaskVinificationQuantity,
 
  } = worksheetSlice.actions;

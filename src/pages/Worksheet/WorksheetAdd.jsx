@@ -12,6 +12,7 @@ import Additive from './Additive';
 
 import {resetTask, updateTaskFormField } from "../../store";
 import Transfer from './Transfer';
+import Vinification from './Vinification';
 
 
 function WorksheetAdd() {
@@ -36,6 +37,7 @@ function WorksheetAdd() {
     { name: t("add-task-transfer"), value: 'transfer' },
     { name: t("add-task-blend"), value: 'blend' },
     { name: t("add-task-additive"), value: 'additive' },
+    { name: t("add-task-vinification"), value: 'vinification' },
   ];
 
   const handleRadioChange = (e) => {
@@ -68,6 +70,7 @@ function WorksheetAdd() {
     {task.category === "transfer" && <Transfer />}
     {task.category === "blend" && <Blend />}
     {task.category === "additive" && <Additive />}
+    {task.category === "vinification" && <Vinification />}
     
   </>);
 }

@@ -2,20 +2,19 @@
 import { useState } from "react";
 import { useTranslation } from 'react-i18next';
 
-import WineTask from "../History/WineTask";
+import GrapeSubTask from "../History/GrapeTask";
 
-import {useDeleteWineTaskMutation, useDeleteGrapeLabMutation } from "../../store"; 
+import {useDeleteGrapeLabMutation } from "../../store"; 
 
 
 function EventListElement({ event, firstOpId }) {
 
   const { t } = useTranslation();
   const [isHovered, setIsHovered] = useState(false);  
-  const [deleteTask] = useDeleteWineTaskMutation();
   const [deleteLab] = useDeleteGrapeLabMutation();
 
   // hide the show the delete/undo button for secondary tasks
-  const  showDeleteAction = !["transfer-out", "split-to"].includes(event.type);
+  const  showDeleteAction = !["vinification"].includes(event.type);
   
   // only the lab analysis and the most recent task can be deleted
   const canDelete = event.type === 'lab' || (event._id === firstOpId);
@@ -34,9 +33,7 @@ function EventListElement({ event, firstOpId }) {
     // console.log("Delete", event.type ,"event with id: ", event._id)    ;
     if (event.type === "lab") {
       deleteLab(event._id);
-    } else {
-      deleteTask(event._id);
-    }
+    }  
   }
 
   let rowsContent;
@@ -45,7 +42,8 @@ function EventListElement({ event, firstOpId }) {
     // Lab-specific fields
     rowsContent = (
       <> 
-      <td style={{ backgroundColor: '#AAF2FF' }} className="text-center">{event.sugars}</td>     
+      <td className="text-center">{event.grapeParcel}</td>      
+      <td className="text-center">{event.sugars}</td>     
       <td className="text-center">{event.tAcids}</td>      
       <td className="text-center">{event.pH}</td>           
     </>
@@ -55,7 +53,7 @@ function EventListElement({ event, firstOpId }) {
     rowsContent = (
       <>
       <td className="text-center">{t("op-location-task")} {event.seqNumber}</td>
-      <td colSpan={9}> <WineTask>{event}</WineTask> </td>    
+      <td colSpan={3}> <GrapeSubTask>{event}</GrapeSubTask> </td>    
     </>
     );
   }

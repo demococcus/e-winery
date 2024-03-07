@@ -110,7 +110,6 @@ const historyApi = createApi({
         }
       }),
 
-
       // Add wineLab event
       addGrapeLab: builder.mutation({
         invalidatesTags: ["Labs", "Grape History"],
@@ -123,7 +122,6 @@ const historyApi = createApi({
           }          
         }
       }),
-
 
       // Delete wineTask event
       deleteWineTask: builder.mutation({

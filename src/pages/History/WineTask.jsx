@@ -118,6 +118,25 @@ function WineTask({children}) {
     </>)    
   };
 
+  const renderVinification = () => {
+
+    const ingredients = event.grapeSubTasks.map((ing) => {   
+      return <div key={ing._id}><Link to={`/grape/${ing.grape}`} className='no-underline'>{ing.grapeParcel}</Link> - {ing.quantity} {t('u-kg')}</div>
+    })
+
+    return (<>
+      <div>{t(`op-${event.type}`)}</div>
+      <div>{ingredients}</div>
+
+      <GoArrowDown  className="ms-3" />
+
+      <div>
+        <VesselLabel>{event.vesselLabel}</VesselLabel> {event.wineLot}
+      </div>
+      <TaskNote>{event.note}</TaskNote>
+    </>)    
+  };
+
   const renderAdditive = () => {
     const ingredients = event.subTasks.map((ing) => {
       return (
@@ -162,6 +181,9 @@ function WineTask({children}) {
         break;
       case "blend":
         taskContent = renderBlend();
+        break;
+      case "vinification":
+        taskContent = renderVinification();
         break;
       case "additive":
         taskContent = renderAdditive();

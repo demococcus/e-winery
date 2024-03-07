@@ -78,6 +78,8 @@ export {
   setTaskNextVessel,
   setTaskWineAdditives,
   setTaskWineAdditivesQuantity,  
+  setTaskVinificationIngredients,
+  setTaskVinificationQuantity,
  } from './slices/worksheetSlice';
 
 export { 
