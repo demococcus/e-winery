@@ -1,6 +1,6 @@
 # e-Winery
 
-Winery management project for  [AYA Estate Vineyards](https://ayaestatevineyards.com/en/winery).
+Winery management portal.
 
 ## Main technologies
 - React
@@ -8,6 +8,7 @@ Winery management project for  [AYA Estate Vineyards](https://ayaestatevineyards
 - Bootstrap
 
 ## Done so far
+- Grapes
 - Navbar
 - Wines
 - Lab
@@ -20,5 +21,4 @@ Winery management project for  [AYA Estate Vineyards](https://ayaestatevineyards
 - Undo tasks
 
 ## ToDo
-- Grapes
 - Access by user role
