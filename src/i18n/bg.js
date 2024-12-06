@@ -221,6 +221,11 @@ const bgTranslation = {
     "ws-note": "Бележка",
     "ws-Description": "Описание",
     "ws-User": "Потребител",
+    "ws-print-Date-by": "Дата на подване",
+    "ws-print-User-by": "Подадена от",
+    "ws-print-Date-done": "Дата на изпълнение",
+    "ws-print-User-done": "Изпълнено от",
+    "ws-print-task": "Принтирай",
 
     "ws-select-wine": "Изберете вино",
     "ws-select-grape": "Изберете грозде",

@@ -221,6 +221,11 @@ const enTranslation = {
     "ws-note": "Note",
     "ws-Description": "Description",
     "ws-User": "User",
+    "ws-print-Date-by": "Creation date",
+    "ws-print-User-by": "Created by",
+    "ws-print-Date-done": "Date completed",
+    "ws-print-User-done": "Completed by",
+    "ws-print-task": "Print",
 
     "ws-select-wine": "Select wine",
     "ws-select-grape": "Select grape",

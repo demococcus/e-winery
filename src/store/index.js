@@ -116,6 +116,7 @@ export {
   useFetchWineLabsQuery,
   useFetchWineHistoryQuery,
   useFetchGrapeHistoryQuery,
+  useFetchTaskByIdQuery,
   useAddWineTaskMutation,
   useAddWineLabMutation,
   useAddGrapeLabMutation,
