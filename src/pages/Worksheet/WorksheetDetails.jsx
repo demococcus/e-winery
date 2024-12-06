@@ -1,8 +1,9 @@
 import { useTranslation } from 'react-i18next';
 import WineTask from "../History/WineTask";
 import PageTitle from '../_shared/PageTitle';
+import './WorksheetDetails.css';
 
-import { Button, Row, Col, Container } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 
 function WorksheetDetails({ wineTask, canDelete=false }) {
 
@@ -13,7 +14,7 @@ function WorksheetDetails({ wineTask, canDelete=false }) {
     };
 
 
-    console.log(wineTask)
+    // console.log(wineTask)
 
 
   // Transform event.date to a string object like '2021-09-01'
@@ -30,7 +31,7 @@ function WorksheetDetails({ wineTask, canDelete=false }) {
     <div className="mt-5">{t('ws-print-User-done')}: .................................................</div>
     <div className="mt-5">{t('ws-print-Date-done')}: ...................................</div>
 
-    <Button className='mt-5' onClick={handlePrint}>{t('ws-print-task')}</Button>
+    <Button className='mt-5 print-hide' onClick={handlePrint}>{t('ws-print-task')}</Button>
 
   </div>);
 
