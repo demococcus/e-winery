@@ -13,6 +13,7 @@ import Tank from './pages/Tank/Tank';
 import TankForm from './pages/Tank/TankForm';
 import Barrel from './pages/Barrel/Barrel';
 import BarrelForm from './pages/Barrel/BarrelForm';
+import Worksheet from './pages/Worksheet/Worksheet';
 import WorksheetList from './pages/WorksheetList/WorksheetList';
 import WorksheetAdd from './pages/Worksheet/WorksheetAdd';
 import LabList from './pages/Lab/LabList';
@@ -51,6 +52,7 @@ function App() {
             <Route path="/lab/add/:id" element={<LabForm />} />
             <Route path="/lab/grape/add/:id" element={<GrapeLabForm />} />
             <Route path="/worksheets" element={<WorksheetList />} />
+            <Route path="/worksheet/:id" element={<Worksheet />} />
             <Route path="/worksheet/add" element={<WorksheetAdd />} />
             
             <Route path="/tank/add" element={<TankForm />} />

@@ -1,0 +1,11 @@
+@media print {
+    /* Hide elements like buttons on the printed page */
+    .print-hide {
+      display: none;
+    }
+  
+    /* Adjust layout for print */
+    body {
+      color: black;
+    }
+  }

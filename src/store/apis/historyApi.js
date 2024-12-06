@@ -48,7 +48,6 @@ const historyApi = createApi({
         },
       }),
 
-
       // Fetch grape history
       fetchGrapeHistory: builder.query({ 
         providesTags: ["Grape History"],
@@ -79,6 +78,18 @@ const historyApi = createApi({
           return {
             url: '/wineLabs',
             params: {resultsNumber},
+            method: 'GET'
+          };          
+        },
+      }),
+
+      // Fetch wineTask by id
+      fetchTaskById: builder.query({
+        providesTags: ["Task"],
+        query: (_id) => {
+          return {
+            url: `/wineTask/${_id}`,
+            // params: {},
             method: 'GET'
           };          
         },
@@ -157,11 +168,7 @@ const historyApi = createApi({
             method: 'DELETE',
           }          
         }
-      }),
-
-
-      
-
+      }),    
 
     };
   },
@@ -175,6 +182,7 @@ export const {
   useFetchWineLabsQuery,
   useFetchWineHistoryQuery,
   useFetchGrapeHistoryQuery,
+  useFetchTaskByIdQuery,
   useAddWineTaskMutation,
   useAddWineLabMutation,
   useAddGrapeLabMutation,
