@@ -314,6 +314,7 @@ function LabForm() {
               <DatePicker
                 selected={values.date}
                 dateFormat="yyyy-MM-dd"
+                onChange={(date) => setFieldValue("date", date)} // Update Formik's state
                 // TODO - validation
                 className={`form-control ${
                   touched.date && errors.date ? "is-invalid" : ""
