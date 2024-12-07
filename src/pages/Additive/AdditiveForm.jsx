@@ -47,37 +47,6 @@ function AdditiveForm() {
 
   };
 
-
-  // const handleSubmitOld = async (event) => {
-  //   event.preventDefault();
-
-  //   const form = event.currentTarget;
-  //   if (form.checkValidity() === false) {
-  //     // console.log("Looks invalid");
-  //     event.preventDefault();
-  //     event.stopPropagation();
-  //   } else {
-  //     // console.log("form looks valid");      
-
-  //     const newAdditive = {
-  //       ...inputs,
-  //     };
-
-  //     const submitResult = await addAdditive(newAdditive);
-      
-  //     // verify if the result succeeds
-  //     if (submitResult.error) {
-  //       return;
-  //     }
-
-  //     // navigate to the home page
-  //     navigate(`/additives`)
-
-
-  //   }   
-
-  // };
-
   const unitsArray = ["u-kg", "u-g", "u-mg", "u-l", "u-ml", "u-gal", "u-oz", "u-ppm", "u-lb"];
   const dropdownOptions = unitsArray.map((unit) => <option key={unit} value={unit}>{t(`${unit}-both`)}</option>);
 

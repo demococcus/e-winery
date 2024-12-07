@@ -13,6 +13,8 @@ import { useAddWineLabMutation } from "../../store";
 import ErrorMsgBox from '../_shared/ErrorMsgBox';
 import PageTitle from '../_shared/PageTitle';
 import { getCurrentDate } from '../../utils';
+import { useFetchWineByIdQuery } from '../../store';
+import VesselLabel from '../_shared/VesselLabel';
 
 
 function LabForm() {
@@ -22,6 +24,17 @@ function LabForm() {
   const { Formik } = formik; 
   const navigate = useNavigate();
   const [AddLab, results] = useAddWineLabMutation();
+
+  // fetch the data
+  const { data:wine, error, isLoading } = useFetchWineByIdQuery(id);
+
+  if (isLoading) {
+    return <div><PlaceholderBlock times={1}/></div>
+  } else if (error) {
+    return <ErrorMsgBox />
+  }
+
+    // console.log(wine)
 
   const handleSubmit = async (values, { setSubmitting }) => {
 
@@ -44,46 +57,55 @@ function LabForm() {
 
     alcohol: yup
       .number(t('val-number'))
+      .typeError(t('val-number'))
       .min(0, `${t('val-min')} 0`)
       .max(17, `${t('val-max')} 17`),
 
     sugars: yup
       .number(t('val-number'))
+      .typeError(t('val-number'))
       .min(0, `${t('val-min')} 0`)
       .max(400, `${t('val-max')} 400`),
 
       SO2: yup
       .number(t('val-number'))
+      .typeError(t('val-number'))
       .min(0, `${t('val-min')} 0`)
       .max(100, `${t('val-max')} 100`),
 
       tSO2: yup
       .number(t('val-number'))
+      .typeError(t('val-number'))
       .min(0, `${t('val-min')} 0`)
       .max(400, `${t('val-max')} 400`),
 
       vAcids: yup
       .number(t('val-number'))
+      .typeError(t('val-number'))
       .min(0, `${t('val-min')} 0`)
       .max(2, `${t('val-max')} 2`),
 
       pH: yup
       .number(t('val-number'))
+      .typeError(t('val-number'))
       .min(2, `${t('val-min')} 1`)
       .max(4, `${t('val-max')} 4`),
 
       tAcids: yup
       .number(t('val-number'))
+      .typeError(t('val-number'))
       .min(4, `${t('val-min')} 4`)
       .max(12, `${t('val-max')} 12`),
 
       density: yup
       .number(t('val-number'))
+      .typeError(t('val-number'))
       .min(0.980, `${t('val-min')} 0.980`)
       .max(1.200, `${t('val-max')} 1.200`),
 
       mAcid: yup
       .number(t('val-number'))
+      .typeError(t('val-number'))
       .min(0, `${t('val-min')} 0`)
       .max(10, `${t('val-max')} 10`),
 
@@ -108,6 +130,8 @@ function LabForm() {
 
   return (<>
     <PageTitle>{t('add-lab-title')}</PageTitle>
+
+    <div><VesselLabel>{wine.vessel?.label}</VesselLabel> {wine.lot}</div>
 
     <div className='mt-4'>
 

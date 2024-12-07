@@ -67,9 +67,9 @@ const bgTranslation = {
     "val-required": "Моля въведете стойност.",
     "val-required-select": "Моля изберете стойност.",
     "val-min-len": "Трябва да е поне ",
-    "val-max-len": "Трабва да не е повече от ",
+    "val-max-len": "Трябва да не е повече от ",
     "val-characters": " символа.",
-    "val-min": "Трабва да е най-малко",
+    "val-min": "Трябва да е най-малко",
     "val-max": "Трябва да е най-много",
 
 
@@ -316,6 +316,7 @@ const bgTranslation = {
     "additive-quantity": "Количество",
     "additive-receive-btn": "Получаване",
     "additive-delete-btn": "Изтрий",
+    "additive-receive-title": "Получаване добавка",
         
     
     // about 

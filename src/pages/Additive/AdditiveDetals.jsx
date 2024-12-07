@@ -6,7 +6,7 @@ import { useDeleteAdditiveMutation } from '../../store';
 
 function AdditiveDetals({ additive }) {
 
-  const [deleteAdditive] = useDeleteAdditiveMutation();
+  const [deleteAdditive, results] = useDeleteAdditiveMutation();
 
   const { t } = useTranslation();
   const navigate = useNavigate();
@@ -18,7 +18,7 @@ function AdditiveDetals({ additive }) {
 
   const handleTopUp = () => {
     // navigate to edit page
-    navigate(`/additive/topup/${additive._id}`)
+    navigate(`/additive/receive/${additive._id}`)
   };
 
 
@@ -30,9 +30,19 @@ function AdditiveDetals({ additive }) {
         </Button>
 
         <Button 
+            type="submit" 
             className='me-2' 
             variant="danger" 
-            onClick={handleDelete}>{t('additive-delete-btn')}
+            onClick={handleDelete}
+            disabled={results.isLoading || ""}
+        >
+          {results.isLoading ? (
+            <>
+              <Spinner animation="border" size="sm" role="status" aria-hidden="true" />
+              <span className='ms-2'>Please wait...</span>
+            </>
+          ) : t('additive-delete-btn') }
+
         </Button>
 
       </div>

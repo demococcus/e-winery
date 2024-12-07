@@ -21,6 +21,7 @@ import LabForm from './pages/Lab/LabForm';
 import AdditiveList from './pages/AdditiveList/AdditiveList';
 import AdditiveForm from './pages/Additive/AdditiveForm';
 import Additive from './pages/Additive/Additive';
+import AdditiveReceiveForm from './pages/Additive/AdditiveReceiveForm';
 import About from './pages/About/About';
 import User from './pages/User/User';
 import ProtectedRoute from './pages/Auth/ProtectedRoute';
@@ -65,6 +66,7 @@ function App() {
             <Route path="/additives" element={<AdditiveList />} />         
             <Route path="/additive/add" element={<AdditiveForm />} />
             <Route path="/additive/:id" element={<Additive />} />         
+            <Route path="/additive/receive/:id" element={<AdditiveReceiveForm />} />         
                         
             <Route path="/me" element={<User />} />
           </Route>           

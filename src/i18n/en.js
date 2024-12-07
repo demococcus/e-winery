@@ -316,6 +316,7 @@ const enTranslation = {
     "additive-quantity": "Quantity",
     "additive-receive-btn": "Receive",
     "additive-delete-btn": "Delete",
+    "additive-receive-title": "Receive additive",
                      
     
     // about 

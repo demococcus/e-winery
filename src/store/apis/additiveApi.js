@@ -81,6 +81,20 @@ const additiveApi = createApi({
         },
       }),
 
+      // Receive additive
+      receiveAdditive: builder.mutation({
+        invalidatesTags: ["Additive", "Additives"],
+        query: ({id, ...data}) => {
+
+          return {
+            url: `/additive/receive/${id}`,
+            method: 'PATCH',
+            body: data
+          }          
+        }
+
+      })
+
       
     };
   },
@@ -95,5 +109,6 @@ export const {
   useAddAdditiveMutation, 
   useDeleteAdditiveMutation,
   useFetchAdditiveByIdQuery,
+  useReceiveAdditiveMutation,
 } = additiveApi;
 
