@@ -64,6 +64,13 @@ function AdditiveForm() {
       .notOneOf([''], 'Unit must not be empty'),
 
 
+    accounting: yup
+      .string(t('val-string'))
+      .required(t('val-required'))
+      .min(3, `${t('val-min-len')} 3 ${t('val-characters')}`)
+      .max(30, `${t('val-max-len')} 30 ${t('val-characters')}`),
+
+
     // terms: yup.bool().required().oneOf([true], 'Terms must be accepted'),
   });
 
@@ -78,6 +85,7 @@ function AdditiveForm() {
       initialValues={{
         label: '',
         unit: '',
+        accounting: '',
       }}
     >
       {({ handleSubmit, handleChange, values, touched, errors, isSubmitting  }) => (
@@ -117,6 +125,25 @@ function AdditiveForm() {
 
             </Form.Group>
 
+
+          </Row>
+
+          <Row className="mb-3">
+
+            <Form.Group as={Col} md="3" controlId="validationAccounting">
+                <Form.Label>{t("additive-acc")}</Form.Label>
+                <Form.Control
+                  type="text"
+                  // placeholder={t("vessel-form-label")}
+                  name="accounting"
+                  value={values.accounting}
+                  onChange={handleChange}
+                  isValid={touched.accounting && !errors.accounting}
+                  isInvalid={(touched.accounting && !!errors.accounting)}
+
+                />
+                <Form.Control.Feedback type="invalid">{errors.accounting}</Form.Control.Feedback>
+              </Form.Group>
 
           </Row>
 

@@ -310,6 +310,7 @@ const bgTranslation = {
     "additive-title": "Добавки", 
     "additive-unit": "Мярка", 
     "additive-label": "Име", 
+    "additive-acc": "Счет. номер", 
     "additive-add-new": "Добави", 
     "additive-add-title": "Нова добавка",
     "additive-select-unit": "Изберете мярка",

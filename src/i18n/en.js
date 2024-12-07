@@ -310,6 +310,7 @@ const enTranslation = {
     "additive-title": "Additives", 
     "additive-unit": "Unit", 
     "additive-label": "Label", 
+    "additive-acc": "Accounting", 
     "additive-add-new": "Add New", 
     "additive-add-title": "New Additive",
     "additive-select-unit": "Select unit",

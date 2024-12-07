@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useTranslation } from 'react-i18next';
 import { useNavigate  } from 'react-router-dom';
-import { useDeleteAdditiveMutation } from "../../store";
 
 function ListElement({ additive }) {
 
@@ -21,6 +20,7 @@ function ListElement({ additive }) {
       <td>{additive.label}</td>
       <td className="text-center">{t(additive.quantity)}</td>
       <td className="text-center">{t(additive.unit)}</td>
+      <td className="text-center">{t(additive.accounting)}</td>
     </tr>
   );
 }

@@ -34,7 +34,7 @@ function AdditiveDetals({ additive }) {
             className='me-2' 
             variant="danger" 
             onClick={handleDelete}
-            disabled={results.isLoading || ""}
+            disabled={results.isLoading || additive.quantity > 0}
         >
           {results.isLoading ? (
             <>
@@ -59,6 +59,10 @@ function AdditiveDetals({ additive }) {
       <Row>
         <Col className='col-md-2'>{t("additive-unit")}</Col>
         <Col>{t(additive.unit)}</Col>
+      </Row>
+      <Row>
+        <Col className='col-md-2'>{t("additive-acc")}</Col>
+        <Col>{t(additive.accounting)}</Col>
       </Row>
     </Container>
 

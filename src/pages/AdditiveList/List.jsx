@@ -43,6 +43,7 @@ function List () {
         <th>{t('additive-label')}</th>
         <th>{t('additive-quantity')}</th>
         <th>{t('additive-unit')}</th>
+        <th>{t('additive-acc')}</th>
       </tr>
     </thead>
     <tbody>
