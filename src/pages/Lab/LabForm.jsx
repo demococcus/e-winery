@@ -15,6 +15,9 @@ import PageTitle from '../_shared/PageTitle';
 import { getCurrentDate } from '../../utils';
 import { useFetchWineByIdQuery } from '../../store';
 import VesselLabel from '../_shared/VesselLabel';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import PlaceholderBlock from '../_shared/PlaceholderBlock';
 
 
 function LabForm() {
@@ -109,6 +112,11 @@ function LabForm() {
       .min(0, `${t('val-min')} 0`)
       .max(10, `${t('val-max')} 10`),
 
+      date: yup
+      .date()
+      .required(t("val-required")) 
+      .typeError(t("val-invalid-date")),
+
   });
 
   const initialFormValues = {
@@ -125,7 +133,6 @@ function LabForm() {
     mAcid: '',
 
   };
-
  
 
   return (<>
@@ -141,7 +148,7 @@ function LabForm() {
       initialValues={initialFormValues}
       
     >
-      {({ handleSubmit, handleChange, values, touched, errors  }) => (
+      {({ handleSubmit, handleChange, setFieldValue, values, touched, errors  }) => (
         <Form noValidate onSubmit={handleSubmit}>
 
           <Row className="mb-3">
@@ -294,6 +301,32 @@ function LabForm() {
                 isInvalid={touched.mAcid && !!errors.mAcid}
               />
               <Form.Control.Feedback type="invalid">{errors.mAcid}</Form.Control.Feedback>
+            </Form.Group>
+
+          </Row>
+
+          <Row className="mb-4">
+
+            <Form.Group as={Col} md="3" controlId="density">
+              <Form.Label>{t("lab-date")}</Form.Label>
+
+              <div>
+              <DatePicker
+                selected={values.date}
+                dateFormat="yyyy-MM-dd"
+                // TODO - validation
+                className={`form-control ${
+                  touched.date && errors.date ? "is-invalid" : ""
+                }`}
+              />
+
+              </div>
+
+
+
+
+
+              <Form.Control.Feedback type="invalid">{errors.date}</Form.Control.Feedback>
             </Form.Group>
 
           </Row>
