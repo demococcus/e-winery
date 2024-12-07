@@ -161,7 +161,7 @@ const bgTranslation = {
 
     "wine-vintage": 'Реколта',
     "wine-vessel": 'Съд',
-    "wine-lot": 'Партида',
+    "wine-lot": 'Вино',
     "wine-status": 'Статус',
     "wine-quantity": 'Количество',
     "wine-q-details": 'Инфо',

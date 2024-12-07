@@ -10,7 +10,7 @@ import './WineTask.css';
 import { wineTaskSimpleTypes } from './opTypes';
 
 
-function WineTask({children}) {
+function WineTask({noLinks=false, children}) {
 
   const event = children;
   const { t } = useTranslation();
@@ -41,7 +41,11 @@ function WineTask({children}) {
   const renderSplitFrom = () => {
 
     const subWines = event.subTasks.map((ing) => {
-      return <div key={ing._id}><Link to={`/wine/${ing.wine}`} className='no-underline'><VesselLabel>{ing.vesselLabel}</VesselLabel></Link></div>
+      return (<>{
+        noLinks 
+          ? <div key={ing._id}><VesselLabel>{ing.vesselLabel}</VesselLabel></div>
+          : <div key={ing._id}><Link to={`/wine/${ing.wine}`} className='no-underline'><VesselLabel>{ing.vesselLabel}</VesselLabel></Link></div>
+      }</>)
     })
 
     return (<>
@@ -49,7 +53,6 @@ function WineTask({children}) {
       <div><VesselLabel isBold>{event.vesselLabel}</VesselLabel> {event.wineLot} - {event.quantity} {t('liters')}</div>
       <GoArrowDown  className="ms-3" />
       <div>{subWines}</div>
-      {/* <div key={event.nextWine._id}><VesselLabel>{event.nextVesselLabel}</VesselLabel> <Link to={`/wine/${event.nextWine}`} className='no-underline'>{event.nextWineTag}</Link> - {event.nextQuantity} {t('liters')}</div> */}
       <hr className="my-2 w-50" />
       <div>{t("op-sub-remaining")}{event.quantityBefore - event.quantity} {t('liters')}</div>
 
@@ -61,21 +64,15 @@ function WineTask({children}) {
     return (<>
       <div>{t(`op-${event.type}`)}</div>
       <div>
-        <VesselLabel>{event.refVesselLabel}</VesselLabel> <Link to={`/wine/${event.refWine}`} className='no-underline'>{event.refWineLot}</Link> 
+        <VesselLabel>{event.refVesselLabel}</VesselLabel>&nbsp;
+          {noLinks ? event.refWineLot : <Link to={`/wine/${event.refWine}`} className='no-underline'>{event.refWineLot}</Link>}
         <GoArrowRight className="mx-2" />
         {event.quantity} {t('liters')}      
-      </div>
-
-      
-
+      </div>    
     </>)    
   };
 
   const renderTransferOut = () => {
-
-    // const remaining = <div>Remaining: {event.quantityAfter} {t('liters')}</div>;
-    // const depleated = <div>Wine depleted</div>;
-
 
     const remainingQuantity = event.quantityBefore - event.quantity;
     const remainingText = remainingQuantity <= 0 ? <div>{t("op-sub-depleted")}</div> : <div>{t("op-sub-remaining")}{remainingQuantity} {t('liters')}</div>;
@@ -87,7 +84,9 @@ function WineTask({children}) {
       
       <GoArrowRight />
 
-      </span> <VesselLabel>{event.refVesselLabel}</VesselLabel> <Link to={`/wine/${event.refWine}`} className='no-underline'>{event.refWineLot}</Link></div>
+      </span> <VesselLabel>{event.refVesselLabel}</VesselLabel>&nbsp;
+        {noLinks ? event.refWineLot : <Link to={`/wine/${event.refWine}`} className='no-underline'>{event.refWineLot}</Link>}        
+      </div>
 
       <hr className="my-2 w-50" />
       {remainingText}
@@ -100,7 +99,9 @@ function WineTask({children}) {
     const ingredients = event.subTasks.map((ing) => {
       blendQuantity += ing.quantity;
       const wholeQuantity = ing.quantity === ing.quantityBefore ? <span>{t('op-ingredient-all')}</span> : null;
-      return <div key={ing._id}><VesselLabel isBold>{ing.vesselLabel}</VesselLabel> <Link to={`/wine/${ing.wine}`} className='no-underline'>{ing.wineLot}</Link> - {ing.quantity} {t('liters')} {wholeQuantity}</div>
+      return (<div key={ing._id}><VesselLabel isBold>{ing.vesselLabel}</VesselLabel>&nbsp;
+       {noLinks ? ing.wineLot : <Link to={`/wine/${ing.wine}`} className='no-underline'>{ing.wineLot}</Link>}
+       {" - "}{ing.quantity} {t('liters')} {wholeQuantity}</div>)
     })
 
     return (<>

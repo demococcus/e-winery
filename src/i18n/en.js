@@ -161,7 +161,7 @@ const enTranslation = {
 
     "wine-vintage": 'Vintage',
     "wine-vessel": 'Vessel',
-    "wine-lot": 'Lot',
+    "wine-lot": 'Wine',
     "wine-status": 'Status',
     "wine-quantity": 'Quantity',
     "wine-q-details": 'Details',

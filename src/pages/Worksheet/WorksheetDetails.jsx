@@ -26,7 +26,7 @@ function WorksheetDetails({ wineTask, canDelete=false }) {
     <div>{t('ws-print-User-by')}: {wineTask.userName}</div>
     <div className='mb-4'>{t('ws-print-Date-by')}: {dateString}</div>
     
-    <WineTask>{wineTask}</WineTask>
+    <WineTask noLinks>{wineTask}</WineTask>
 
     <div className="mt-5">{t('ws-print-User-done')}: .................................................</div>
     <div className="mt-5">{t('ws-print-Date-done')}: ...................................</div>
