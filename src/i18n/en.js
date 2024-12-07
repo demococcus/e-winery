@@ -313,7 +313,10 @@ const enTranslation = {
     "additive-add-new": "Add New", 
     "additive-add-title": "New Additive",
     "additive-select-unit": "Select unit",
-                 
+    "additive-quantity": "Quantity",
+    "additive-receive-btn": "Receive",
+    "additive-delete-btn": "Delete",
+                     
     
     // about 
     "about-title": "About",

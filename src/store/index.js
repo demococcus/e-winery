@@ -135,6 +135,7 @@ export {
 export { 
   useFetchAdditivesQuery, 
   useAddAdditiveMutation, 
-  useDeleteAdditiveMutation 
+  useDeleteAdditiveMutation,
+  useFetchAdditiveByIdQuery,
 } from './apis/additiveApi';
 

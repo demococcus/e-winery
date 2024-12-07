@@ -313,6 +313,9 @@ const bgTranslation = {
     "additive-add-new": "Добави", 
     "additive-add-title": "Нова добавка",
     "additive-select-unit": "Изберете мярка",
+    "additive-quantity": "Количество",
+    "additive-receive-btn": "Получаване",
+    "additive-delete-btn": "Изтрий",
         
     
     // about 

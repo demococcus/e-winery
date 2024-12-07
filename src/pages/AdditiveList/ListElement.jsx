@@ -1,38 +1,26 @@
 import { useState } from "react";
 import { useTranslation } from 'react-i18next';
+import { useNavigate  } from 'react-router-dom';
 import { useDeleteAdditiveMutation } from "../../store";
 
 function ListElement({ additive }) {
 
-  const [deleteAdditive] = useDeleteAdditiveMutation();
-
-  const [isHovered, setIsHovered] = useState(false);
   const { t } = useTranslation();
 
+  const navigate = useNavigate ();
 
-  const handleDelete = (id) => {
-    deleteAdditive(id);
+  const handleRowClick = (additiveId) => {
+    navigate(`/additive/${additiveId}`);
   };
 
-
   return (
-    <tr
-      // style={{ cursor: 'pointer' }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+    <tr    
+      onClick={() => handleRowClick(additive._id)} 
+      style={{ cursor: 'pointer' }}
     >
       <td>{additive.label}</td>
+      <td className="text-center">{t(additive.quantity)}</td>
       <td className="text-center">{t(additive.unit)}</td>
-      <td className="text-center">
-        {isHovered && (
-          <span
-            style={{ cursor: 'pointer', color: 'red' }}
-            onClick={() => handleDelete(additive._id)}
-          >
-            {t("action-delete")}
-          </span>
-        )}
-      </td>
     </tr>
   );
 }

@@ -41,8 +41,8 @@ function List () {
     <thead>
       <tr className="text-center table-secondary">
         <th>{t('additive-label')}</th>
+        <th>{t('additive-quantity')}</th>
         <th>{t('additive-unit')}</th>
-        <th>{t('action-actions')}</th>
       </tr>
     </thead>
     <tbody>
