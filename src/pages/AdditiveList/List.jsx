@@ -10,7 +10,7 @@ import NoResultsMsgBox from '../_shared/NoResultsMsgBox';
 import ListElement from "./ListElement";
 
 
-function AdditiveList () {
+function List () {
  
   const { t } = useTranslation();
  
@@ -64,4 +64,4 @@ function AdditiveList () {
   return (content);
 };
 
-export default AdditiveList;
+export default List;

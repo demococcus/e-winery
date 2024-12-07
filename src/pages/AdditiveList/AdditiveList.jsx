@@ -6,9 +6,9 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 import PageTitle from '../_shared/PageTitle';
-import AdditiveList from './AdditiveList';
+import List from './List';
 
-function Additive() {
+function AdditiveList() {
 
   const { t } = useTranslation();
 
@@ -27,11 +27,11 @@ function Additive() {
       <Row>
         <Col md="6">
           {actionBar}
-          <AdditiveList />
+          <List />
         </Col>
       </Row>
     </div>
   );
 };
 
-export default Additive;
+export default AdditiveList;
