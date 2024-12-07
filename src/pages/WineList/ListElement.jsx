@@ -64,6 +64,7 @@ function ListElement({wine}) {
 
     >
       <td className="text-center">{wine.vintage}</td>
+      <td className="text-center">{wine.accounting}</td>
       <td>{wine.lot}</td>
       <td className="text-center">{vesselLabel}</td>
       <td className="text-end">{wine.quantity}</td>

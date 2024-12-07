@@ -57,6 +57,7 @@ function EditForm({ wine }) {
     dispatch(setWineFormInput({
       vintage:  wine.vintage,
       lot: wine.lot,
+      accounting: wine.accounting,
       vessel: wine.vessel?._id,
       quantity: wine.quantity,
       status: wine.status
@@ -123,7 +124,7 @@ function EditForm({ wine }) {
     <Form noValidate validated={validated} onSubmit={handleSubmit}>
       
       <Row className="mb-3">
-        <Form.Group as={Col} md="6" controlId="lot">
+        <Form.Group as={Col} md="4" controlId="lot">
           <Form.Label>{t("wine-lot")}</Form.Label>
           <Form.Control
             name='lot'
@@ -136,7 +137,24 @@ function EditForm({ wine }) {
             maxLength={60}
           />
           <Form.Control.Feedback type="invalid">{t('val-required')}</Form.Control.Feedback>
-        </Form.Group>        
+        </Form.Group> 
+
+
+        <Form.Group as={Col} md="2" controlId="accounting">
+          <Form.Label>{t("wine-acc")}</Form.Label>
+          <Form.Control
+            name='accounting'
+            type="text"
+            value={formInputData.accounting || ""} 
+            onChange={handleChange}
+            // placeholder={t("wine-lot")}
+            required
+            minLength={1}
+            maxLength={30}
+          />
+          <Form.Control.Feedback type="invalid">{t('val-required')}</Form.Control.Feedback>
+        </Form.Group>
+
       </Row>
   
       

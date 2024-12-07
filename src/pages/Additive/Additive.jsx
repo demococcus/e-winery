@@ -1,37 +1,30 @@
-import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
-import Button from 'react-bootstrap/Button';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-
-import PageTitle from '../_shared/PageTitle';
-import AdditiveList from './AdditiveList';
+import { useFetchAdditiveByIdQuery } from "../../store";
+import PlaceholderBlock from '../_shared/PlaceholderBlock';
+import ErrorMsgBox from '../_shared/ErrorMsgBox';
+import AdditiveDetals from './AdditiveDetals';
 
 function Additive() {
 
-  const { t } = useTranslation();
+  // get the id of the additive from the URL
+  const { id } = useParams(); 
 
-  const actionBar = (
-    <div className="d-flex justify-content-between my-3">
-        <div>
-          <Button as={Link} to="/additive/add" className="me-2" variant="primary">{t('additive-add-new')}</Button>
-        </div>
-    </div>
-);
+  // fetch the data
+  const { data, error, isLoading } = useFetchAdditiveByIdQuery(id);
 
+  let content;
 
-  return (
-    <div>
-      <PageTitle>{t('additive-title')}</PageTitle>
-      <Row>
-        <Col md="6">
-          {actionBar}
-          <AdditiveList />
-        </Col>
-      </Row>
-    </div>
-  );
+  if (isLoading) {
+    content = <div><PlaceholderBlock times={1}/></div>
+  } else if (error) {
+    content =  <ErrorMsgBox />
+  } else {
+    // console.log(data)
+    content = <AdditiveDetals additive={data} />
+  }  
+
+  return (content);
 };
 
 export default Additive;

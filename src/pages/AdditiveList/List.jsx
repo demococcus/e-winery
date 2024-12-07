@@ -10,7 +10,7 @@ import NoResultsMsgBox from '../_shared/NoResultsMsgBox';
 import ListElement from "./ListElement";
 
 
-function AdditiveList () {
+function List () {
  
   const { t } = useTranslation();
  
@@ -41,8 +41,9 @@ function AdditiveList () {
     <thead>
       <tr className="text-center table-secondary">
         <th>{t('additive-label')}</th>
+        <th>{t('additive-quantity')}</th>
         <th>{t('additive-unit')}</th>
-        <th>{t('action-actions')}</th>
+        <th>{t('additive-acc')}</th>
       </tr>
     </thead>
     <tbody>
@@ -64,4 +65,4 @@ function AdditiveList () {
   return (content);
 };
 
-export default AdditiveList;
+export default List;

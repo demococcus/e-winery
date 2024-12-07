@@ -69,6 +69,32 @@ const additiveApi = createApi({
         },
       }),
 
+      // Fetch additive by id
+      fetchAdditiveById: builder.query({
+        providesTags: ["Additive"],
+        query: (id) => {
+          return {
+            url: `/additive/${id}`,
+            // params: {},
+            method: 'GET'
+          };          
+        },
+      }),
+
+      // Receive additive
+      receiveAdditive: builder.mutation({
+        invalidatesTags: ["Additive", "Additives"],
+        query: ({id, ...data}) => {
+
+          return {
+            url: `/additive/receive/${id}`,
+            method: 'PATCH',
+            body: data
+          }          
+        }
+
+      })
+
       
     };
   },
@@ -81,6 +107,8 @@ export { additiveApi };
 export const { 
   useFetchAdditivesQuery, 
   useAddAdditiveMutation, 
-  useDeleteAdditiveMutation 
+  useDeleteAdditiveMutation,
+  useFetchAdditiveByIdQuery,
+  useReceiveAdditiveMutation,
 } = additiveApi;
 

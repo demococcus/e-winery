@@ -67,9 +67,9 @@ const bgTranslation = {
     "val-required": "Моля въведете стойност.",
     "val-required-select": "Моля изберете стойност.",
     "val-min-len": "Трябва да е поне ",
-    "val-max-len": "Трабва да не е повече от ",
+    "val-max-len": "Трябва да не е повече от ",
     "val-characters": " символа.",
-    "val-min": "Трабва да е най-малко",
+    "val-min": "Трябва да е най-малко",
     "val-max": "Трябва да е най-много",
 
 
@@ -125,7 +125,7 @@ const bgTranslation = {
     "u-mg-full": "милиграм",
     "u-mg-both": "милиграм (мг)",
 
-    "u-l": "l",
+    "u-l": "л",
     "u-l-full": "литър",
     "u-l-both": "литър (л)",
     
@@ -149,10 +149,11 @@ const bgTranslation = {
     "u-oz-full": "унция",
     "u-oz-both": "унция (oz)",
     
-
+    
     // wine
     "wine-title": "Вина",
     "wine-add-title": "Добави вино",
+    "wine-acc": "Счет. номер",
     
     "wine-add-new": "Добави вино",
     "wine-filter-current": "Нова реколта",
@@ -310,9 +311,14 @@ const bgTranslation = {
     "additive-title": "Добавки", 
     "additive-unit": "Мярка", 
     "additive-label": "Име", 
+    "additive-acc": "Счет. номер", 
     "additive-add-new": "Добави", 
     "additive-add-title": "Нова добавка",
     "additive-select-unit": "Изберете мярка",
+    "additive-quantity": "Количество",
+    "additive-receive-btn": "Получаване",
+    "additive-delete-btn": "Изтрий",
+    "additive-receive-title": "Получаване добавка",
         
     
     // about 

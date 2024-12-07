@@ -153,6 +153,7 @@ const enTranslation = {
     // wine
     "wine-title": "Cellar",
     "wine-add-title": "Add Wine",
+    "wine-acc": "Accounting",
     
     "wine-add-new": "Add Wine",
     "wine-filter-current": "Current Vintage",
@@ -310,10 +311,15 @@ const enTranslation = {
     "additive-title": "Additives", 
     "additive-unit": "Unit", 
     "additive-label": "Label", 
+    "additive-acc": "Accounting", 
     "additive-add-new": "Add New", 
     "additive-add-title": "New Additive",
     "additive-select-unit": "Select unit",
-                 
+    "additive-quantity": "Quantity",
+    "additive-receive-btn": "Receive",
+    "additive-delete-btn": "Delete",
+    "additive-receive-title": "Receive additive",
+                     
     
     // about 
     "about-title": "About",
