@@ -149,10 +149,11 @@ const bgTranslation = {
     "u-oz-full": "унция",
     "u-oz-both": "унция (oz)",
     
-
+    
     // wine
     "wine-title": "Вина",
     "wine-add-title": "Добави вино",
+    "wine-acc": "Счет. номер",
     
     "wine-add-new": "Добави вино",
     "wine-filter-current": "Нова реколта",

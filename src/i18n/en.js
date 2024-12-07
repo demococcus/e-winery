@@ -153,6 +153,7 @@ const enTranslation = {
     // wine
     "wine-title": "Cellar",
     "wine-add-title": "Add Wine",
+    "wine-acc": "Accounting",
     
     "wine-add-new": "Add Wine",
     "wine-filter-current": "Current Vintage",

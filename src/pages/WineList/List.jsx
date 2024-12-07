@@ -53,6 +53,7 @@ function List () {
     <thead>
       <tr className="text-center table-secondary">
         <th>{t('wine-vintage')}</th>
+        <th>{t('wine-acc')}</th>
         <th>{t('wine-lot')}</th>
         <th>{t('wine-vessel')}</th>
         <th>{t('wine-quantity')}</th>

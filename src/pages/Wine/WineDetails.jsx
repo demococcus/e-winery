@@ -75,6 +75,10 @@ function WineDetails({ wine }) {
     return (
       <Container className='my-4'>
       <Row>
+        <Col className='col-md-2'>{t('wine-acc')}</Col>
+        <Col>{wine.accounting}</Col>
+      </Row>
+      <Row>
         <Col className='col-md-2'>{t('wine-vintage')}</Col>
         <Col>{wine.vintage}</Col>
       </Row>
