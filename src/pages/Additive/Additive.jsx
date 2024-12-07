@@ -10,7 +10,7 @@ function Additive() {
   // get the id of the additive from the URL
   const { id } = useParams(); 
 
-  // fetch the wine
+  // fetch the data
   const { data, error, isLoading } = useFetchAdditiveByIdQuery(id);
 
   let content;
@@ -20,6 +20,7 @@ function Additive() {
   } else if (error) {
     content =  <ErrorMsgBox />
   } else {
+    // console.log(data)
     content = <AdditiveDetals additive={data} />
   }  
 

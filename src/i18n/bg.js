@@ -125,7 +125,7 @@ const bgTranslation = {
     "u-mg-full": "милиграм",
     "u-mg-both": "милиграм (мг)",
 
-    "u-l": "l",
+    "u-l": "л",
     "u-l-full": "литър",
     "u-l-both": "литър (л)",
     

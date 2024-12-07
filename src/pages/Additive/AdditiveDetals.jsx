@@ -2,15 +2,18 @@ import { useTranslation } from 'react-i18next';
 import { Button, Row, Col, Container, Spinner } from 'react-bootstrap';
 import PageTitle from '../_shared/PageTitle';
 import { useNavigate  } from 'react-router-dom';
-
+import { useDeleteAdditiveMutation } from '../../store';
 
 function AdditiveDetals({ additive }) {
+
+  const [deleteAdditive] = useDeleteAdditiveMutation();
 
   const { t } = useTranslation();
   const navigate = useNavigate();
   
   const handleDelete = () => { 
-    console.log("Delete additive")
+    deleteAdditive(additive._id);
+    navigate('/additives')
   };
 
   const handleTopUp = () => {
