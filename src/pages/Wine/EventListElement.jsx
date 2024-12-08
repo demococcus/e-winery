@@ -54,7 +54,10 @@ function EventListElement({ event, firstOpId }) {
       <td style={{ backgroundColor: '#FFDCFF' }} className="text-center">{event.vAcids}</td>      
       <td className="text-center">{event.sugars}</td>      
       <td className="text-center">{event.density}</td>      
-      <td className="text-center">{event.mAcid}</td>     
+      <td className="text-center">{event.mAcid}</td>
+      <td className="text-center">{t(`lab-test-${event.cold}`)}</td> 
+      <td className="text-center">{t(`lab-test-${event.hot}`)}</td> 
+      <td className="text-center">{event.corrSO2}</td>    
     </>
     );
   } else {
@@ -62,7 +65,7 @@ function EventListElement({ event, firstOpId }) {
     rowsContent = (
       <>
       <td className="text-center">{t("op-location-task")} {event.seqNumber}</td>
-      <td colSpan={9}> <WineTask>{event}</WineTask> </td>    
+      <td colSpan={12}> <WineTask>{event}</WineTask> </td>    
     </>
     );
   }

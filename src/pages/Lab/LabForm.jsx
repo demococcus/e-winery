@@ -80,6 +80,12 @@ function LabForm() {
       .number(t('val-number'))
       .typeError(t('val-number'))
       .min(0, `${t('val-min')} 0`)
+      .max(400, `${t('val-max')} 10`),
+
+      corrSO2: yup
+      .number(t('val-number'))
+      .typeError(t('val-number'))
+      .min(0, `${t('val-min')} 0`)
       .max(400, `${t('val-max')} 400`),
 
       vAcids: yup
@@ -112,6 +118,14 @@ function LabForm() {
       .min(0, `${t('val-min')} 0`)
       .max(10, `${t('val-max')} 10`),
 
+      // cold: yup
+      // .number(t('val-string'))
+      // .oneOf(["", "yes", "no"]),
+
+      // hot: yup
+      // .number(t('val-string'))
+      // .oneOf(["", "yes", "no"]),
+
       date: yup
       .date()
       .required(t("val-required")) 
@@ -126,11 +140,14 @@ function LabForm() {
     sugars: '',
     SO2: '',
     tSO2: '',
+    corrSO2: '',
     vAcids: '',
     pH: '',
     tAcids: '',
     density: '',
     mAcid: '',
+    hot: '',
+    cold: '',
 
   };
  
@@ -157,7 +174,7 @@ function LabForm() {
               <Form.Label>{t("lab-alcohol")}</Form.Label>
               <Form.Control
                 style={{ backgroundColor: '#AAF2FF' }}
-                type="text"
+                type="number"
                 // placeholder={t("lab-alcohol")}
                 name="alcohol"
                 value={values.alcohol}
@@ -190,7 +207,7 @@ function LabForm() {
             <Form.Group as={Col} md="3" controlId="SO2">
               <Form.Label>{t("lab-SO2")}</Form.Label>
               <Form.Control
-                type="text"
+                type="number"
                 style={{ backgroundColor: '#FFFFC8' }}
                 // placeholder={t("lab-SO2")}
                 name="SO2"
@@ -221,10 +238,25 @@ function LabForm() {
 
           <Row className="mb-3">
 
+          <Form.Group as={Col} md="3" controlId="corrSO2">
+              <Form.Label>{t("lab-corr-SO2")}</Form.Label>
+              <Form.Control
+                type="number"
+                name="corrSO2"
+                value={values.corrSO2}
+                onChange={handleChange}
+                // isValid={touched.SO2 && !errors.corrSO2}
+                isInvalid={touched.corrSO2 && !!errors.corrSO2}
+
+              />
+              <Form.Control.Feedback type="invalid">{errors.SO2}</Form.Control.Feedback>            
+            </Form.Group>
+
+
             <Form.Group as={Col} md="3" controlId="vAcids">
               <Form.Label>{t("lab-vAcids")}</Form.Label>
               <Form.Control
-                type="text"
+                type="number"
                 style={{ backgroundColor: '#FFDCFF' }}
                 // placeholder={t("lab-vAcids")}
                 name="vAcids"
@@ -243,7 +275,7 @@ function LabForm() {
             <Form.Group as={Col} md="3" controlId="pH">
               <Form.Label>{t("lab-pH")}</Form.Label>
               <Form.Control
-                type="text"
+                type="number"
                 // placeholder={t("lab-pH")}
                 name="pH"
                 value={values.pH}
@@ -277,7 +309,7 @@ function LabForm() {
             <Form.Group as={Col} md="3" controlId="density">
               <Form.Label>{t("lab-density")}</Form.Label>
               <Form.Control
-                type="text"
+                type="number"
                 // placeholder={t("lab-density")}
                 name="density"
                 value={values.density}
@@ -305,6 +337,38 @@ function LabForm() {
 
           </Row>
 
+          <Row className="mb-3">
+
+            <Form.Group as={Col} md="3" controlId="cold">
+              <Form.Label>{t("lab-cold")}</Form.Label>
+              <Form.Control
+                as="select"
+                name="cold"
+                value={values.cold}
+                onChange={handleChange}
+              >
+                <option value=""></option>
+                <option value="yes">{t("lab-test-yes")}</option>
+                <option value="no">{t("lab-test-no")}</option>
+              </Form.Control>
+            </Form.Group>
+
+            <Form.Group as={Col} md="3" controlId="hot">
+              <Form.Label>{t("lab-hot")}</Form.Label>
+              <Form.Control
+                as="select"
+                name="hot"
+                value={values.hot}
+                onChange={handleChange}
+              >
+                <option value=""></option>
+                <option value="yes">{t("lab-test-yes")}</option>
+                <option value="no">{t("lab-test-no")}</option>
+              </Form.Control>
+            </Form.Group>
+
+          </Row>
+
           <Row className="mb-4">
 
             <Form.Group as={Col} md="3" controlId="density">
@@ -320,13 +384,7 @@ function LabForm() {
                   touched.date && errors.date ? "is-invalid" : ""
                 }`}
               />
-
               </div>
-
-
-
-
-
               <Form.Control.Feedback type="invalid">{errors.date}</Form.Control.Feedback>
             </Form.Group>
 
