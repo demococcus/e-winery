@@ -39,18 +39,18 @@ function EventList ({ wine }) {
           <tr className="text-center table-secondary">
             <th>{t('lab-date')}</th>
             <th>{t('lab-location')}</th>
-            <th>{t('lab-alcohol')}</th>
-            <th>{t('lab-tAcids')}</th>
+            <th>{t('lab-alcohol-short')}</th>
+            <th>{t('lab-tAcids-short')}</th>
             <th>{t('lab-pH')}</th>
             <th>{t('lab-SO2')}</th>
             <th>{t('lab-tSO2')}</th>
-            <th>{t('lab-vAcids')}</th>
+            <th>{t('lab-vAcids-short')}</th>
             <th>{t('lab-sugars')}</th>
             <th>{t('lab-density')}</th>
-            <th>{t('lab-mAcid')}</th>
+            <th>{t('lab-mAcid-short')}</th>
             <th>{t('lab-cold')}</th>
             <th>{t('lab-hot')}</th>
-            <th>{t('lab-corr-SO2')}</th>
+            <th>{t('lab-corr-SO2-short')}</th>
                 <th>{t('lab-user')}</th>
             <th>{t('action-actions')}</th>
           </tr>
