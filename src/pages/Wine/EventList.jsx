@@ -11,7 +11,7 @@ function EventList ({ wine }) {
 
   const { t } = useTranslation();
 
-  const { data, error, isLoading } = useFetchWineHistoryQuery(wine);
+  const { data, error, isLoading } = useFetchWineHistoryQuery(wine._id);
 
   let content;
 
@@ -24,7 +24,6 @@ function EventList ({ wine }) {
 
     // sort by date
     const events = [...data];
-    // Order the wines by lot
     events.sort((a, b) => (a.date < b.date) ? 1 : -1);
 
     // get the first element of type different than lab
