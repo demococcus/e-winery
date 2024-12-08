@@ -58,7 +58,13 @@ function BasicNavbar () {
 
   return (<>
 
-    <Navbar expand="lg" className="bg-body-tertiary">
+  <div className="brand-black text-center d-none d-print-block mt-1 mb-5">
+    {t('logo-e')}{t('logo-winery')}
+  </div>
+
+
+
+    <Navbar expand="lg" className="bg-body-tertiary d-print-none">
       <Container>
         <Link to="/about" className="navbar-brand brand-black">
           {t('logo-e')}

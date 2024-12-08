@@ -32,7 +32,7 @@ function AdditiveDetals({ additive }) {
         <Button 
             type="submit" 
             className='me-2' 
-            variant="danger" 
+            variant={additive.quantity > 0 ? "outline-secondary" : "danger"}
             onClick={handleDelete}
             disabled={results.isLoading || additive.quantity > 0}
         >

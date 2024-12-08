@@ -40,9 +40,9 @@ const historyApi = createApi({
       // Fetch wine history
       fetchWineHistory: builder.query({ 
         providesTags: ["Wine History"],
-        query: (wine) => {
+        query: (wineId) => {
           return {
-            url: `/history/wine/${wine._id}`,
+            url: `/history/wine/${wineId}`,
             method: 'GET'
           };          
         },
