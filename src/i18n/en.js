@@ -201,12 +201,19 @@ const enTranslation = {
     "lab-pH": "pH",
     "lab-SO2": "SO2",
     "lab-tSO2": "T SO2",
+    "lab-corr-SO2": "Corr SO2",
     "lab-vAcids": "V Acids",
     "lab-sugars": "Sugars",
     "lab-density": "Density",
     "lab-mAcid": "M Acid",
     "lab-user": "User",
-
+    "lab-cold": "Cold",
+    "lab-hot": "Hot",
+    "lab-test-yes": "Yes",
+    "lab-test-no": "No",
+    "lab-test-": "",
+    "lab-test-undefined": "",
+    
 
     // event filter
     "event-period-30": "Last 30",

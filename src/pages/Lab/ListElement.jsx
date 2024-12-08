@@ -1,4 +1,8 @@
+import { useTranslation } from 'react-i18next';
+
 function ListElement({ event }) {
+
+  const { t } = useTranslation();
 
   // Transform event.date to a string object like '2021-09-01'
   const dateString = new Date(event.date).toISOString().split('T')[0];
@@ -16,6 +20,9 @@ function ListElement({ event }) {
     <td className="text-center">{event.sugars}</td>      
     <td className="text-center">{event.density}</td>      
     <td className="text-center">{event.mAcid}</td> 
+    <td className="text-center">{t(`lab-test-${event.cold}`)}</td> 
+    <td className="text-center">{t(`lab-test-${event.hot}`)}</td> 
+    <td className="text-center">{event.corrSO2}</td> 
     <td className="text-center">{event.userName}</td>    
   </tr>
 }

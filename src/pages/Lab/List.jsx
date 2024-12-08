@@ -47,6 +47,9 @@ function List ({ resultsNumber }) {
         <th>{t('lab-sugars')}</th>
         <th>{t('lab-density')}</th>
         <th>{t('lab-mAcid')}</th>
+        <th>{t('lab-cold')}</th>
+        <th>{t('lab-hot')}</th>
+        <th>{t('lab-corr-SO2')}</th>
         <th>{t('lab-user')}</th>
       </tr>
     </thead>
