@@ -201,12 +201,19 @@ const bgTranslation = {
     "lab-pH": "pH",
     "lab-SO2": "SO2",
     "lab-tSO2": "Общ SO2",
-    "lab-vAcids": "Летливи",
+    "lab-corr-SO2": "Кор SO2",
+    "lab-vAcids": "Лет. кис.",
     "lab-sugars": "Захари",
     "lab-density": "Плътност",
     "lab-mAcid": "Яб. кис.",
     "lab-user": "Потребител",
-
+    "lab-cold": "Студ",
+    "lab-hot": "Топло",
+    "lab-test-yes": "Да",
+    "lab-test-no": "Не",
+    "lab-test-": "",
+    "lab-test-undefined": "",
+    
 
     // event filter
     "event-period-30": "Последни 30",
