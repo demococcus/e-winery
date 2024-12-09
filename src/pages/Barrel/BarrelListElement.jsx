@@ -44,7 +44,7 @@ function BarrelListElement({ vessel }) {
           vessel.status === 'empty' ? 'bg-empty' : ''
         }`}
       >
-        {t(`vessel-${vessel.status}`)}
+        {t(`barrels-${vessel.status}`)}
       </td>
 
       <td className="text-center">
