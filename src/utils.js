@@ -7,11 +7,9 @@ function getCurrentDateShort() {
   return `${year}-${month}-${day}`;
 }
 
-function getCurrentDate() {
+function getCurrentDate(iso=true) {
   const currentDate = new Date();
-  return currentDate.toISOString();
-
-
+  return iso ? currentDate.toISOString() : currentDate;
 }
 
 function getCurrentVintage() {
@@ -33,6 +31,13 @@ function getDateDaysAgo(days) {
   const month = String(currentDate.getMonth() + 1).padStart(2, '0');
   const day = String(currentDate.getDate()).padStart(2, '0');
   return `${year}-${month}-${day}`;
+}
+
+function getFirstDayOfCurrentMonth(iso=true) {
+  const currentDate = new Date();
+  const dateF = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
+
+  return iso ? dateF.toISOString() : dateF ;
 }
 
 
@@ -57,6 +62,7 @@ export {
   getCurrentDate, 
   getCurrentDateShort,
   getDateDaysAgo, 
+  getFirstDayOfCurrentMonth,
   getCurrentVintage, 
   hasDuplicates,
 

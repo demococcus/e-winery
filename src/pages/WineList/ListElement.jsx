@@ -67,7 +67,7 @@ function ListElement({wine}) {
       <td className="text-center">{wine.accounting}</td>
       <td>{wine.lot}</td>
       <td className="text-center">{vesselLabel}</td>
-      <td className="text-end">{wine.quantity}</td>
+      <td className="text-end">{Math.round(wine.quantity * 1000) / 1000}</td>
       <td className="text-center">{quantityDetails}</td>
       <td className="text-center">{t(`wine-status-${wine.status}`)}</td>
       <td className="text-center"><span className={labClass}>{labDateString}</span></td>

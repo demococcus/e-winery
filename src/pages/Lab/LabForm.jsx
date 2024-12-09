@@ -134,7 +134,7 @@ function LabForm() {
   });
 
   const initialFormValues = {
-    date: getCurrentDate(),    
+    date: getCurrentDate(false),    
     wine: id,
     alcohol: '',
     sugars: '',

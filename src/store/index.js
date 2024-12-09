@@ -123,6 +123,7 @@ export {
   useDeleteWineTaskMutation,
   useDeleteWineLabMutation,
   useDeleteGrapeLabMutation,
+  useFetchAdditiveReportQuery,
 } from './apis/historyApi';
 
 export { 

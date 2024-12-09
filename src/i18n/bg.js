@@ -331,7 +331,19 @@ const bgTranslation = {
     "additive-receive-btn": "Получаване",
     "additive-delete-btn": "Изтрий",
     "additive-receive-title": "Получаване добавка",
-        
+    "additive-report": "Справки",
+    "additive-date-from": "От дата",
+    "additive-date-to": "До дата",
+
+    // additive reports
+    "a-report-date": "Дата",
+    "a-report-additive": "Добавка",
+    "a-report-additive-acc": "Счет. доб.",
+    "a-report-additive-quantity": "Кол.",
+    "a-report-additive-units": "Мярка",
+    "a-report-wine": "Вино",
+    "a-report-wine-acc": "Счет. вино",
+    "a-report-print": "Принтирай",                       
     
     // about 
     "about-title": "Относно",

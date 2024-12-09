@@ -41,14 +41,12 @@ function WineTask({noLinks=false, children}) {
   const renderSplitFrom = () => {
 
     const subWines = event.subTasks.map((ing) => {
-      return (<>{
-        noLinks 
-          ? <div key={ing._id}><VesselLabel>{ing.vesselLabel}</VesselLabel></div>
-          : <div key={ing._id}><Link to={`/wine/${ing.wine}`} className='no-underline'><VesselLabel>{ing.vesselLabel}</VesselLabel></Link></div>
-      }</>)
+      let result = <div key={ing._id}><Link to={`/wine/${ing.wine}`} className='no-underline'><VesselLabel>{ing.vesselLabel}</VesselLabel></Link></div>
+      if (noLinks) {result = <div key={ing._id}><VesselLabel>{ing.vesselLabel}</VesselLabel></div>}
+      return result
     })
 
-    return (<>
+    return (<div key={event._id}>
       <div>{t(`op-${event.type}`)}</div>
       <div><VesselLabel isBold>{event.vesselLabel}</VesselLabel> {event.wineLot} - {event.quantity} {t('liters')}</div>
       <GoArrowDown  className="ms-3" />
@@ -57,7 +55,7 @@ function WineTask({noLinks=false, children}) {
       <div>{t("op-sub-remaining")}{event.quantityBefore - event.quantity} {t('liters')}</div>
 
       <TaskNote>{event.note}</TaskNote>
-    </>)    
+    </div>)    
   };
 
   const renderSplitTo = () => {
