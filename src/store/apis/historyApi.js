@@ -174,7 +174,6 @@ const historyApi = createApi({
       fetchAdditiveReport: builder.query({ 
         providesTags: ["Report"],
         query: (params) => {
-          console.log('params', params)
           return {
             url: '/additive/report',
             params,

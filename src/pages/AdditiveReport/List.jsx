@@ -7,7 +7,8 @@ import { useFetchAdditiveReportQuery } from '../../store';
 import ErrorMsgBox from "../_shared/ErrorMsgBox";
 import PlaceholderBlock from '../_shared/PlaceholderBlock';
 import NoResultsMsgBox from '../_shared/NoResultsMsgBox';
-// import ListElement from "./ListElement";
+import ListElement from "./ListElement";
+import { Button } from 'react-bootstrap';
 
 
 function List ({searchParams: {accounting, dateFrom, dateTo}}) {
@@ -36,25 +37,23 @@ function List ({searchParams: {accounting, dateFrom, dateTo}}) {
     if (data.length === 0) {
       return <NoResultsMsgBox></NoResultsMsgBox>
     }
-    // make a copy of the data
-    const additives = [...data];
-
-    // Order the tanks by label
-    additives.sort((a, b) => (a.label > b.label) ? 1 : -1);
 
     
     // Create the table
     return <Table bordered hover size="sm">
     <thead>
       <tr className="text-center table-secondary">
-        <th>{t('additive-label')}</th>
-        <th>{t('additive-quantity')}</th>
-        <th>{t('additive-unit')}</th>
-        <th>{t('additive-acc')}</th>
+      <th>{t('a-report-date')}</th>
+        <th>{t('a-report-additive')}</th>
+        <th>{t('a-report-additive-acc')}</th>
+        <th>{t('a-report-additive-quantity')}</th>
+        <th>{t('a-report-additive-units')}</th>
+        <th>{t('a-report-wine')}</th>
+        <th>{t('a-report-wine-acc')}</th>
       </tr>
     </thead>
     <tbody>
-      {/* {additives.map((additive) => <ListElement additive={additive} key={additive._id} />)} */}
+      {data.map((op) => <ListElement op={op} key={op._id} />)}
     </tbody>
   </Table>
    
@@ -65,7 +64,20 @@ function List ({searchParams: {accounting, dateFrom, dateTo}}) {
   } else if (error) {
       content =  <ErrorMsgBox />
   } else {
-    content = drawTable(data);
+    content = (<>
+      <div className='d-none d-print-inline'>
+        <span className='me-4'>{t('additive-acc')}: {accounting}</span>
+        <span className='me-4'>{t('additive-date-from')}: {dateFromS}</span>
+        <span>{t('additive-date-to')}: {dateToS}</span>
+      </div>
+      
+      {drawTable(data)}
+
+      {data.length > 0 && <div className='d-print-none'>
+        <Button className='me-2' variant="success" onClick={() => window.print()}>{t('ws-print-task')}</Button>
+      </div>}
+
+    </>);
   }
 
 

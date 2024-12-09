@@ -334,7 +334,16 @@ const enTranslation = {
     "additive-report": "Reports",
     "additive-date-from": "From",
     "additive-date-to": "To",
-                     
+
+    // additive reports
+    "a-report-date": "Date",
+    "a-report-additive": "Additive",
+    "a-report-additive-acc": "Acc. Add.",
+    "a-report-additive-quantity": "Quantity",
+    "a-report-additive-units": "Units",
+    "a-report-wine": "Wine",
+    "a-report-wine-acc": "Acc. Wine",                     
+    "a-report-print": "Print",                     
     
     // about 
     "about-title": "About",

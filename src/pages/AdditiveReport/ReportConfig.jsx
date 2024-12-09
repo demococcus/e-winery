@@ -62,7 +62,7 @@ function ReportConfig() {
 
   const controlBar = (
 
-    <Formik
+    <Formik      
       validationSchema={schema}
       onSubmit={handleSubmit}
 
@@ -144,7 +144,8 @@ function ReportConfig() {
   return (<>
     <PageTitle>{t("additive-report")}</PageTitle>
 
-    {controlBar}
+    <div className="d-print-none">{controlBar}</div>
+
  
     {searchParams != null && <List searchParams={searchParams}/>}    
 
