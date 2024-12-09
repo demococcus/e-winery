@@ -77,14 +77,30 @@ const wineApi = createApi({
       fetchWines: builder.query({
         providesTags: ["Wines"],
         // providesTags: (result, error) => {return result.map(wine => ({ type: "Wine", id: wine._id }));},
-        query: () => {
+        query: (params) => {
           return {
             url: '/wines',
-            params: {},
+            params,
             method: 'GET'
           };          
         },
       }),
+
+      // Fetch bottled wines
+      fetchWinesBottled: builder.query({
+        providesTags: ["Wines"],
+        // providesTags: (result, error) => {return result.map(wine => ({ type: "Wine", id: wine._id }));},
+        query: (params) => {
+          return {
+            url: '/wines/bottled',
+            params,
+            method: 'GET'
+          };          
+        },
+      }),
+
+
+
     };
   },
 
@@ -94,6 +110,7 @@ const wineApi = createApi({
 
 export const { 
   useFetchWinesQuery, 
+  useFetchWinesBottledQuery, 
   useFetchWineByIdQuery,
   useAddWineMutation,
   useUpdateWineMutation,

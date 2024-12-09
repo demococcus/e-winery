@@ -169,8 +169,9 @@ function WineAdd() {
           <option value="">{t("wine-select-status")}</option>
           <option value="FE">{t("wine-status-full-FE")}</option>
           <option value="MA">{t("wine-status-full-MA")}</option>
-          <option value="AG">{t("wine-status-full-AG")}</option>
           <option value="FR">{t("wine-status-full-FR")}</option>
+          <option value="AG">{t("wine-status-full-AG")}</option>
+          {/* <option value="BT">{t("wine-status-full-BT")}</option> */}
         </Form.Control>
         <Form.Control.Feedback type="invalid">{t('val-required-select')}</Form.Control.Feedback>
       </Form.Group>        

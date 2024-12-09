@@ -32,6 +32,7 @@ function WineList () {
     <div className="d-flex justify-content-between my-3">
     <div>
       <Button as={Link} to="/wine/add" className="me-2" variant="primary">{t('wine-add-new')}</Button>
+      <Button as={Link} to="/wines/bottled" className="me-2" variant="success">{t('wine-bottled-btn')}</Button>
     </div>
     <div>
       <DropdownButton id="dropdown-basic-button" title={t(`wine-filter-${vintageFilter}`)} variant="outline-primary" onSelect={handleFilterChange}>

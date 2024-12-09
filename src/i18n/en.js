@@ -173,6 +173,13 @@ const enTranslation = {
     "wine-archive": "Archive",
     "wine-restore": "Restore",
     "wine-archived": " (archived)",
+
+    "wine-bottled-btn": "Search bottled",
+    "wine-bottled-title": "Bottled wines",
+    "wine-bottled-date-from": "From",
+    "wine-bottled-date-to": "To",
+    "wine-bottled-date": "Date",
+    
     
     
     // wine form    
@@ -184,11 +191,13 @@ const enTranslation = {
     "wine-status-full-MA": "MA - Malic Fermentation",
     "wine-status-full-AG": "AG - Aging",
     "wine-status-full-FR": "FR - Freezing",
+    "wine-status-full-BT": "BO - Bottled",
 
     "wine-status-FE": "FE",
     "wine-status-MA": "MA",
     "wine-status-AG": "AG",
     "wine-status-FR": "FR",
+    "wine-status-BT": "BO",
 
     
     // lab

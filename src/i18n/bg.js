@@ -173,6 +173,12 @@ const bgTranslation = {
     "wine-archive": "Архивирай",
     "wine-restore": "Възстанови",
     "wine-archived": " (архивирано)",
+
+    "wine-bottled-btn": "Справки бутилирани",
+    "wine-bottled-title": "Бутилирани вина",
+    "wine-bottled-date-from": "От дата",
+    "wine-bottled-date-to": "До дата",
+    "wine-bottled-date": "Дата",
     
 
     // wine form    
@@ -184,11 +190,13 @@ const bgTranslation = {
     "wine-status-full-MA": "МАЛ - Малолактична ферментация",
     "wine-status-full-AG": "ОТЛ - Отлежаване",
     "wine-status-full-FR": "ФРИ - Фризиране",
+    "wine-status-full-BT": "БУТ - Бутилирано",
 
     "wine-status-FE": "ФЕР",
     "wine-status-MA": "МАЛ",
     "wine-status-AG": "ОТЛ",
     "wine-status-FR": "ФРИ",
+    "wine-status-BT": "БУТ",
 
     
     // lab

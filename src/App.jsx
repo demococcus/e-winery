@@ -31,6 +31,7 @@ import LogOut from './pages/Auth/LogOut';
 import NotFound from './pages/_shared/NotFound';
 import GrapeLabForm from './pages/Lab/GrapeLabForm';
 import ReportConfig from './pages/AdditiveReport/ReportConfig';
+import BottledSearch from './pages/WineBottledList/BottledSearch';
 
 
 function App() {
@@ -47,6 +48,7 @@ function App() {
             <Route path="/grape/:id" element={<Grape />} />
 
             <Route path="/wines" element={<WineList />} />
+            <Route path="/wines/bottled" element={<BottledSearch />} />
             <Route path="/wine/add" element={<WineAdd />} />
             <Route path="/wine/edit/:id" element={<Wine editMode/>} />
             <Route path="/wine/:id" element={<Wine />} />
