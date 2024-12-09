@@ -94,7 +94,7 @@ function AdditiveReceiveForm() {
             <Form.Group as={Col} md="3" controlId="quantity">
               <Form.Label>{t("additive-quantity")}</Form.Label>
               <Form.Control
-                type="text"
+                type="number"
                 // placeholder={t("lab-alcohol")}
                 name="quantity"
                 value={values.quantity}
