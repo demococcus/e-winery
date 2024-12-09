@@ -114,7 +114,7 @@ function WineAdd() {
           onChange={handleChange}
           // placeholder={t("wine-lot")}
           required
-          minLength={1}
+          minLength={3}
           maxLength={60}
         />
         <Form.Control.Feedback type="invalid">{t('val-required')}</Form.Control.Feedback>
@@ -130,7 +130,7 @@ function WineAdd() {
           onChange={handleChange}
           // placeholder={t("wine-lot")}
           required
-          minLength={1}
+          minLength={3}
           maxLength={30}
         />
         <Form.Control.Feedback type="invalid">{t('val-required')}</Form.Control.Feedback>
