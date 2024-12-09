@@ -31,7 +31,7 @@ function BarrelListElement({ vessel }) {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <td className="text-center">{vessel.label}</td>
+      <td>{vessel.label}</td>
       <td className="text-center">{vessel.capacity}</td>
       <td className="text-center">{vessel.number}</td>
       <td className="text-center">{fullBarrels}</td>
