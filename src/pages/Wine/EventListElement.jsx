@@ -55,9 +55,14 @@ function EventListElement({ event, firstOpId }) {
       <td className="text-center">{event.sugars}</td>      
       <td className="text-center">{event.density}</td>      
       <td className="text-center">{event.mAcid}</td>
-      <td className="text-center">{t(`lab-test-${event.cold}`)}</td> 
-      <td className="text-center">{t(`lab-test-${event.hot}`)}</td> 
-      <td className="text-center">{event.corrSO2}</td>    
+      <td 
+        className={`text-center ${event.cold === 'yes' ? 'bg-success' : event.cold === 'no' ? 'bg-danger' : ''}`}
+        >{t(`lab-test-${event.cold}`)}</td> 
+      <td
+        className={`text-center ${event.hot === 'yes' ? 'bg-success' : event.hot === 'no' ? 'bg-danger' : ''}`}
+      >{t(`lab-test-${event.hot}`)}
+      </td> 
+        <td className="text-center">{event.corrSO2}</td>    
     </>
     );
   } else {

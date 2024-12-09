@@ -40,7 +40,7 @@ function ReportConfig() {
 
     accounting: yup
       .string(t('val-string'))
-      .required(t('val-required'))
+      // .required(t('val-required'))
       .min(3, `${t('val-min-len')} 3 ${t('val-characters')}`)
       .max(30, `${t('val-max-len')} 30 ${t('val-characters')}`),
 

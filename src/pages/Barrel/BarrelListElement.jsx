@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from 'react-i18next';
 import { useDeleteVesselMutation } from "../../store";
+import './BarrelListElement.css';
 
 function BarrelListElement({ vessel }) {
 
@@ -35,7 +36,17 @@ function BarrelListElement({ vessel }) {
       <td className="text-center">{vessel.number}</td>
       <td className="text-center">{fullBarrels}</td>
       <td>{wineTag}</td>
-      <td>{t(`vessel-${vessel.status}`)}</td>
+      
+      <td 
+        className={`text-center ${
+          vessel.status === 'full' ? 'bg-full' : 
+          vessel.status === 'need-top-up' ? 'bg-ntp' : 
+          vessel.status === 'empty' ? 'bg-empty' : ''
+        }`}
+      >
+        {t(`vessel-${vessel.status}`)}
+      </td>
+
       <td className="text-center">
         {isHovered && (
           <span

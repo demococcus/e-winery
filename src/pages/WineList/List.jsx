@@ -38,7 +38,7 @@ function List () {
 
     wines.sort((a, b) => {
     if (a.vintage !== b.vintage) {
-        return a.vintage > b.vintage ? -1 : 1; // Sort by vintage first
+        return a.vintage > b.vintage ? 1 :- 1; // Sort by vintage first
     }
     return a.lot > b.lot ? 1 : -1; // Then sort by lot
 });

@@ -1,0 +1,12 @@
+.bg-empty {
+    background-color: #ffffff !important; /* Light pink */
+    /* color: black;  */
+}
+  
+.bg-available {
+    background-color: #ffffff !important; /* Light pink */
+}
+  
+.bg-full {
+    background-color: #82e0aa !important; /* Green (Bootstrap default) */
+}
