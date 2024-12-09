@@ -17,7 +17,6 @@ function ListElement({ additive }) {
       style={{ cursor: 'pointer' }}
     >
       <td>{additive.label}</td>
-      {/* <td className="text-end">{Math.round(additive.quantity * 1000) / 1000}</td> */}
       <td className="text-end">{additive.quantity}</td>
       <td className="text-center">{t(additive.unit)}</td>
       <td className="text-center">{additive.accounting}</td>

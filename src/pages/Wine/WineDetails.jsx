@@ -88,7 +88,7 @@ function WineDetails({ wine }) {
       </Row>
       <Row>
         <Col className='col-md-2'>{t('wine-quantity')}</Col>
-        <Col>{Math.round(wine.quantity * 1000) / 1000} {t('liters')} {quantityDetails}</Col>
+        <Col>{wine.quantity} {t('liters')} {quantityDetails}</Col>
       </Row>
       <Row>
         <Col className='col-md-2'>{t('wine-status')}</Col>
