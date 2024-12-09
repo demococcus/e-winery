@@ -289,8 +289,10 @@ const bgTranslation = {
     // tank
     "tanks-title": "Съдове",
     "tank-add-title": "Нов съд",
+    "tank-label": "Съд",
 
     // barrels
+    "barrel-label": "Бъчви",
     "barrels-title": "Бъчви",
     "barrel-add-title": "Нови бъчви",
     "barrel-form-capacity": "Обем на бъчва",
@@ -304,9 +306,11 @@ const bgTranslation = {
     // vessel
     "vessel-all": "Всички",
     "vessel-full": "Пълен",
+    "barrels-full": "Пълни",
     "vessel-used": "С вино",
     "vessel-empty": "Празен",
-    "vessel-available": "Има място",
+    "barrels-empty": "Празни",
+    "barrels-available": "Има място",
     "vessel-over-capacity": "Препълнен",
     "vessel-need-top-up": "Непълен",          
     "vessel-add-new": "Добави",        

@@ -58,7 +58,7 @@ function TankList () {
     return <Table bordered hover size="sm">
     <thead>
       <tr className="text-center table-secondary">
-        <th>{t('vessel-label')}</th>
+        <th>{t('tank-label')}</th>
         <th>{t('vessel-capacity')}</th>
         <th>{t('vessel-wine')}</th>
         <th>{t('vessel-status')}</th>

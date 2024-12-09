@@ -51,7 +51,7 @@ function BarrelList () {
     return <Table bordered hover size="sm">
     <thead>
       <tr className="text-center table-secondary">
-        <th>{t('vessel-label')}</th>
+        <th>{t('barrel-label')}</th>
         <th>{t('vessel-capacity')}</th>
         <th>{t('vessel-number')}</th>
         <th>{t('vessel-used')}</th>

@@ -289,8 +289,10 @@ const enTranslation = {
     // tank
     "tanks-title": "Tanks",
     "tank-add-title": "Add Tank",
+    "tank-label": "Tank",
 
     // barrels
+    "barrel-label": "Barrels",
     "barrels-title": "Barrels",
     "barrel-add-title": "Add Barrels",
     "barrel-form-capacity": "Barrel capacity",
@@ -304,9 +306,11 @@ const enTranslation = {
     // vessel
     "vessel-all": "All",
     "vessel-full": "Full",
+    "barrels-full": "Full",
     "vessel-used": "Used",
     "vessel-empty": "Empty",
-    "vessel-available": "Available",
+    "barrels-empty": "Empty",
+    "barrels-available": "Available",
     "vessel-over-capacity": "Overcapacity",
     "vessel-need-top-up": "Need top-up",          
     "vessel-add-new": "Add New",        

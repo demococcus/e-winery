@@ -26,7 +26,7 @@ function TanksListElement({ vessel }) {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <td className="text-center">{vessel.label}</td>
+      <td>{vessel.label}</td>
       <td className="text-center">{vessel.capacity}</td>
       <td>{wineTag}</td>
       
