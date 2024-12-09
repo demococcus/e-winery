@@ -13,12 +13,11 @@ function AdditiveList() {
   const { t } = useTranslation();
 
   const actionBar = (
-    <div className="d-flex justify-content-between my-3">
-        <div>
-          <Button as={Link} to="/additive/add" className="me-2" variant="primary">{t('additive-add-new')}</Button>
-        </div>
+    <div className="my-3">
+      <Button as={Link} to="/additive/add" className="me-2" variant="primary">{t('additive-add-new')}</Button>
+      <Button as={Link} to="/additive/report" className="me-2" variant="success">{t('additive-report')}</Button>
     </div>
-);
+  );
 
 
   return (

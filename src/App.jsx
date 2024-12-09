@@ -30,6 +30,7 @@ import Register from './pages/Auth/Register';
 import LogOut from './pages/Auth/LogOut';
 import NotFound from './pages/_shared/NotFound';
 import GrapeLabForm from './pages/Lab/GrapeLabForm';
+import ReportConfig from './pages/AdditiveReport/ReportConfig';
 
 
 function App() {
@@ -67,6 +68,7 @@ function App() {
             <Route path="/additive/add" element={<AdditiveForm />} />
             <Route path="/additive/:id" element={<Additive />} />         
             <Route path="/additive/receive/:id" element={<AdditiveReceiveForm />} />         
+            <Route path="/additive/report" element={<ReportConfig />} />         
                         
             <Route path="/me" element={<User />} />
           </Route>           
