@@ -18,7 +18,7 @@ import List from './List';
 
 
 
-function ReportConfig() {
+function BottledSearch() {
 
   const { t } = useTranslation();
   const { Formik } = formik; 
@@ -38,9 +38,8 @@ function ReportConfig() {
   const schema = yup.object().shape({
 
 
-    accounting: yup
+    lot: yup
       .string(t('val-string'))
-      .required(t('val-required'))
       .min(3, `${t('val-min-len')} 3 ${t('val-characters')}`)
       .max(30, `${t('val-max-len')} 30 ${t('val-characters')}`),
 
@@ -63,7 +62,7 @@ function ReportConfig() {
       onSubmit={handleSubmit}
 
       initialValues={{
-        accounting: '',
+        lot: '',
         dateFrom: getFirstDayOfCurrentMonth(false),    
         dateTo: getCurrentDate(false),    
       }}
@@ -72,23 +71,23 @@ function ReportConfig() {
         <Form noValidate onSubmit={handleSubmit}>
           <Row className="mb-3">
 
-            <Form.Group as={Col} md="3" controlId="validationAccounting">
-              <Form.Label>{t("additive-acc")}</Form.Label>
+            <Form.Group as={Col} md="3" controlId="lot">
+              <Form.Label>{t("wine-lot")}</Form.Label>
               <Form.Control
                 type="text"
                 // placeholder={t("vessel-form-label")}
-                name="accounting"
-                value={values.accounting}
+                name="lot"
+                value={values.lot}
                 onChange={handleChange}
                 // isValid={touched.accounting && !errors.accounting}
-                isInvalid={(touched.accounting && !!errors.accounting)}
+                isInvalid={(touched.lot && !!errors.lot)}
 
               />
-              <Form.Control.Feedback type="invalid">{errors.accounting}</Form.Control.Feedback>
+              <Form.Control.Feedback type="invalid">{errors.lot}</Form.Control.Feedback>
             </Form.Group>
 
             <Form.Group as={Col} md="3" controlId="density">
-              <Form.Label>{t("additive-date-from")}</Form.Label>
+              <Form.Label>{t("wine-bottled-date-from")}</Form.Label>
 
               <div>
               <DatePicker
@@ -103,7 +102,7 @@ function ReportConfig() {
             </Form.Group>
 
             <Form.Group as={Col} md="3" controlId="density">
-              <Form.Label>{t("additive-date-to")}</Form.Label>
+              <Form.Label>{t("wine-bottled-date-to")}</Form.Label>
 
               <div>
               <DatePicker
@@ -138,7 +137,7 @@ function ReportConfig() {
  
 
   return (<>
-    <PageTitle>{t("additive-report")}</PageTitle>
+    <PageTitle>{t("wine-bottled-title")}</PageTitle>
 
     <div className="d-print-none">{controlBar}</div>
 
@@ -150,4 +149,4 @@ function ReportConfig() {
 
 };
 
-export default ReportConfig;
+export default BottledSearch;

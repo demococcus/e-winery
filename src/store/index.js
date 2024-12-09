@@ -92,6 +92,7 @@ export {
 // export api methods
 export { 
   useFetchWinesQuery, 
+  useFetchWinesBottledQuery,
   useFetchWineByIdQuery, 
   useAddWineMutation, 
   useUpdateWineMutation,
