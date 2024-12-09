@@ -331,6 +331,9 @@ const enTranslation = {
     "additive-receive-btn": "Receive",
     "additive-delete-btn": "Delete",
     "additive-receive-title": "Receive additive",
+    "additive-report": "Reports",
+    "additive-date-from": "From",
+    "additive-date-to": "To",
                      
     
     // about 

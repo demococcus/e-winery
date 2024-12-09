@@ -331,6 +331,9 @@ const bgTranslation = {
     "additive-receive-btn": "Получаване",
     "additive-delete-btn": "Изтрий",
     "additive-receive-title": "Получаване добавка",
+    "additive-report": "Справки",
+    "additive-date-from": "От дата",
+    "additive-date-to": "До дата",
         
     
     // about 

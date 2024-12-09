@@ -136,7 +136,7 @@ const historyApi = createApi({
 
       // Delete wineTask event
       deleteWineTask: builder.mutation({
-        invalidatesTags: ["Labs", "Wine History"],
+        invalidatesTags: ["Labs", "Wine History", "Tasks"],
         query: (_id) => {
 
           return {
@@ -168,7 +168,20 @@ const historyApi = createApi({
             method: 'DELETE',
           }          
         }
-      }),    
+      }), 
+      
+      // Fetch additives report
+      fetchAdditiveReport: builder.query({ 
+        providesTags: ["Report"],
+        query: (params) => {
+          console.log('params', params)
+          return {
+            url: '/additive/report',
+            params,
+            method: 'GET'
+          };          
+        },
+      }),
 
     };
   },
@@ -189,5 +202,6 @@ export const {
   useDeleteWineTaskMutation,
   useDeleteWineLabMutation,
   useDeleteGrapeLabMutation,
+  useFetchAdditiveReportQuery,
 
 } = historyApi;
