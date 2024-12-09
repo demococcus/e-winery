@@ -24,7 +24,7 @@ function EventList ({ wine }) {
 
     // sort by date
     const events = [...data];
-    events.sort((a, b) => (a.date < b.date) ? 1 : -1);
+    events.sort((a, b) => (a.date < b.date) ? -1 : 1);
 
     // get the first element of type different than lab
     const firstOp = events.find(event => event.type !== 'lab');
@@ -48,8 +48,8 @@ function EventList ({ wine }) {
             <th>{t('lab-sugars')}</th>
             <th>{t('lab-density')}</th>
             <th>{t('lab-mAcid-short')}</th>
-            <th>{t('lab-cold')}</th>
-            <th>{t('lab-hot')}</th>
+            <th>{t('lab-cold-short')}</th>
+            <th>{t('lab-hot-short')}</th>
             <th>{t('lab-corr-SO2-short')}</th>
                 <th>{t('lab-user')}</th>
             <th>{t('action-actions')}</th>

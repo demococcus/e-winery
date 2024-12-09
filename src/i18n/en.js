@@ -179,8 +179,7 @@ const enTranslation = {
     "wine-bottled-date-from": "From",
     "wine-bottled-date-to": "To",
     "wine-bottled-date": "Date",
-    
-    
+        
     
     // wine form    
     "wine-edit-title": "Edit Wine",
@@ -221,8 +220,11 @@ const enTranslation = {
     "lab-mAcid": "Malirc Acid",
     "lab-mAcid-short": "M Acid",
     "lab-user": "User",
-    "lab-cold": "Cold",
-    "lab-hot": "Hot",
+    "lab-cold": "Cold stable",
+    "lab-cold-short": "Cold",
+    "lab-hot": "Hot stable",
+    "lab-hot-short": "Hot",
+
     "lab-test-yes": "Yes",
     "lab-test-no": "No",
     "lab-test-": "",

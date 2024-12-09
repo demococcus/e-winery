@@ -220,8 +220,11 @@ const bgTranslation = {
     "lab-mAcid": "Ябълчна киселина",
     "lab-mAcid-short": "Яб. кис.",
     "lab-user": "Потребител",
-    "lab-cold": "Студ",
-    "lab-hot": "Топло",
+    "lab-cold": "Стабилно на студ",
+    "lab-cold-short": "Студ",
+    "lab-hot": "Стабилно на топло",
+    "lab-hot-short": "Топл",
+
     "lab-test-yes": "Да",
     "lab-test-no": "Не",
     "lab-test-": "",

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from 'react-i18next';
 import { useDeleteVesselMutation } from "../../store";
+import './TankListElement.css';
 
 function TanksListElement({ vessel }) {
 
@@ -28,7 +29,18 @@ function TanksListElement({ vessel }) {
       <td className="text-center">{vessel.label}</td>
       <td className="text-center">{vessel.capacity}</td>
       <td>{wineTag}</td>
-      <td>{t(`vessel-${vessel.status}`)}</td>
+      
+      <td 
+        className={`text-center ${
+          vessel.status === 'full' ? 'bg-full' : 
+          vessel.status === 'need-top-up' ? 'bg-ntp' : 
+          vessel.status === 'empty' ? 'bg-empty' : ''
+        }`}
+      >
+        {t(`vessel-${vessel.status}`)}
+      </td>
+
+
       <td className="text-center">
         {isHovered && (
           <span

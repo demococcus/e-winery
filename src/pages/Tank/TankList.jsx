@@ -36,7 +36,15 @@ function TankList () {
     const vessels = [...data];
 
     // Order by label
-    vessels.sort((a, b) => (a.label > b.label) ? 1 : -1);
+    // vessels.sort((a, b) => (a.label > b.label) ? 1 : -1);
+
+    vessels.sort((a, b) => {
+      if (a.status !== b.status) {
+        return a.status > b.status ? 1 : -1; // Sort by status first
+      }
+      return a.label > b.label ? 1 : -1; // If status is the same, sort by label
+    });
+    
 
     // Filter by tankFilter
     const filteredResult = vessels.filter((vessel) => {
