@@ -358,11 +358,15 @@ const bgTranslation = {
     "a-report-date": "Дата",
     "a-report-additive": "Добавка",
     "a-report-additive-acc": "Счет. доб.",
+    "a-report-additive-acc-long": "Счетоводен номер на добавката",
     "a-report-additive-quantity": "Кол.",
+    "a-report-additive-quantity-long": "Количество",
     "a-report-additive-units": "Мярка",
     "a-report-wine": "Вино",
     "a-report-wine-acc": "Счет. вино",
-    "a-report-print": "Принтирай",                       
+    "a-report-wine-acc-long": "Счетоводен номер на виното",
+    "a-report-print": "Принтирай",  
+    "a-report-export": "Експорт в Ексел",
     
     // about 
     "about-title": "Относно",
