@@ -31,21 +31,16 @@ function BarrelListElement({ vessel }) {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <td>{vessel.label}</td>
+      <td className={vessel.status === 'full' ? 'text-red' : ''}>
+        {vessel.label}
+      </td>
+
       <td className="text-center">{vessel.capacity}</td>
       <td className="text-center">{vessel.number}</td>
       <td className="text-center">{fullBarrels}</td>
       <td>{wineTag}</td>
       
-      <td 
-        className={`text-center ${
-          vessel.status === 'full' ? 'bg-full' : 
-          vessel.status === 'need-top-up' ? 'bg-ntp' : 
-          vessel.status === 'empty' ? 'bg-empty' : ''
-        }`}
-      >
-        {t(`barrels-${vessel.status}`)}
-      </td>
+      {/* <td className={"text-center"}>{t(`barrels-${vessel.status}`)}</td> */}
 
       <td className="text-center">
         {isHovered && (

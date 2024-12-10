@@ -1,12 +1,3 @@
-.bg-empty {
-    background-color: #ffffff !important; /* Light pink */
-    /* color: black;  */
-}
-  
-.bg-ntp {
-    background-color: #ffc0cb !important; /* Light pink */
-}
-  
-.bg-full {
-    background-color: #82e0aa !important; /* Green (Bootstrap default) */
+td.text-red {
+    color: red !important;
 }
