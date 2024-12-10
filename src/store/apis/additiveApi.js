@@ -93,7 +93,18 @@ const additiveApi = createApi({
           }          
         }
 
-      })
+      }),
+
+      // Undo receive additive
+      undoReceiveAdditive: builder.mutation({
+        invalidatesTags: ["Additive", "Additives"],
+        query: (_id) => {
+          return {
+            url: `/additive/undoReceive/${_id}`,
+            method: 'DELETE'
+          }          
+        }
+      }),
 
       
     };
@@ -110,5 +121,6 @@ export const {
   useDeleteAdditiveMutation,
   useFetchAdditiveByIdQuery,
   useReceiveAdditiveMutation,
+  useUndoReceiveAdditiveMutation,
 } = additiveApi;
 
