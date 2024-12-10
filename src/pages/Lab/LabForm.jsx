@@ -371,7 +371,7 @@ function LabForm() {
 
           <Row className="mb-4">
 
-            <Form.Group as={Col} md="3" controlId="density">
+            <Form.Group as={Col} md="3" controlId="date">
               <Form.Label>{t("lab-date")}</Form.Label>
 
               <div>

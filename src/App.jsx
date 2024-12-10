@@ -32,6 +32,7 @@ import NotFound from './pages/_shared/NotFound';
 import GrapeLabForm from './pages/Lab/GrapeLabForm';
 import ReportConfig from './pages/AdditiveReport/ReportConfig';
 import BottledSearch from './pages/WineBottledList/BottledSearch';
+import NoteForm from './pages/Note/NoteForm';
 
 
 function App() {
@@ -52,6 +53,8 @@ function App() {
             <Route path="/wine/add" element={<WineAdd />} />
             <Route path="/wine/edit/:id" element={<Wine editMode/>} />
             <Route path="/wine/:id" element={<Wine />} />
+
+            <Route path="/note/add/:id" element={<NoteForm />} />
 
             <Route path="/lab" element={<LabList />} />
             <Route path="/lab/add/:id" element={<LabForm />} />

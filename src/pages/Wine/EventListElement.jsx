@@ -1,10 +1,8 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 import { useTranslation } from 'react-i18next';
-
 import WineTask from "../History/WineTask";
-
-import {useDeleteWineTaskMutation, useDeleteWineLabMutation } from "../../store"; 
+import {useDeleteWineTaskMutation, useDeleteWineLabMutation, useDeleteWineNoteMutation } from "../../store"; 
 
 
 function EventListElement({ event, firstOpId }) {
@@ -13,18 +11,19 @@ function EventListElement({ event, firstOpId }) {
   const [isHovered, setIsHovered] = useState(false);  
   const [deleteTask] = useDeleteWineTaskMutation();
   const [deleteLab] = useDeleteWineLabMutation();
+  const [deleteWineNote] = useDeleteWineNoteMutation();
 
   // hide the show the delete/undo button for secondary tasks
   const  showDeleteAction = !["transfer-out", "split-to"].includes(event.type);
   
   // only the lab analysis and the most recent task can be deleted
-  const canDelete = event.type === 'lab' || (event._id === firstOpId);
+  const canDelete = event.type === 'lab' || event.type === 'note' || (event._id === firstOpId);
 
   // show disabled undo button if it is not the most recent task
   const deleteActionStyle = canDelete ? { cursor: 'pointer', color: 'red' } : { cursor: '', color: 'gray' };
 
   // lab analysis are deleted, tasks are undone
-  const deleteLabel = event.type === "lab" ? t("action-delete") : t("action-undo");
+  const deleteLabel = event.type === "lab" || event.type === "note" ? t("action-delete") : t("action-undo");
  
 
   // Transfer event.date to a string object like '2021-09-01'
@@ -34,6 +33,8 @@ function EventListElement({ event, firstOpId }) {
     // console.log("Delete", event.type ,"event with id: ", event._id)    ;
     if (event.type === "lab") {
       deleteLab(event._id);
+    } else if (event.type === "note") {
+      deleteWineNote(event._id);
     } else {
       deleteTask(event._id);
     }
@@ -65,6 +66,12 @@ function EventListElement({ event, firstOpId }) {
         <td className="text-center">{event.corrSO2}</td>    
     </>
     );
+  } else if (event.type === "note") {
+    rowsContent = (<>
+      <td className="text-center">{event.vesselLabel}</td>      
+      <td style={{ fontStyle: 'italic' }} colSpan={12}>{event.note} </td>    
+    </>);
+
   } else {
     // Op-specific fields
     rowsContent = (
