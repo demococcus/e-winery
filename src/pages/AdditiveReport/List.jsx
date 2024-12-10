@@ -9,7 +9,8 @@ import PlaceholderBlock from '../_shared/PlaceholderBlock';
 import NoResultsMsgBox from '../_shared/NoResultsMsgBox';
 import ListElement from "./ListElement";
 import { Button } from 'react-bootstrap';
-import exportToExcel from '../../Tools/exportToExcel'
+
+import writeXlsxFile from 'write-excel-file'
 
 
 function List ({searchParams: {accounting, dateFrom, dateTo}}) {
@@ -29,21 +30,25 @@ function List ({searchParams: {accounting, dateFrom, dateTo}}) {
     refetch();
   }, [refetch]);
 
-  const handleExport = () => {
+  const handleExport = async () => {
 
-    const formattedData = data.map(item => ({
-      
-      [(t('a-report-date'))]: new Date(item.date).toISOString().split('T')[0],
-      [(t('a-report-additive'))]: item.additiveLabel,
-      [(t('a-report-additive-acc-long'))]: item.additiveAccounting,
-      [(t('a-report-additive-quantity-long'))]: item.quantity,
-      [(t('a-report-additive-units'))]: t(item.additiveUnit),
-      [(t('a-report-wine'))]: item.refWineLot,
-      [(t('a-report-wine-acc-long'))]: item.refWineAccounting,
+    const schema = [
+      { column: t('a-report-date'), type: Date,  format: 'YYYY-MM-DD', value: item =>  new Date(item.date) },
+      { column:  t('a-report-additive'), type: String, value: item => item.additiveLabel },
+      { column: t('a-report-additive-acc-long'), type: String, value: item => item.additiveAccounting },
+      { column: t('a-report-additive-quantity-long'), type: Number, value: item => item.quantity },
+      { column: t('a-report-additive-units'), type: String, value: item => t(item.additiveUnit)},
+      { column: t('a-report-wine'), type: String, value: item => item.refWineLot },
+      { column: t('a-report-wine-acc-long'), type: String, value: item => item.refWineAccounting },
+    ];
 
-    }));
+    // Write the Excel file
+    await writeXlsxFile(data, {
+      schema,
+      fileName: 'Export.xlsx',
+    });
 
-    exportToExcel(formattedData, 'Export', t('additive-report'));
+
   };
 
  
