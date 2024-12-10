@@ -347,12 +347,14 @@ const enTranslation = {
     "additive-add-title": "New Additive",
     "additive-select-unit": "Select unit",
     "additive-quantity": "Quantity",
+    "additive-supplier": "Supplier",
     "additive-receive-btn": "Receive",
     "additive-delete-btn": "Delete",
     "additive-receive-title": "Receive additive",
     "additive-report": "Reports",
     "additive-date-from": "From",
     "additive-date-to": "To",
+    "additive-recent-deliveries": "Recent deliveries",
 
     // additive reports
     "a-report-date": "Date",

@@ -3,6 +3,9 @@ import { Button, Row, Col, Container, Spinner } from 'react-bootstrap';
 import PageTitle from '../_shared/PageTitle';
 import { useNavigate  } from 'react-router-dom';
 import { useDeleteAdditiveMutation } from '../../store';
+import List from './Deliveries/List';
+
+
 
 function AdditiveDetals({ additive }) {
 
@@ -67,6 +70,7 @@ function AdditiveDetals({ additive }) {
     </Container>
 
     {actionBar}
+    { additive.deliveries.length > 0 && <List data={additive.deliveries} /> }
   </div>);
 };
 

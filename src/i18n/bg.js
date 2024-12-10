@@ -347,12 +347,14 @@ const bgTranslation = {
     "additive-add-title": "Нова добавка",
     "additive-select-unit": "Изберете мярка",
     "additive-quantity": "Количество",
+    "additive-supplier": "Доставчик",
     "additive-receive-btn": "Получаване",
     "additive-delete-btn": "Изтрий",
     "additive-receive-title": "Получаване добавка",
     "additive-report": "Справки",
     "additive-date-from": "От дата",
     "additive-date-to": "До дата",
+    "additive-recent-deliveries": "Последни доставки",
 
     // additive reports
     "a-report-date": "Дата",

@@ -63,12 +63,19 @@ function AdditiveReceiveForm() {
       .min(0, `${t('val-min')} 0`)
       .max(1000, `${t('val-max')} 1000`),    
 
+    supplier: yup
+      .string(t('val-string'))
+      .required(t('val-required'))
+      .min(3, `${t('val-min-len')} 3 ${t('val-characters')}`)
+      .max(60, `${t('val-max-len')} 60 ${t('val-characters')}`),
+
   });
 
   const initialFormValues = {
     // date: getCurrentDate(),    
     id: id,
     quantity: '',
+    supplier: '',
   };
 
  
@@ -105,6 +112,22 @@ function AdditiveReceiveForm() {
               />
               <Form.Control.Feedback type="invalid">{errors.quantity}</Form.Control.Feedback>            
             </Form.Group>
+
+            <Form.Group as={Col} md="3" controlId="supplier">
+              <Form.Label>{t("additive-supplier")}</Form.Label>
+              <Form.Control
+                type="string"
+                // placeholder={t("something")}
+                name="supplier"
+                value={values.supplier}
+                onChange={handleChange}
+                // isValid={touched.supplier && !errors.supplier}
+                isInvalid={touched.supplier && !!errors.supplier}
+
+              />
+              <Form.Control.Feedback type="invalid">{errors.quantity}</Form.Control.Feedback>            
+            </Form.Group>
+
           </Row>
 
           <Button 
