@@ -125,6 +125,8 @@ export {
   useDeleteWineLabMutation,
   useDeleteGrapeLabMutation,
   useFetchAdditiveReportQuery,
+  useAddWineNoteMutation,
+  useDeleteWineNoteMutation,
 } from './apis/historyApi';
 
 export { 

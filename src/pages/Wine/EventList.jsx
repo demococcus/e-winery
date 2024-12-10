@@ -27,7 +27,7 @@ function EventList ({ wine }) {
     events.sort((a, b) => (a.date < b.date) ? -1 : 1);
 
     // get the first element of type different than lab
-    const firstOp = events.find(event => event.type !== 'lab');
+    const firstOp = events.find(event => event.type !== 'lab' && event.type !== 'note');
 
     // if the type of fistOp is not 'lab' and not 'blend-out' assign his _id to a variable
     const firstOpId = firstOp ? firstOp._id : null;
