@@ -24,20 +24,22 @@ function WineDetails({ wine }) {
   };
 
   const handleAddLab = () => {
-    // navigate to edit page
     navigate(`/lab/add/${wine._id}`)
+  };
+
+  const handleAddNote = () => {
+    navigate(`/note/add/${wine._id}`)
   };
 
   const actionBar = <div className="mb-4">
         <Button className='me-2' variant="primary" disabled={wine.archived} onClick={handleAddLab}>{t('wine-add-lab')}</Button>
-        {/* <Button as={Link} to={`/wine/edit/${wine._id}`} className='me-2' variant="success" disabled={wine.archived}>{t('wine-edit')}</Button> */}
+        <Button className='me-2' variant="primary" disabled={wine.archived} onClick={handleAddNote}>{t('wine-add-note')}</Button>
         <Button className='me-2' variant="success" disabled={wine.archived} onClick={handleEdit}>{t('wine-edit')}</Button>
-        {/* <Button className='me-2' variant="outline-secondary" onClick={handleArchive}>{t('wine-archive')}</Button> */}
 
         <Button 
           type="submit" 
           className='me-2'
-          variant="outline-secondary" 
+          variant="outline-danger" 
           onClick={handleArchive}
           disabled={results.isLoading || ""}
         >

@@ -169,6 +169,7 @@ const bgTranslation = {
     "wine-lab-date": 'Анализ',
 
     "wine-add-lab": "Добави анализ",
+    "wine-add-note": "Добави бележка",
     "wine-edit": "Промени",
     "wine-archive": "Архивирай",
     "wine-restore": "Възстанови",
@@ -229,6 +230,9 @@ const bgTranslation = {
     "lab-test-no": "Не",
     "lab-test-": "",
     "lab-test-undefined": "",
+
+    "note-page-titile": "Нова бележка",
+    "note-note": "Бележка",
     
 
     // event filter

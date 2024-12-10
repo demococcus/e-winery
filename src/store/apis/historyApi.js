@@ -182,6 +182,32 @@ const historyApi = createApi({
         },
       }),
 
+
+      // Add note
+      addWineNote: builder.mutation({
+        invalidatesTags: ["Notes", "Wine History"],
+        query: (note) => {
+          return {
+            url: '/wineNote',
+            method: 'POST',
+            body: note
+          };          
+        },
+      }),
+
+
+      // Delete note
+      deleteWineNote: builder.mutation({
+        invalidatesTags: ["Notes", "Wine History"],
+        query: (_id) => {
+
+          return {
+            url: `/wineNote/${_id}`,
+            method: 'DELETE',
+          }          
+        }
+      }),
+
     };
   },
 
@@ -202,5 +228,8 @@ export const {
   useDeleteWineLabMutation,
   useDeleteGrapeLabMutation,
   useFetchAdditiveReportQuery,
+
+  useAddWineNoteMutation,
+  useDeleteWineNoteMutation,
 
 } = historyApi;

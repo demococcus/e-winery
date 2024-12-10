@@ -169,6 +169,7 @@ const enTranslation = {
     "wine-lab-date": 'Lab Date',
 
     "wine-add-lab": "Add Lab Analysis",
+    "wine-add-note": "Add Note",
     "wine-edit": "Edit",
     "wine-archive": "Archive",
     "wine-restore": "Restore",
@@ -229,6 +230,9 @@ const enTranslation = {
     "lab-test-no": "No",
     "lab-test-": "",
     "lab-test-undefined": "",
+
+    "note-page-titile": "New Note",
+    "note-note": "Бележка",
     
 
     // event filter
