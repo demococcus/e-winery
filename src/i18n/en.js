@@ -358,11 +358,15 @@ const enTranslation = {
     "a-report-date": "Date",
     "a-report-additive": "Additive",
     "a-report-additive-acc": "Acc. Add.",
+    "a-report-additive-acc-long": "Additive Accounting Number",
     "a-report-additive-quantity": "Quantity",
+    "a-report-additive-quantity-long": "Quantity",
     "a-report-additive-units": "Units",
     "a-report-wine": "Wine",
-    "a-report-wine-acc": "Acc. Wine",                     
-    "a-report-print": "Print",                     
+    "a-report-wine-acc": "Acc. Wine", 
+    "a-report-wine-acc-long": "Wine Accounting Number",                
+    "a-report-print": "Print",
+    "a-report-export": "Export to Excel",
     
     // about 
     "about-title": "About",

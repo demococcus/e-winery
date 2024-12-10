@@ -9,6 +9,7 @@ import PlaceholderBlock from '../_shared/PlaceholderBlock';
 import NoResultsMsgBox from '../_shared/NoResultsMsgBox';
 import ListElement from "./ListElement";
 import { Button } from 'react-bootstrap';
+import exportToExcel from '../../Tools/exportToExcel'
 
 
 function List ({searchParams: {accounting, dateFrom, dateTo}}) {
@@ -27,6 +28,23 @@ function List ({searchParams: {accounting, dateFrom, dateTo}}) {
   useEffect(() => {
     refetch();
   }, [refetch]);
+
+  const handleExport = () => {
+
+    const formattedData = data.map(item => ({
+      
+      [(t('a-report-date'))]: new Date(item.date).toISOString().split('T')[0],
+      [(t('a-report-additive'))]: item.additiveLabel,
+      [(t('a-report-additive-acc-long'))]: item.additiveAccounting,
+      [(t('a-report-additive-quantity-long'))]: item.quantity,
+      [(t('a-report-additive-units'))]: t(item.additiveUnit),
+      [(t('a-report-wine'))]: item.refWineLot,
+      [(t('a-report-wine-acc-long'))]: item.refWineAccounting,
+
+    }));
+
+    exportToExcel(formattedData, 'Export', t('additive-report'));
+  };
 
  
   let content;
@@ -74,7 +92,8 @@ function List ({searchParams: {accounting, dateFrom, dateTo}}) {
       {drawTable(data)}
 
       {data.length > 0 && <div className='d-print-none'>
-        <Button className='me-2' variant="success" onClick={() => window.print()}>{t('ws-print-task')}</Button>
+        <Button className='me-2' variant="success" onClick={() => window.print()}>{t('a-report-print')}</Button>
+        <Button className='me-2' variant="success" onClick={handleExport}>{t('a-report-export')}</Button>
       </div>}
 
     </>);
