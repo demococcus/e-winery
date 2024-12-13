@@ -47,7 +47,7 @@ function AdditiveForm() {
 
   };
 
-  const unitsArray = ["u-kg", "u-g", "u-mg", "u-l", "u-ml", "u-gal", "u-oz", "u-ppm", "u-lb"];
+  const unitsArray = ["u-pcs", "u-kg", "u-g", "u-mg", "u-l", "u-ml", "u-gal", "u-oz", "u-ppm", "u-lb"];
   const dropdownOptions = unitsArray.map((unit) => <option key={unit} value={unit}>{t(`${unit}-both`)}</option>);
 
   const schema = yup.object().shape({

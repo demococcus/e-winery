@@ -113,6 +113,10 @@ const bgTranslation = {
 
 
     // units
+    "u-pcs": "бр", 
+    "u-pcs-full": "броя", 
+    "u-pcs-both": "броя (бр)", 
+    
     "u-kg": "кг", 
     "u-kg-full": "килограм", 
     "u-kg-both": "килограм (кг)", 

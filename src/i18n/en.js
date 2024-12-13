@@ -113,6 +113,10 @@ const enTranslation = {
 
 
     // units
+    "u-pcs": "бр", 
+    "u-pcs-full": "броя", 
+    "u-pcs-both": "броя (бр)", 
+
     "u-kg": "kg", 
     "u-kg-full": "kilograms", 
     "u-kg-both": "kilograms (kg)", 
